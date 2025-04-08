@@ -55,11 +55,11 @@ include assignments/CMakeFiles/assignments_generate_messages_cpp.dir/progress.ma
 
 assignments/CMakeFiles/assignments_generate_messages_cpp: /home/abulanti/assign/devel/include/assignments/CheckJointState.h
 assignments/CMakeFiles/assignments_generate_messages_cpp: /home/abulanti/assign/devel/include/assignments/InterpreterCommand.h
-assignments/CMakeFiles/assignments_generate_messages_cpp: /home/abulanti/assign/devel/include/assignments/mission_status.h
-assignments/CMakeFiles/assignments_generate_messages_cpp: /home/abulanti/assign/devel/include/assignments/notifications.h
+assignments/CMakeFiles/assignments_generate_messages_cpp: /home/abulanti/assign/devel/include/assignments/MissionStatus.h
+assignments/CMakeFiles/assignments_generate_messages_cpp: /home/abulanti/assign/devel/include/assignments/Notifications.h
 assignments/CMakeFiles/assignments_generate_messages_cpp: /home/abulanti/assign/devel/include/assignments/ResolveConflict.h
-assignments/CMakeFiles/assignments_generate_messages_cpp: /home/abulanti/assign/devel/include/assignments/risk_evaluation.h
-assignments/CMakeFiles/assignments_generate_messages_cpp: /home/abulanti/assign/devel/include/assignments/victim_report.h
+assignments/CMakeFiles/assignments_generate_messages_cpp: /home/abulanti/assign/devel/include/assignments/RiskEvaluation.h
+assignments/CMakeFiles/assignments_generate_messages_cpp: /home/abulanti/assign/devel/include/assignments/VictimReport.h
 
 
 /home/abulanti/assign/devel/include/assignments/CheckJointState.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
@@ -76,19 +76,19 @@ assignments/CMakeFiles/assignments_generate_messages_cpp: /home/abulanti/assign/
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from assignments/InterpreterCommand.srv"
 	cd /home/abulanti/assign/src/assignments && /home/abulanti/assign/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/abulanti/assign/src/assignments/srv/InterpreterCommand.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/include/assignments -e /opt/ros/noetic/share/gencpp/cmake/..
 
-/home/abulanti/assign/devel/include/assignments/mission_status.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
-/home/abulanti/assign/devel/include/assignments/mission_status.h: /home/abulanti/assign/src/assignments/srv/mission_status.srv
-/home/abulanti/assign/devel/include/assignments/mission_status.h: /opt/ros/noetic/share/gencpp/msg.h.template
-/home/abulanti/assign/devel/include/assignments/mission_status.h: /opt/ros/noetic/share/gencpp/srv.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating C++ code from assignments/mission_status.srv"
-	cd /home/abulanti/assign/src/assignments && /home/abulanti/assign/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/abulanti/assign/src/assignments/srv/mission_status.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/include/assignments -e /opt/ros/noetic/share/gencpp/cmake/..
+/home/abulanti/assign/devel/include/assignments/MissionStatus.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
+/home/abulanti/assign/devel/include/assignments/MissionStatus.h: /home/abulanti/assign/src/assignments/srv/MissionStatus.srv
+/home/abulanti/assign/devel/include/assignments/MissionStatus.h: /opt/ros/noetic/share/gencpp/msg.h.template
+/home/abulanti/assign/devel/include/assignments/MissionStatus.h: /opt/ros/noetic/share/gencpp/srv.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating C++ code from assignments/MissionStatus.srv"
+	cd /home/abulanti/assign/src/assignments && /home/abulanti/assign/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/abulanti/assign/src/assignments/srv/MissionStatus.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/include/assignments -e /opt/ros/noetic/share/gencpp/cmake/..
 
-/home/abulanti/assign/devel/include/assignments/notifications.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
-/home/abulanti/assign/devel/include/assignments/notifications.h: /home/abulanti/assign/src/assignments/srv/notifications.srv
-/home/abulanti/assign/devel/include/assignments/notifications.h: /opt/ros/noetic/share/gencpp/msg.h.template
-/home/abulanti/assign/devel/include/assignments/notifications.h: /opt/ros/noetic/share/gencpp/srv.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating C++ code from assignments/notifications.srv"
-	cd /home/abulanti/assign/src/assignments && /home/abulanti/assign/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/abulanti/assign/src/assignments/srv/notifications.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/include/assignments -e /opt/ros/noetic/share/gencpp/cmake/..
+/home/abulanti/assign/devel/include/assignments/Notifications.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
+/home/abulanti/assign/devel/include/assignments/Notifications.h: /home/abulanti/assign/src/assignments/srv/Notifications.srv
+/home/abulanti/assign/devel/include/assignments/Notifications.h: /opt/ros/noetic/share/gencpp/msg.h.template
+/home/abulanti/assign/devel/include/assignments/Notifications.h: /opt/ros/noetic/share/gencpp/srv.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating C++ code from assignments/Notifications.srv"
+	cd /home/abulanti/assign/src/assignments && /home/abulanti/assign/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/abulanti/assign/src/assignments/srv/Notifications.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/include/assignments -e /opt/ros/noetic/share/gencpp/cmake/..
 
 /home/abulanti/assign/devel/include/assignments/ResolveConflict.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
 /home/abulanti/assign/devel/include/assignments/ResolveConflict.h: /home/abulanti/assign/src/assignments/srv/ResolveConflict.srv
@@ -97,28 +97,28 @@ assignments/CMakeFiles/assignments_generate_messages_cpp: /home/abulanti/assign/
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating C++ code from assignments/ResolveConflict.srv"
 	cd /home/abulanti/assign/src/assignments && /home/abulanti/assign/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/abulanti/assign/src/assignments/srv/ResolveConflict.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/include/assignments -e /opt/ros/noetic/share/gencpp/cmake/..
 
-/home/abulanti/assign/devel/include/assignments/risk_evaluation.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
-/home/abulanti/assign/devel/include/assignments/risk_evaluation.h: /home/abulanti/assign/src/assignments/srv/risk_evaluation.srv
-/home/abulanti/assign/devel/include/assignments/risk_evaluation.h: /opt/ros/noetic/share/gencpp/msg.h.template
-/home/abulanti/assign/devel/include/assignments/risk_evaluation.h: /opt/ros/noetic/share/gencpp/srv.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating C++ code from assignments/risk_evaluation.srv"
-	cd /home/abulanti/assign/src/assignments && /home/abulanti/assign/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/abulanti/assign/src/assignments/srv/risk_evaluation.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/include/assignments -e /opt/ros/noetic/share/gencpp/cmake/..
+/home/abulanti/assign/devel/include/assignments/RiskEvaluation.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
+/home/abulanti/assign/devel/include/assignments/RiskEvaluation.h: /home/abulanti/assign/src/assignments/srv/RiskEvaluation.srv
+/home/abulanti/assign/devel/include/assignments/RiskEvaluation.h: /opt/ros/noetic/share/gencpp/msg.h.template
+/home/abulanti/assign/devel/include/assignments/RiskEvaluation.h: /opt/ros/noetic/share/gencpp/srv.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating C++ code from assignments/RiskEvaluation.srv"
+	cd /home/abulanti/assign/src/assignments && /home/abulanti/assign/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/abulanti/assign/src/assignments/srv/RiskEvaluation.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/include/assignments -e /opt/ros/noetic/share/gencpp/cmake/..
 
-/home/abulanti/assign/devel/include/assignments/victim_report.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
-/home/abulanti/assign/devel/include/assignments/victim_report.h: /home/abulanti/assign/src/assignments/srv/victim_report.srv
-/home/abulanti/assign/devel/include/assignments/victim_report.h: /opt/ros/noetic/share/gencpp/msg.h.template
-/home/abulanti/assign/devel/include/assignments/victim_report.h: /opt/ros/noetic/share/gencpp/srv.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating C++ code from assignments/victim_report.srv"
-	cd /home/abulanti/assign/src/assignments && /home/abulanti/assign/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/abulanti/assign/src/assignments/srv/victim_report.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/include/assignments -e /opt/ros/noetic/share/gencpp/cmake/..
+/home/abulanti/assign/devel/include/assignments/VictimReport.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
+/home/abulanti/assign/devel/include/assignments/VictimReport.h: /home/abulanti/assign/src/assignments/srv/VictimReport.srv
+/home/abulanti/assign/devel/include/assignments/VictimReport.h: /opt/ros/noetic/share/gencpp/msg.h.template
+/home/abulanti/assign/devel/include/assignments/VictimReport.h: /opt/ros/noetic/share/gencpp/srv.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating C++ code from assignments/VictimReport.srv"
+	cd /home/abulanti/assign/src/assignments && /home/abulanti/assign/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/abulanti/assign/src/assignments/srv/VictimReport.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/include/assignments -e /opt/ros/noetic/share/gencpp/cmake/..
 
 assignments_generate_messages_cpp: assignments/CMakeFiles/assignments_generate_messages_cpp
 assignments_generate_messages_cpp: /home/abulanti/assign/devel/include/assignments/CheckJointState.h
 assignments_generate_messages_cpp: /home/abulanti/assign/devel/include/assignments/InterpreterCommand.h
-assignments_generate_messages_cpp: /home/abulanti/assign/devel/include/assignments/mission_status.h
-assignments_generate_messages_cpp: /home/abulanti/assign/devel/include/assignments/notifications.h
+assignments_generate_messages_cpp: /home/abulanti/assign/devel/include/assignments/MissionStatus.h
+assignments_generate_messages_cpp: /home/abulanti/assign/devel/include/assignments/Notifications.h
 assignments_generate_messages_cpp: /home/abulanti/assign/devel/include/assignments/ResolveConflict.h
-assignments_generate_messages_cpp: /home/abulanti/assign/devel/include/assignments/risk_evaluation.h
-assignments_generate_messages_cpp: /home/abulanti/assign/devel/include/assignments/victim_report.h
+assignments_generate_messages_cpp: /home/abulanti/assign/devel/include/assignments/RiskEvaluation.h
+assignments_generate_messages_cpp: /home/abulanti/assign/devel/include/assignments/VictimReport.h
 assignments_generate_messages_cpp: assignments/CMakeFiles/assignments_generate_messages_cpp.dir/build.make
 
 .PHONY : assignments_generate_messages_cpp

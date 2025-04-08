@@ -59,11 +59,11 @@ add_service_files(
   FILES
   CheckJointState.srv
   InterpreterCommand.srv
-  Mission_status.srv
-  notifications.srv
+  MissionStatus.srv
+  Notifications.srv
   ResolveConflict.srv
-  risk_evaluation.srv
-  victim_report.srv
+  RiskEvaluation.srv
+  VictimReport.srv
 )
 
 ## Generate actions in the 'action' folder

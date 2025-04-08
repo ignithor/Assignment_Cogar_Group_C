@@ -55,11 +55,11 @@ include assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/progress
 
 assignments/CMakeFiles/assignments_generate_messages_nodejs: /home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/CheckJointState.js
 assignments/CMakeFiles/assignments_generate_messages_nodejs: /home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/InterpreterCommand.js
-assignments/CMakeFiles/assignments_generate_messages_nodejs: /home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/mission_status.js
-assignments/CMakeFiles/assignments_generate_messages_nodejs: /home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/notifications.js
+assignments/CMakeFiles/assignments_generate_messages_nodejs: /home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/MissionStatus.js
+assignments/CMakeFiles/assignments_generate_messages_nodejs: /home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/Notifications.js
 assignments/CMakeFiles/assignments_generate_messages_nodejs: /home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/ResolveConflict.js
-assignments/CMakeFiles/assignments_generate_messages_nodejs: /home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/risk_evaluation.js
-assignments/CMakeFiles/assignments_generate_messages_nodejs: /home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/victim_report.js
+assignments/CMakeFiles/assignments_generate_messages_nodejs: /home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/RiskEvaluation.js
+assignments/CMakeFiles/assignments_generate_messages_nodejs: /home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/VictimReport.js
 
 
 /home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/CheckJointState.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
@@ -72,39 +72,39 @@ assignments/CMakeFiles/assignments_generate_messages_nodejs: /home/abulanti/assi
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from assignments/InterpreterCommand.srv"
 	cd /home/abulanti/assign/build/assignments && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/abulanti/assign/src/assignments/srv/InterpreterCommand.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv
 
-/home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/mission_status.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
-/home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/mission_status.js: /home/abulanti/assign/src/assignments/srv/mission_status.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Javascript code from assignments/mission_status.srv"
-	cd /home/abulanti/assign/build/assignments && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/abulanti/assign/src/assignments/srv/mission_status.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv
+/home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/MissionStatus.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/MissionStatus.js: /home/abulanti/assign/src/assignments/srv/MissionStatus.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Javascript code from assignments/MissionStatus.srv"
+	cd /home/abulanti/assign/build/assignments && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/abulanti/assign/src/assignments/srv/MissionStatus.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv
 
-/home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/notifications.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
-/home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/notifications.js: /home/abulanti/assign/src/assignments/srv/notifications.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Javascript code from assignments/notifications.srv"
-	cd /home/abulanti/assign/build/assignments && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/abulanti/assign/src/assignments/srv/notifications.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv
+/home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/Notifications.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/Notifications.js: /home/abulanti/assign/src/assignments/srv/Notifications.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Javascript code from assignments/Notifications.srv"
+	cd /home/abulanti/assign/build/assignments && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/abulanti/assign/src/assignments/srv/Notifications.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv
 
 /home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/ResolveConflict.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
 /home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/ResolveConflict.js: /home/abulanti/assign/src/assignments/srv/ResolveConflict.srv
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Javascript code from assignments/ResolveConflict.srv"
 	cd /home/abulanti/assign/build/assignments && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/abulanti/assign/src/assignments/srv/ResolveConflict.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv
 
-/home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/risk_evaluation.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
-/home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/risk_evaluation.js: /home/abulanti/assign/src/assignments/srv/risk_evaluation.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Javascript code from assignments/risk_evaluation.srv"
-	cd /home/abulanti/assign/build/assignments && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/abulanti/assign/src/assignments/srv/risk_evaluation.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv
+/home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/RiskEvaluation.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/RiskEvaluation.js: /home/abulanti/assign/src/assignments/srv/RiskEvaluation.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Javascript code from assignments/RiskEvaluation.srv"
+	cd /home/abulanti/assign/build/assignments && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/abulanti/assign/src/assignments/srv/RiskEvaluation.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv
 
-/home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/victim_report.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
-/home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/victim_report.js: /home/abulanti/assign/src/assignments/srv/victim_report.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating Javascript code from assignments/victim_report.srv"
-	cd /home/abulanti/assign/build/assignments && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/abulanti/assign/src/assignments/srv/victim_report.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv
+/home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/VictimReport.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/VictimReport.js: /home/abulanti/assign/src/assignments/srv/VictimReport.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating Javascript code from assignments/VictimReport.srv"
+	cd /home/abulanti/assign/build/assignments && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/abulanti/assign/src/assignments/srv/VictimReport.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv
 
 assignments_generate_messages_nodejs: assignments/CMakeFiles/assignments_generate_messages_nodejs
 assignments_generate_messages_nodejs: /home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/CheckJointState.js
 assignments_generate_messages_nodejs: /home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/InterpreterCommand.js
-assignments_generate_messages_nodejs: /home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/mission_status.js
-assignments_generate_messages_nodejs: /home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/notifications.js
+assignments_generate_messages_nodejs: /home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/MissionStatus.js
+assignments_generate_messages_nodejs: /home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/Notifications.js
 assignments_generate_messages_nodejs: /home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/ResolveConflict.js
-assignments_generate_messages_nodejs: /home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/risk_evaluation.js
-assignments_generate_messages_nodejs: /home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/victim_report.js
+assignments_generate_messages_nodejs: /home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/RiskEvaluation.js
+assignments_generate_messages_nodejs: /home/abulanti/assign/devel/share/gennodejs/ros/assignments/srv/VictimReport.js
 assignments_generate_messages_nodejs: assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/build.make
 
 .PHONY : assignments_generate_messages_nodejs

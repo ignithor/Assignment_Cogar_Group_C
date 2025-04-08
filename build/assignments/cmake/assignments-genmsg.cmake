@@ -27,14 +27,14 @@ add_custom_target(_assignments_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "assignments" "/home/abulanti/assign/src/assignments/srv/InterpreterCommand.srv" ""
 )
 
-get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/mission_status.srv" NAME_WE)
+get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/MissionStatus.srv" NAME_WE)
 add_custom_target(_assignments_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "assignments" "/home/abulanti/assign/src/assignments/srv/mission_status.srv" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "assignments" "/home/abulanti/assign/src/assignments/srv/MissionStatus.srv" ""
 )
 
-get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/notifications.srv" NAME_WE)
+get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/Notifications.srv" NAME_WE)
 add_custom_target(_assignments_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "assignments" "/home/abulanti/assign/src/assignments/srv/notifications.srv" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "assignments" "/home/abulanti/assign/src/assignments/srv/Notifications.srv" ""
 )
 
 get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/ResolveConflict.srv" NAME_WE)
@@ -42,14 +42,14 @@ add_custom_target(_assignments_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "assignments" "/home/abulanti/assign/src/assignments/srv/ResolveConflict.srv" ""
 )
 
-get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/risk_evaluation.srv" NAME_WE)
+get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/RiskEvaluation.srv" NAME_WE)
 add_custom_target(_assignments_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "assignments" "/home/abulanti/assign/src/assignments/srv/risk_evaluation.srv" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "assignments" "/home/abulanti/assign/src/assignments/srv/RiskEvaluation.srv" ""
 )
 
-get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/victim_report.srv" NAME_WE)
+get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/VictimReport.srv" NAME_WE)
 add_custom_target(_assignments_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "assignments" "/home/abulanti/assign/src/assignments/srv/victim_report.srv" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "assignments" "/home/abulanti/assign/src/assignments/srv/VictimReport.srv" ""
 )
 
 #
@@ -73,13 +73,13 @@ _generate_srv_cpp(assignments
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/assignments
 )
 _generate_srv_cpp(assignments
-  "/home/abulanti/assign/src/assignments/srv/mission_status.srv"
+  "/home/abulanti/assign/src/assignments/srv/MissionStatus.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/assignments
 )
 _generate_srv_cpp(assignments
-  "/home/abulanti/assign/src/assignments/srv/notifications.srv"
+  "/home/abulanti/assign/src/assignments/srv/Notifications.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/assignments
@@ -91,13 +91,13 @@ _generate_srv_cpp(assignments
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/assignments
 )
 _generate_srv_cpp(assignments
-  "/home/abulanti/assign/src/assignments/srv/risk_evaluation.srv"
+  "/home/abulanti/assign/src/assignments/srv/RiskEvaluation.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/assignments
 )
 _generate_srv_cpp(assignments
-  "/home/abulanti/assign/src/assignments/srv/victim_report.srv"
+  "/home/abulanti/assign/src/assignments/srv/VictimReport.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/assignments
@@ -119,15 +119,15 @@ get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/Chec
 add_dependencies(assignments_generate_messages_cpp _assignments_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/InterpreterCommand.srv" NAME_WE)
 add_dependencies(assignments_generate_messages_cpp _assignments_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/mission_status.srv" NAME_WE)
+get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/MissionStatus.srv" NAME_WE)
 add_dependencies(assignments_generate_messages_cpp _assignments_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/notifications.srv" NAME_WE)
+get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/Notifications.srv" NAME_WE)
 add_dependencies(assignments_generate_messages_cpp _assignments_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/ResolveConflict.srv" NAME_WE)
 add_dependencies(assignments_generate_messages_cpp _assignments_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/risk_evaluation.srv" NAME_WE)
+get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/RiskEvaluation.srv" NAME_WE)
 add_dependencies(assignments_generate_messages_cpp _assignments_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/victim_report.srv" NAME_WE)
+get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/VictimReport.srv" NAME_WE)
 add_dependencies(assignments_generate_messages_cpp _assignments_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -154,13 +154,13 @@ _generate_srv_eus(assignments
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/assignments
 )
 _generate_srv_eus(assignments
-  "/home/abulanti/assign/src/assignments/srv/mission_status.srv"
+  "/home/abulanti/assign/src/assignments/srv/MissionStatus.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/assignments
 )
 _generate_srv_eus(assignments
-  "/home/abulanti/assign/src/assignments/srv/notifications.srv"
+  "/home/abulanti/assign/src/assignments/srv/Notifications.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/assignments
@@ -172,13 +172,13 @@ _generate_srv_eus(assignments
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/assignments
 )
 _generate_srv_eus(assignments
-  "/home/abulanti/assign/src/assignments/srv/risk_evaluation.srv"
+  "/home/abulanti/assign/src/assignments/srv/RiskEvaluation.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/assignments
 )
 _generate_srv_eus(assignments
-  "/home/abulanti/assign/src/assignments/srv/victim_report.srv"
+  "/home/abulanti/assign/src/assignments/srv/VictimReport.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/assignments
@@ -200,15 +200,15 @@ get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/Chec
 add_dependencies(assignments_generate_messages_eus _assignments_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/InterpreterCommand.srv" NAME_WE)
 add_dependencies(assignments_generate_messages_eus _assignments_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/mission_status.srv" NAME_WE)
+get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/MissionStatus.srv" NAME_WE)
 add_dependencies(assignments_generate_messages_eus _assignments_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/notifications.srv" NAME_WE)
+get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/Notifications.srv" NAME_WE)
 add_dependencies(assignments_generate_messages_eus _assignments_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/ResolveConflict.srv" NAME_WE)
 add_dependencies(assignments_generate_messages_eus _assignments_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/risk_evaluation.srv" NAME_WE)
+get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/RiskEvaluation.srv" NAME_WE)
 add_dependencies(assignments_generate_messages_eus _assignments_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/victim_report.srv" NAME_WE)
+get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/VictimReport.srv" NAME_WE)
 add_dependencies(assignments_generate_messages_eus _assignments_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -235,13 +235,13 @@ _generate_srv_lisp(assignments
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/assignments
 )
 _generate_srv_lisp(assignments
-  "/home/abulanti/assign/src/assignments/srv/mission_status.srv"
+  "/home/abulanti/assign/src/assignments/srv/MissionStatus.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/assignments
 )
 _generate_srv_lisp(assignments
-  "/home/abulanti/assign/src/assignments/srv/notifications.srv"
+  "/home/abulanti/assign/src/assignments/srv/Notifications.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/assignments
@@ -253,13 +253,13 @@ _generate_srv_lisp(assignments
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/assignments
 )
 _generate_srv_lisp(assignments
-  "/home/abulanti/assign/src/assignments/srv/risk_evaluation.srv"
+  "/home/abulanti/assign/src/assignments/srv/RiskEvaluation.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/assignments
 )
 _generate_srv_lisp(assignments
-  "/home/abulanti/assign/src/assignments/srv/victim_report.srv"
+  "/home/abulanti/assign/src/assignments/srv/VictimReport.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/assignments
@@ -281,15 +281,15 @@ get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/Chec
 add_dependencies(assignments_generate_messages_lisp _assignments_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/InterpreterCommand.srv" NAME_WE)
 add_dependencies(assignments_generate_messages_lisp _assignments_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/mission_status.srv" NAME_WE)
+get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/MissionStatus.srv" NAME_WE)
 add_dependencies(assignments_generate_messages_lisp _assignments_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/notifications.srv" NAME_WE)
+get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/Notifications.srv" NAME_WE)
 add_dependencies(assignments_generate_messages_lisp _assignments_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/ResolveConflict.srv" NAME_WE)
 add_dependencies(assignments_generate_messages_lisp _assignments_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/risk_evaluation.srv" NAME_WE)
+get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/RiskEvaluation.srv" NAME_WE)
 add_dependencies(assignments_generate_messages_lisp _assignments_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/victim_report.srv" NAME_WE)
+get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/VictimReport.srv" NAME_WE)
 add_dependencies(assignments_generate_messages_lisp _assignments_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -316,13 +316,13 @@ _generate_srv_nodejs(assignments
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/assignments
 )
 _generate_srv_nodejs(assignments
-  "/home/abulanti/assign/src/assignments/srv/mission_status.srv"
+  "/home/abulanti/assign/src/assignments/srv/MissionStatus.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/assignments
 )
 _generate_srv_nodejs(assignments
-  "/home/abulanti/assign/src/assignments/srv/notifications.srv"
+  "/home/abulanti/assign/src/assignments/srv/Notifications.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/assignments
@@ -334,13 +334,13 @@ _generate_srv_nodejs(assignments
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/assignments
 )
 _generate_srv_nodejs(assignments
-  "/home/abulanti/assign/src/assignments/srv/risk_evaluation.srv"
+  "/home/abulanti/assign/src/assignments/srv/RiskEvaluation.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/assignments
 )
 _generate_srv_nodejs(assignments
-  "/home/abulanti/assign/src/assignments/srv/victim_report.srv"
+  "/home/abulanti/assign/src/assignments/srv/VictimReport.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/assignments
@@ -362,15 +362,15 @@ get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/Chec
 add_dependencies(assignments_generate_messages_nodejs _assignments_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/InterpreterCommand.srv" NAME_WE)
 add_dependencies(assignments_generate_messages_nodejs _assignments_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/mission_status.srv" NAME_WE)
+get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/MissionStatus.srv" NAME_WE)
 add_dependencies(assignments_generate_messages_nodejs _assignments_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/notifications.srv" NAME_WE)
+get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/Notifications.srv" NAME_WE)
 add_dependencies(assignments_generate_messages_nodejs _assignments_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/ResolveConflict.srv" NAME_WE)
 add_dependencies(assignments_generate_messages_nodejs _assignments_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/risk_evaluation.srv" NAME_WE)
+get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/RiskEvaluation.srv" NAME_WE)
 add_dependencies(assignments_generate_messages_nodejs _assignments_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/victim_report.srv" NAME_WE)
+get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/VictimReport.srv" NAME_WE)
 add_dependencies(assignments_generate_messages_nodejs _assignments_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -397,13 +397,13 @@ _generate_srv_py(assignments
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/assignments
 )
 _generate_srv_py(assignments
-  "/home/abulanti/assign/src/assignments/srv/mission_status.srv"
+  "/home/abulanti/assign/src/assignments/srv/MissionStatus.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/assignments
 )
 _generate_srv_py(assignments
-  "/home/abulanti/assign/src/assignments/srv/notifications.srv"
+  "/home/abulanti/assign/src/assignments/srv/Notifications.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/assignments
@@ -415,13 +415,13 @@ _generate_srv_py(assignments
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/assignments
 )
 _generate_srv_py(assignments
-  "/home/abulanti/assign/src/assignments/srv/risk_evaluation.srv"
+  "/home/abulanti/assign/src/assignments/srv/RiskEvaluation.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/assignments
 )
 _generate_srv_py(assignments
-  "/home/abulanti/assign/src/assignments/srv/victim_report.srv"
+  "/home/abulanti/assign/src/assignments/srv/VictimReport.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/assignments
@@ -443,15 +443,15 @@ get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/Chec
 add_dependencies(assignments_generate_messages_py _assignments_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/InterpreterCommand.srv" NAME_WE)
 add_dependencies(assignments_generate_messages_py _assignments_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/mission_status.srv" NAME_WE)
+get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/MissionStatus.srv" NAME_WE)
 add_dependencies(assignments_generate_messages_py _assignments_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/notifications.srv" NAME_WE)
+get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/Notifications.srv" NAME_WE)
 add_dependencies(assignments_generate_messages_py _assignments_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/ResolveConflict.srv" NAME_WE)
 add_dependencies(assignments_generate_messages_py _assignments_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/risk_evaluation.srv" NAME_WE)
+get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/RiskEvaluation.srv" NAME_WE)
 add_dependencies(assignments_generate_messages_py _assignments_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/victim_report.srv" NAME_WE)
+get_filename_component(_filename "/home/abulanti/assign/src/assignments/srv/VictimReport.srv" NAME_WE)
 add_dependencies(assignments_generate_messages_py _assignments_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

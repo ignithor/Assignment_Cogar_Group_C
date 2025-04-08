@@ -1,11 +1,11 @@
 file(REMOVE_RECURSE
   "/home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/CheckJointState.lisp"
   "/home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/InterpreterCommand.lisp"
+  "/home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/MissionStatus.lisp"
+  "/home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/Notifications.lisp"
   "/home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/ResolveConflict.lisp"
-  "/home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/mission_status.lisp"
-  "/home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/notifications.lisp"
-  "/home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/risk_evaluation.lisp"
-  "/home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/victim_report.lisp"
+  "/home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/RiskEvaluation.lisp"
+  "/home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/VictimReport.lisp"
   "CMakeFiles/assignments_generate_messages_lisp"
 )
 

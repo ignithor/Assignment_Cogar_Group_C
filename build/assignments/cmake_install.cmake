@@ -41,11 +41,11 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/assignments/srv" TYPE FILE FILES
     "/home/abulanti/assign/src/assignments/srv/CheckJointState.srv"
     "/home/abulanti/assign/src/assignments/srv/InterpreterCommand.srv"
-    "/home/abulanti/assign/src/assignments/srv/mission_status.srv"
-    "/home/abulanti/assign/src/assignments/srv/notifications.srv"
+    "/home/abulanti/assign/src/assignments/srv/MissionStatus.srv"
+    "/home/abulanti/assign/src/assignments/srv/Notifications.srv"
     "/home/abulanti/assign/src/assignments/srv/ResolveConflict.srv"
-    "/home/abulanti/assign/src/assignments/srv/risk_evaluation.srv"
-    "/home/abulanti/assign/src/assignments/srv/victim_report.srv"
+    "/home/abulanti/assign/src/assignments/srv/RiskEvaluation.srv"
+    "/home/abulanti/assign/src/assignments/srv/VictimReport.srv"
     )
 endif()
 
