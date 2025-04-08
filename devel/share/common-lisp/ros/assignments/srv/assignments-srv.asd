@@ -1,0 +1,21 @@
+
+(cl:in-package :asdf)
+
+(defsystem "assignments-srv"
+  :depends-on (:roslisp-msg-protocol :roslisp-utils )
+  :components ((:file "_package")
+    (:file "CheckJointState" :depends-on ("_package_CheckJointState"))
+    (:file "_package_CheckJointState" :depends-on ("_package"))
+    (:file "InterpreterCommand" :depends-on ("_package_InterpreterCommand"))
+    (:file "_package_InterpreterCommand" :depends-on ("_package"))
+    (:file "ResolveConflict" :depends-on ("_package_ResolveConflict"))
+    (:file "_package_ResolveConflict" :depends-on ("_package"))
+    (:file "mission_status" :depends-on ("_package_mission_status"))
+    (:file "_package_mission_status" :depends-on ("_package"))
+    (:file "notifications" :depends-on ("_package_notifications"))
+    (:file "_package_notifications" :depends-on ("_package"))
+    (:file "risk_evaluation" :depends-on ("_package_risk_evaluation"))
+    (:file "_package_risk_evaluation" :depends-on ("_package"))
+    (:file "victim_report" :depends-on ("_package_victim_report"))
+    (:file "_package_victim_report" :depends-on ("_package"))
+  ))

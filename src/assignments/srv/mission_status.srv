@@ -1,0 +1,8 @@
+# Request: Information about the status of the mission.
+string mission_id
+bool success  # If the mission is successfully completed.
+
+---
+# Response: Confirmation of mission status.
+bool mission_complete  # Whether the mission is completed successfully.
+string message  # Additional message about the mission, e.g., "Mission completed successfully."

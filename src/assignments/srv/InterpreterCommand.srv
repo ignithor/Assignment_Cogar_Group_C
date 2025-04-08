@@ -1,0 +1,8 @@
+# Request
+string user_command
+string current_step
+
+---
+# Response
+bool valid
+string interpreted_action

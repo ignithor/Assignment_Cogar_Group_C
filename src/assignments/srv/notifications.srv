@@ -1,0 +1,8 @@
+# Request: The name of the plate that was incorrectly delivered, and the table information.
+string plate_name
+string table_number  # The table where the wrong plate was delivered.
+
+---
+# Response: Confirmation if the notification was successfully sent.
+bool success
+string message  # A message confirming the notification, e.g., "Notification sent to staff."

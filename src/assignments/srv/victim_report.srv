@@ -1,0 +1,10 @@
+# Request: The location of the detected victim (position in the environment).
+float64 x
+float64 y
+float64 z
+string victim_status  # E.g., "conscious", "unconscious", "critical", etc.
+
+---
+# Response: Confirmation if the report was successfully sent.
+bool success
+string message  # Additional message, if any.
