@@ -59,7 +59,7 @@ add_service_files(
   FILES
   CheckJointState.srv
   InterpreterCommand.srv
-  mission_status.srv
+  Mission_status.srv
   notifications.srv
   ResolveConflict.srv
   risk_evaluation.srv
