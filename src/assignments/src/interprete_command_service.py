@@ -8,7 +8,7 @@ def handle_interpret_command(req):
     if req.command in valid_commands:
         return InterpretCommandResponse(success=True, action=req.command)
     else:
-        return InterpretCommandResponse(success=False, action="")
+        return InterpretCommandResponse(success=False, action="Continue with the next action of the plan.")
 
 def interpret_command_service():
     rospy.init_node('interpret_command_service', anonymous=True)

@@ -10,11 +10,11 @@ def victim_report_callback(req):
     success = True  # You can implement logic for reporting to the operator here
     message = "Victim report sent successfully to operator."
 
-    return VictimReportResponse(success, message)
+    return victim_reportResponse(success, message)
 
 def victim_report_service():
     rospy.init_node('victim_report_service')
-    service = rospy.Service('/victim_report', VictimReport, victim_report_callback)
+    service = rospy.Service('/victim_report', victim_report, victim_report_callback)
     rospy.loginfo("Victim report service is ready!")
     rospy.spin()
 

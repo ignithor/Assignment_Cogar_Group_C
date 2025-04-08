@@ -10,11 +10,11 @@ def notifications_callback(req):
     success = True  # Assuming the notification was successfully sent.
     message = f"Notification sent to staff about wrong plate: {req.plate_name} at Table {req.table_number}."
     
-    return NotificationsResponse(success, message)
+    return notificationsResponse(success, message)
 
 def notifications_service():
     rospy.init_node('notifications_service')
-    service = rospy.Service('/notifications', Notifications, notifications_callback)
+    service = rospy.Service('/notifications', notifications, notifications_callback)
     rospy.loginfo("Notifications service is ready!")
     rospy.spin()
 

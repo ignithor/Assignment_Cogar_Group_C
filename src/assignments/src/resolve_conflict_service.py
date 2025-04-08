@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import rospy
-#from assignments.srv import ResolveConflict, ResolveConflictResponse
+from assignments.srv import ResolveConflict, ResolveConflictResponse
 
 def handle_resolve_conflict(req):
     rospy.loginfo("Resolving Conflict...")
