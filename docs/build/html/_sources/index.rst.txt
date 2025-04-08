@@ -7,7 +7,7 @@ Cogar Assignments documentation
 ===============================
 
 This repository contains the code and materials for the `Assignment_Cogar` project.  
-You can find the `Assignment_Cogar GitHub Repository <https://github.com/AleBulanti/Assignment_Cogar.git>`.
+
 
 Repository Structure
 --------------------
@@ -17,57 +17,62 @@ Repository Structure
   Contains the `assignments` ROS package, which includes Python service nodes.
   All services are presented together, but they are organized by assignments as follows:
 
-  - **Assignment 1 Services:**
+  - **Topic 1 Services:**
     - `victim_report_service.py`
     - `risk_evaluation_service.py`
     - `mission_status_service.py`
 
-  - **Assignment 2 Services:**
+  - **Topic 2 Services:**
     - `arm_motion_service.py`
     - `notifications_service.py`
     - `mission_status_service.py` 
 
-  - **Assignment 3 Services:**
+  - **Topic 3 Services:**
     - `mission_status_service.py` 
     - `interprete_command_service.py`
     - `resolve_conflict_service.py`
 
+
 - **srv/**
 
-  Contains all custom ROS service definitions, categorized per assignment:
+  Contains all custom ROS service definitions, categorized per topics:
 
-  - **Assignment 1 Services:**
-    - `victim_report.srv`
-    - `risk_evaluation.srv`
-    - `mission_status.srv`
+  
+  - **Topic 1 .srv:**
+    - `VictimReport.srv`
+    - `RiskEvaluation.srv`
+    - `MissionStatus.srv`
 
-  - **Assignment 2 Services:**
-    - `mission_status.srv` 
-    - `notifications.srv`
+  - **Topic 2 .srv:**
+    - `MissionStatus.srv` 
+    - `Notifications.srv`
     - `CheckJointState.srv`
 
-  - **Assignment 3 Services:**
-    - `mission_status.srv`
+  - **Topic 3 .srv:**
+    - `Missionstatus.srv`
     - `ResolveConflict.srv`
     - `InterpreterCommand.srv`
+
 
 - **doc/**
 
   Includes documentation materials and reference content used to write this documentation.
 
-- **tiago_data/**
+- **TIAGo .bag**
 
-  Contains sensor data recorded from the TIAGo robot.  
-  Each dataset represents inputs captured from one specific sensor, including:
+  Below are the data collected in bags from the TIAGo sensors, which can be found on OneDrive.
+  Each bag represents inputs captured from one specific sensor, including:
+
   
-  - RGB-D Camera
-  - LiDAR
-  - SONAR
-  - Force Sensors
-  - Microphones
-  - Speakers
-  - Odometry
-  - Joint State
+  - RGB-D Camera: Depth raw images, RGB raw images.
+  - LiDAR: Environment point cloud.
+  - SONAR: Distance measurements, usually for nearby objects.
+  - Force Sensors: Force and Torque measurementsof the right arm.
+  - Microphones: Sound inputs. Not provided as bag.
+  - Speakers: Audio output. Not provided as bag.
+  - Odometry: Provides the robot's current position and velocity.
+  - Arm Joint State: Includes information about the robot's limb, such as positions, velocities, and effort. 
+
 
 
 .. toctree::
