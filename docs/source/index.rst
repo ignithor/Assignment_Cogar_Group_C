@@ -7,7 +7,7 @@ Cogar Assignments documentation
 ===============================
 
 This repository contains the code and materials for the `Assignment_Cogar` project.  
-You can find the GitHub repository at: `<https://github.com/AleBulanti/Assignment_Cogar.git>`
+You can find the `Assignment_Cogar GitHub Repository <https://github.com/AleBulanti/Assignment_Cogar.git>`.
 
 Repository Structure
 --------------------
