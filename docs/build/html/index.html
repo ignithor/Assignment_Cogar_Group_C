@@ -74,8 +74,7 @@
              
   <section id="cogar-assignments-documentation">
 <h1>Cogar Assignments documentation<a class="headerlink" href="#cogar-assignments-documentation" title="Link to this heading"></a></h1>
-<p>This repository contains the code and materials for the <cite>Assignment_Cogar</cite> project.
-You can find the <cite>Assignment_Cogar GitHub Repository &lt;https://github.com/AleBulanti/Assignment_Cogar.git&gt;</cite>.</p>
+<p>This repository contains the code and materials for the <cite>Assignment_Cogar</cite> project.</p>
 <section id="repository-structure">
 <h2>Repository Structure<a class="headerlink" href="#repository-structure" title="Link to this heading"></a></h2>
 <ul>
@@ -83,33 +82,33 @@ You can find the <cite>Assignment_Cogar GitHub Repository &lt;https://github.com
 <p>Contains the <cite>assignments</cite> ROS package, which includes Python service nodes.
 All services are presented together, but they are organized by assignments as follows:</p>
 <ul class="simple">
-<li><p><strong>Assignment 1 Services:</strong>
+<li><p><strong>Topic 1 Services:</strong>
 - <cite>victim_report_service.py</cite>
 - <cite>risk_evaluation_service.py</cite>
 - <cite>mission_status_service.py</cite></p></li>
-<li><p><strong>Assignment 2 Services:</strong>
+<li><p><strong>Topic 2 Services:</strong>
 - <cite>arm_motion_service.py</cite>
 - <cite>notifications_service.py</cite>
 - <cite>mission_status_service.py</cite></p></li>
-<li><p><strong>Assignment 3 Services:</strong>
+<li><p><strong>Topic 3 Services:</strong>
 - <cite>mission_status_service.py</cite>
 - <cite>interprete_command_service.py</cite>
 - <cite>resolve_conflict_service.py</cite></p></li>
 </ul>
 </li>
 <li><p><strong>srv/</strong></p>
-<p>Contains all custom ROS service definitions, categorized per assignment:</p>
+<p>Contains all custom ROS service definitions, categorized per topics:</p>
 <ul class="simple">
-<li><p><strong>Assignment 1 Services:</strong>
-- <cite>victim_report.srv</cite>
-- <cite>risk_evaluation.srv</cite>
-- <cite>mission_status.srv</cite></p></li>
-<li><p><strong>Assignment 2 Services:</strong>
-- <cite>mission_status.srv</cite>
-- <cite>notifications.srv</cite>
+<li><p><strong>Topic 1 .srv:</strong>
+- <cite>VictimReport.srv</cite>
+- <cite>RiskEvaluation.srv</cite>
+- <cite>MissionStatus.srv</cite></p></li>
+<li><p><strong>Topic 2 .srv:</strong>
+- <cite>MissionStatus.srv</cite>
+- <cite>Notifications.srv</cite>
 - <cite>CheckJointState.srv</cite></p></li>
-<li><p><strong>Assignment 3 Services:</strong>
-- <cite>mission_status.srv</cite>
+<li><p><strong>Topic 3 .srv:</strong>
+- <cite>Missionstatus.srv</cite>
 - <cite>ResolveConflict.srv</cite>
 - <cite>InterpreterCommand.srv</cite></p></li>
 </ul>
@@ -117,18 +116,18 @@ All services are presented together, but they are organized by assignments as fo
 <li><p><strong>doc/</strong></p>
 <p>Includes documentation materials and reference content used to write this documentation.</p>
 </li>
-<li><p><strong>tiago_data/</strong></p>
-<p>Contains sensor data recorded from the TIAGo robot.
-Each dataset represents inputs captured from one specific sensor, including:</p>
+<li><p><strong>TIAGo .bag</strong></p>
+<p>Below are the data collected in bags from the TIAGo sensors, which can be found on OneDrive.
+Each bag represents inputs captured from one specific sensor, including:</p>
 <ul class="simple">
-<li><p>RGB-D Camera</p></li>
-<li><p>LiDAR</p></li>
-<li><p>SONAR</p></li>
-<li><p>Force Sensors</p></li>
-<li><p>Microphones</p></li>
-<li><p>Speakers</p></li>
-<li><p>Odometry</p></li>
-<li><p>Joint State</p></li>
+<li><p>RGB-D Camera: Depth raw images, RGB raw images.</p></li>
+<li><p>LiDAR: Environment point cloud.</p></li>
+<li><p>SONAR: Distance measurements, usually for nearby objects.</p></li>
+<li><p>Force Sensors: Force and Torque measurementsof the right arm.</p></li>
+<li><p>Microphones: Sound inputs. Not provided as bag.</p></li>
+<li><p>Speakers: Audio output. Not provided as bag.</p></li>
+<li><p>Odometry: Provides the robot’s current position and velocity.</p></li>
+<li><p>Arm Joint State: Includes information about the robot’s limb, such as positions, velocities, and effort.</p></li>
 </ul>
 </li>
 </ul>
