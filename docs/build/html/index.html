@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="./">
+<html class="writer-html5" lang="en">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -13,9 +13,9 @@
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="_static/doctools.js?v=9bcbadda"></script>
-      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=b3ba4146"></script>
+      <script src="_static/doctools.js?v=888ff710"></script>
+      <script src="_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -73,47 +73,37 @@
            <div itemprop="articleBody">
              
   <section id="cogar-assignments-documentation">
-<h1>Cogar Assignments documentation<a class="headerlink" href="#cogar-assignments-documentation" title="Link to this heading"></a></h1>
-<p>This repository contains the code and materials for the <cite>Assignment_Cogar</cite> project.</p>
+<h1>Cogar Assignments documentation<a class="headerlink" href="#cogar-assignments-documentation" title="Permalink to this heading"></a></h1>
+<p>This repository contains the code for the <cite>Assignment_Cogar</cite> project.</p>
 <section id="repository-structure">
-<h2>Repository Structure<a class="headerlink" href="#repository-structure" title="Link to this heading"></a></h2>
+<h2>Repository Structure<a class="headerlink" href="#repository-structure" title="Permalink to this heading"></a></h2>
 <ul>
 <li><p><strong>src/</strong></p>
 <p>Contains the <cite>assignments</cite> ROS package, which includes Python service nodes.
 All services are presented together, but they are organized by assignments as follows:</p>
 <ul class="simple">
 <li><p><strong>Topic 1 Services:</strong>
-- <cite>victim_report_service.py</cite>
-- <cite>risk_evaluation_service.py</cite>
-- <cite>mission_status_service.py</cite></p></li>
+- <cite>speaker_service.py</cite></p></li>
 <li><p><strong>Topic 2 Services:</strong>
 - <cite>arm_motion_service.py</cite>
-- <cite>notifications_service.py</cite>
-- <cite>mission_status_service.py</cite></p></li>
+- <cite>speaker_service.py</cite></p></li>
 <li><p><strong>Topic 3 Services:</strong>
-- <cite>mission_status_service.py</cite>
-- <cite>interprete_command_service.py</cite>
-- <cite>resolve_conflict_service.py</cite></p></li>
+- <cite>arm_motion_service.py</cite></p></li>
 </ul>
 </li>
 <li><p><strong>srv/</strong></p>
 <p>Contains all custom ROS service definitions, categorized per topics:</p>
 <ul class="simple">
 <li><p><strong>Topic 1 .srv:</strong>
-- <cite>VictimReport.srv</cite>
-- <cite>RiskEvaluation.srv</cite>
-- <cite>MissionStatus.srv</cite></p></li>
+- <cite>Speaker.srv</cite></p></li>
 <li><p><strong>Topic 2 .srv:</strong>
-- <cite>MissionStatus.srv</cite>
-- <cite>Notifications.srv</cite>
+- <cite>Speaker.srv</cite>
 - <cite>CheckJointState.srv</cite></p></li>
 <li><p><strong>Topic 3 .srv:</strong>
-- <cite>Missionstatus.srv</cite>
-- <cite>ResolveConflict.srv</cite>
-- <cite>InterpreterCommand.srv</cite></p></li>
+- <cite>CheckJointState.srv</cite></p></li>
 </ul>
 </li>
-<li><p><strong>doc/</strong></p>
+<li><p><strong>docs/</strong></p>
 <p>Includes documentation materials and reference content used to write this documentation.</p>
 </li>
 <li><p><strong>TIAGo .bag</strong></p>
@@ -122,10 +112,8 @@ Each bag represents inputs captured from one specific sensor, including:</p>
 <ul class="simple">
 <li><p>RGB-D Camera: Depth raw images, RGB raw images.</p></li>
 <li><p>LiDAR: Environment point cloud.</p></li>
-<li><p>SONAR: Distance measurements, usually for nearby objects.</p></li>
+<li><p>SONAR: Distance measurements.</p></li>
 <li><p>Force Sensors: Force and Torque measurementsof the right arm.</p></li>
-<li><p>Microphones: Sound inputs. Not provided as bag.</p></li>
-<li><p>Speakers: Audio output. Not provided as bag.</p></li>
 <li><p>Odometry: Provides the robot’s current position and velocity.</p></li>
 <li><p>Arm Joint State: Includes information about the robot’s limb, such as positions, velocities, and effort.</p></li>
 </ul>

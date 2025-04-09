@@ -6,7 +6,7 @@
 Cogar Assignments documentation
 ===============================
 
-This repository contains the code and materials for the `Assignment_Cogar` project.  
+This repository contains the code for the `Assignment_Cogar` project.  
 
 
 Repository Structure
@@ -18,19 +18,14 @@ Repository Structure
   All services are presented together, but they are organized by assignments as follows:
 
   - **Topic 1 Services:**
-    - `victim_report_service.py`
-    - `risk_evaluation_service.py`
-    - `mission_status_service.py`
+    - `speaker_service.py`
 
   - **Topic 2 Services:**
     - `arm_motion_service.py`
-    - `notifications_service.py`
-    - `mission_status_service.py` 
+    - `speaker_service.py`
 
   - **Topic 3 Services:**
-    - `mission_status_service.py` 
-    - `interprete_command_service.py`
-    - `resolve_conflict_service.py`
+    - `arm_motion_service.py` 
 
 
 - **srv/**
@@ -39,22 +34,18 @@ Repository Structure
 
   
   - **Topic 1 .srv:**
-    - `VictimReport.srv`
-    - `RiskEvaluation.srv`
-    - `MissionStatus.srv`
+    - `Speaker.srv`
 
   - **Topic 2 .srv:**
-    - `MissionStatus.srv` 
-    - `Notifications.srv`
+    - `Speaker.srv` 
     - `CheckJointState.srv`
 
   - **Topic 3 .srv:**
-    - `Missionstatus.srv`
-    - `ResolveConflict.srv`
-    - `InterpreterCommand.srv`
+    - `CheckJointState.srv`
 
 
-- **doc/**
+
+- **docs/**
 
   Includes documentation materials and reference content used to write this documentation.
 
@@ -66,10 +57,8 @@ Repository Structure
   
   - RGB-D Camera: Depth raw images, RGB raw images.
   - LiDAR: Environment point cloud.
-  - SONAR: Distance measurements, usually for nearby objects.
+  - SONAR: Distance measurements.
   - Force Sensors: Force and Torque measurementsof the right arm.
-  - Microphones: Sound inputs. Not provided as bag.
-  - Speakers: Audio output. Not provided as bag.
   - Odometry: Provides the robot's current position and velocity.
   - Arm Joint State: Includes information about the robot's limb, such as positions, velocities, and effort. 
 
