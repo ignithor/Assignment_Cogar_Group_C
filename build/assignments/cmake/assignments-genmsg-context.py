@@ -1,7 +1,7 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
 messages_str = ""
-services_str = "/home/abulanti/assign/src/assignments/srv/CheckJointState.srv;/home/abulanti/assign/src/assignments/srv/InterpreterCommand.srv;/home/abulanti/assign/src/assignments/srv/MissionStatus.srv;/home/abulanti/assign/src/assignments/srv/Notifications.srv;/home/abulanti/assign/src/assignments/srv/ResolveConflict.srv;/home/abulanti/assign/src/assignments/srv/RiskEvaluation.srv;/home/abulanti/assign/src/assignments/srv/VictimReport.srv"
+services_str = "/home/abulanti/assign/src/assignments/srv/CheckJointState.srv;/home/abulanti/assign/src/assignments/srv/Speaker.srv"
 pkg_name = "assignments"
 dependencies_str = "std_msgs"
 langs = "gencpp;geneus;genlisp;gennodejs;genpy"

@@ -54,12 +54,7 @@ CMAKE_BINARY_DIR = /home/abulanti/assign/build
 include assignments/CMakeFiles/assignments_generate_messages_eus.dir/progress.make
 
 assignments/CMakeFiles/assignments_generate_messages_eus: /home/abulanti/assign/devel/share/roseus/ros/assignments/srv/CheckJointState.l
-assignments/CMakeFiles/assignments_generate_messages_eus: /home/abulanti/assign/devel/share/roseus/ros/assignments/srv/InterpreterCommand.l
-assignments/CMakeFiles/assignments_generate_messages_eus: /home/abulanti/assign/devel/share/roseus/ros/assignments/srv/MissionStatus.l
-assignments/CMakeFiles/assignments_generate_messages_eus: /home/abulanti/assign/devel/share/roseus/ros/assignments/srv/Notifications.l
-assignments/CMakeFiles/assignments_generate_messages_eus: /home/abulanti/assign/devel/share/roseus/ros/assignments/srv/ResolveConflict.l
-assignments/CMakeFiles/assignments_generate_messages_eus: /home/abulanti/assign/devel/share/roseus/ros/assignments/srv/RiskEvaluation.l
-assignments/CMakeFiles/assignments_generate_messages_eus: /home/abulanti/assign/devel/share/roseus/ros/assignments/srv/VictimReport.l
+assignments/CMakeFiles/assignments_generate_messages_eus: /home/abulanti/assign/devel/share/roseus/ros/assignments/srv/Speaker.l
 assignments/CMakeFiles/assignments_generate_messages_eus: /home/abulanti/assign/devel/share/roseus/ros/assignments/manifest.l
 
 
@@ -68,48 +63,18 @@ assignments/CMakeFiles/assignments_generate_messages_eus: /home/abulanti/assign/
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from assignments/CheckJointState.srv"
 	cd /home/abulanti/assign/build/assignments && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/abulanti/assign/src/assignments/srv/CheckJointState.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/share/roseus/ros/assignments/srv
 
-/home/abulanti/assign/devel/share/roseus/ros/assignments/srv/InterpreterCommand.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-/home/abulanti/assign/devel/share/roseus/ros/assignments/srv/InterpreterCommand.l: /home/abulanti/assign/src/assignments/srv/InterpreterCommand.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from assignments/InterpreterCommand.srv"
-	cd /home/abulanti/assign/build/assignments && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/abulanti/assign/src/assignments/srv/InterpreterCommand.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/share/roseus/ros/assignments/srv
-
-/home/abulanti/assign/devel/share/roseus/ros/assignments/srv/MissionStatus.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-/home/abulanti/assign/devel/share/roseus/ros/assignments/srv/MissionStatus.l: /home/abulanti/assign/src/assignments/srv/MissionStatus.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating EusLisp code from assignments/MissionStatus.srv"
-	cd /home/abulanti/assign/build/assignments && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/abulanti/assign/src/assignments/srv/MissionStatus.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/share/roseus/ros/assignments/srv
-
-/home/abulanti/assign/devel/share/roseus/ros/assignments/srv/Notifications.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-/home/abulanti/assign/devel/share/roseus/ros/assignments/srv/Notifications.l: /home/abulanti/assign/src/assignments/srv/Notifications.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating EusLisp code from assignments/Notifications.srv"
-	cd /home/abulanti/assign/build/assignments && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/abulanti/assign/src/assignments/srv/Notifications.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/share/roseus/ros/assignments/srv
-
-/home/abulanti/assign/devel/share/roseus/ros/assignments/srv/ResolveConflict.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-/home/abulanti/assign/devel/share/roseus/ros/assignments/srv/ResolveConflict.l: /home/abulanti/assign/src/assignments/srv/ResolveConflict.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating EusLisp code from assignments/ResolveConflict.srv"
-	cd /home/abulanti/assign/build/assignments && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/abulanti/assign/src/assignments/srv/ResolveConflict.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/share/roseus/ros/assignments/srv
-
-/home/abulanti/assign/devel/share/roseus/ros/assignments/srv/RiskEvaluation.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-/home/abulanti/assign/devel/share/roseus/ros/assignments/srv/RiskEvaluation.l: /home/abulanti/assign/src/assignments/srv/RiskEvaluation.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating EusLisp code from assignments/RiskEvaluation.srv"
-	cd /home/abulanti/assign/build/assignments && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/abulanti/assign/src/assignments/srv/RiskEvaluation.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/share/roseus/ros/assignments/srv
-
-/home/abulanti/assign/devel/share/roseus/ros/assignments/srv/VictimReport.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-/home/abulanti/assign/devel/share/roseus/ros/assignments/srv/VictimReport.l: /home/abulanti/assign/src/assignments/srv/VictimReport.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating EusLisp code from assignments/VictimReport.srv"
-	cd /home/abulanti/assign/build/assignments && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/abulanti/assign/src/assignments/srv/VictimReport.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/share/roseus/ros/assignments/srv
+/home/abulanti/assign/devel/share/roseus/ros/assignments/srv/Speaker.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/abulanti/assign/devel/share/roseus/ros/assignments/srv/Speaker.l: /home/abulanti/assign/src/assignments/srv/Speaker.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from assignments/Speaker.srv"
+	cd /home/abulanti/assign/build/assignments && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/abulanti/assign/src/assignments/srv/Speaker.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/share/roseus/ros/assignments/srv
 
 /home/abulanti/assign/devel/share/roseus/ros/assignments/manifest.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating EusLisp manifest code for assignments"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating EusLisp manifest code for assignments"
 	cd /home/abulanti/assign/build/assignments && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/abulanti/assign/devel/share/roseus/ros/assignments assignments std_msgs
 
 assignments_generate_messages_eus: assignments/CMakeFiles/assignments_generate_messages_eus
 assignments_generate_messages_eus: /home/abulanti/assign/devel/share/roseus/ros/assignments/srv/CheckJointState.l
-assignments_generate_messages_eus: /home/abulanti/assign/devel/share/roseus/ros/assignments/srv/InterpreterCommand.l
-assignments_generate_messages_eus: /home/abulanti/assign/devel/share/roseus/ros/assignments/srv/MissionStatus.l
-assignments_generate_messages_eus: /home/abulanti/assign/devel/share/roseus/ros/assignments/srv/Notifications.l
-assignments_generate_messages_eus: /home/abulanti/assign/devel/share/roseus/ros/assignments/srv/ResolveConflict.l
-assignments_generate_messages_eus: /home/abulanti/assign/devel/share/roseus/ros/assignments/srv/RiskEvaluation.l
-assignments_generate_messages_eus: /home/abulanti/assign/devel/share/roseus/ros/assignments/srv/VictimReport.l
+assignments_generate_messages_eus: /home/abulanti/assign/devel/share/roseus/ros/assignments/srv/Speaker.l
 assignments_generate_messages_eus: /home/abulanti/assign/devel/share/roseus/ros/assignments/manifest.l
 assignments_generate_messages_eus: assignments/CMakeFiles/assignments_generate_messages_eus.dir/build.make
 

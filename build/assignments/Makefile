@@ -56,6 +56,18 @@ CMAKE_BINARY_DIR = /home/abulanti/assign/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -89,17 +101,6 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -123,17 +124,16 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
 
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -168,66 +168,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-assignments/CMakeFiles/assignments_generate_messages_py.dir/rule:
-	cd /home/abulanti/assign/build && $(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/assignments_generate_messages_py.dir/rule
-.PHONY : assignments/CMakeFiles/assignments_generate_messages_py.dir/rule
-
-# Convenience name for target.
-assignments_generate_messages_py: assignments/CMakeFiles/assignments_generate_messages_py.dir/rule
-
-.PHONY : assignments_generate_messages_py
-
-# fast build rule for target.
-assignments_generate_messages_py/fast:
-	cd /home/abulanti/assign/build && $(MAKE) -f assignments/CMakeFiles/assignments_generate_messages_py.dir/build.make assignments/CMakeFiles/assignments_generate_messages_py.dir/build
-.PHONY : assignments_generate_messages_py/fast
-
-# Convenience name for target.
-assignments/CMakeFiles/assignments_gennodejs.dir/rule:
-	cd /home/abulanti/assign/build && $(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/assignments_gennodejs.dir/rule
-.PHONY : assignments/CMakeFiles/assignments_gennodejs.dir/rule
-
-# Convenience name for target.
-assignments_gennodejs: assignments/CMakeFiles/assignments_gennodejs.dir/rule
-
-.PHONY : assignments_gennodejs
-
-# fast build rule for target.
-assignments_gennodejs/fast:
-	cd /home/abulanti/assign/build && $(MAKE) -f assignments/CMakeFiles/assignments_gennodejs.dir/build.make assignments/CMakeFiles/assignments_gennodejs.dir/build
-.PHONY : assignments_gennodejs/fast
-
-# Convenience name for target.
-assignments/CMakeFiles/assignments_genpy.dir/rule:
-	cd /home/abulanti/assign/build && $(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/assignments_genpy.dir/rule
-.PHONY : assignments/CMakeFiles/assignments_genpy.dir/rule
-
-# Convenience name for target.
-assignments_genpy: assignments/CMakeFiles/assignments_genpy.dir/rule
-
-.PHONY : assignments_genpy
-
-# fast build rule for target.
-assignments_genpy/fast:
-	cd /home/abulanti/assign/build && $(MAKE) -f assignments/CMakeFiles/assignments_genpy.dir/build.make assignments/CMakeFiles/assignments_genpy.dir/build
-.PHONY : assignments_genpy/fast
-
-# Convenience name for target.
-assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/rule:
-	cd /home/abulanti/assign/build && $(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/rule
-.PHONY : assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-assignments_generate_messages_nodejs: assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/rule
-
-.PHONY : assignments_generate_messages_nodejs
-
-# fast build rule for target.
-assignments_generate_messages_nodejs/fast:
-	cd /home/abulanti/assign/build && $(MAKE) -f assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/build.make assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/build
-.PHONY : assignments_generate_messages_nodejs/fast
-
-# Convenience name for target.
 assignments/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule:
 	cd /home/abulanti/assign/build && $(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
 .PHONY : assignments/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
@@ -258,34 +198,34 @@ roscpp_generate_messages_lisp/fast:
 .PHONY : roscpp_generate_messages_lisp/fast
 
 # Convenience name for target.
-assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule:
-	cd /home/abulanti/assign/build && $(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
-.PHONY : assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule:
+	cd /home/abulanti/assign/build && $(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
+.PHONY : assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-rosgraph_msgs_generate_messages_cpp: assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+rosgraph_msgs_generate_messages_eus: assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
 
-.PHONY : rosgraph_msgs_generate_messages_cpp
+.PHONY : rosgraph_msgs_generate_messages_eus
 
 # fast build rule for target.
-rosgraph_msgs_generate_messages_cpp/fast:
-	cd /home/abulanti/assign/build && $(MAKE) -f assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
-.PHONY : rosgraph_msgs_generate_messages_cpp/fast
+rosgraph_msgs_generate_messages_eus/fast:
+	cd /home/abulanti/assign/build && $(MAKE) -f assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
+.PHONY : rosgraph_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
-assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule:
-	cd /home/abulanti/assign/build && $(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
-.PHONY : assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
+assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
+	cd /home/abulanti/assign/build && $(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
+.PHONY : assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
-roscpp_generate_messages_nodejs: assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
+std_msgs_generate_messages_cpp: assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
 
-.PHONY : roscpp_generate_messages_nodejs
+.PHONY : std_msgs_generate_messages_cpp
 
 # fast build rule for target.
-roscpp_generate_messages_nodejs/fast:
-	cd /home/abulanti/assign/build && $(MAKE) -f assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
-.PHONY : roscpp_generate_messages_nodejs/fast
+std_msgs_generate_messages_cpp/fast:
+	cd /home/abulanti/assign/build && $(MAKE) -f assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
+.PHONY : std_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
 assignments/CMakeFiles/std_msgs_generate_messages_eus.dir/rule:
@@ -318,6 +258,21 @@ assignments_gencpp/fast:
 .PHONY : assignments_gencpp/fast
 
 # Convenience name for target.
+assignments/CMakeFiles/assignments_generate_messages_py.dir/rule:
+	cd /home/abulanti/assign/build && $(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/assignments_generate_messages_py.dir/rule
+.PHONY : assignments/CMakeFiles/assignments_generate_messages_py.dir/rule
+
+# Convenience name for target.
+assignments_generate_messages_py: assignments/CMakeFiles/assignments_generate_messages_py.dir/rule
+
+.PHONY : assignments_generate_messages_py
+
+# fast build rule for target.
+assignments_generate_messages_py/fast:
+	cd /home/abulanti/assign/build && $(MAKE) -f assignments/CMakeFiles/assignments_generate_messages_py.dir/build.make assignments/CMakeFiles/assignments_generate_messages_py.dir/build
+.PHONY : assignments_generate_messages_py/fast
+
+# Convenience name for target.
 assignments/CMakeFiles/roscpp_generate_messages_py.dir/rule:
 	cd /home/abulanti/assign/build && $(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/roscpp_generate_messages_py.dir/rule
 .PHONY : assignments/CMakeFiles/roscpp_generate_messages_py.dir/rule
@@ -348,19 +303,19 @@ std_msgs_generate_messages_lisp/fast:
 .PHONY : std_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
-assignments/CMakeFiles/_assignments_generate_messages_check_deps_ResolveConflict.dir/rule:
-	cd /home/abulanti/assign/build && $(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/_assignments_generate_messages_check_deps_ResolveConflict.dir/rule
-.PHONY : assignments/CMakeFiles/_assignments_generate_messages_check_deps_ResolveConflict.dir/rule
+assignments/CMakeFiles/assignments_gennodejs.dir/rule:
+	cd /home/abulanti/assign/build && $(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/assignments_gennodejs.dir/rule
+.PHONY : assignments/CMakeFiles/assignments_gennodejs.dir/rule
 
 # Convenience name for target.
-_assignments_generate_messages_check_deps_ResolveConflict: assignments/CMakeFiles/_assignments_generate_messages_check_deps_ResolveConflict.dir/rule
+assignments_gennodejs: assignments/CMakeFiles/assignments_gennodejs.dir/rule
 
-.PHONY : _assignments_generate_messages_check_deps_ResolveConflict
+.PHONY : assignments_gennodejs
 
 # fast build rule for target.
-_assignments_generate_messages_check_deps_ResolveConflict/fast:
-	cd /home/abulanti/assign/build && $(MAKE) -f assignments/CMakeFiles/_assignments_generate_messages_check_deps_ResolveConflict.dir/build.make assignments/CMakeFiles/_assignments_generate_messages_check_deps_ResolveConflict.dir/build
-.PHONY : _assignments_generate_messages_check_deps_ResolveConflict/fast
+assignments_gennodejs/fast:
+	cd /home/abulanti/assign/build && $(MAKE) -f assignments/CMakeFiles/assignments_gennodejs.dir/build.make assignments/CMakeFiles/assignments_gennodejs.dir/build
+.PHONY : assignments_gennodejs/fast
 
 # Convenience name for target.
 assignments/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule:
@@ -391,6 +346,36 @@ roscpp_generate_messages_cpp: assignments/CMakeFiles/roscpp_generate_messages_cp
 roscpp_generate_messages_cpp/fast:
 	cd /home/abulanti/assign/build && $(MAKE) -f assignments/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make assignments/CMakeFiles/roscpp_generate_messages_cpp.dir/build
 .PHONY : roscpp_generate_messages_cpp/fast
+
+# Convenience name for target.
+assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule:
+	cd /home/abulanti/assign/build && $(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
+.PHONY : assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+roscpp_generate_messages_nodejs: assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
+
+.PHONY : roscpp_generate_messages_nodejs
+
+# fast build rule for target.
+roscpp_generate_messages_nodejs/fast:
+	cd /home/abulanti/assign/build && $(MAKE) -f assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
+.PHONY : roscpp_generate_messages_nodejs/fast
+
+# Convenience name for target.
+assignments/CMakeFiles/_assignments_generate_messages_check_deps_Speaker.dir/rule:
+	cd /home/abulanti/assign/build && $(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/_assignments_generate_messages_check_deps_Speaker.dir/rule
+.PHONY : assignments/CMakeFiles/_assignments_generate_messages_check_deps_Speaker.dir/rule
+
+# Convenience name for target.
+_assignments_generate_messages_check_deps_Speaker: assignments/CMakeFiles/_assignments_generate_messages_check_deps_Speaker.dir/rule
+
+.PHONY : _assignments_generate_messages_check_deps_Speaker
+
+# fast build rule for target.
+_assignments_generate_messages_check_deps_Speaker/fast:
+	cd /home/abulanti/assign/build && $(MAKE) -f assignments/CMakeFiles/_assignments_generate_messages_check_deps_Speaker.dir/build.make assignments/CMakeFiles/_assignments_generate_messages_check_deps_Speaker.dir/build
+.PHONY : _assignments_generate_messages_check_deps_Speaker/fast
 
 # Convenience name for target.
 assignments/CMakeFiles/std_msgs_generate_messages_py.dir/rule:
@@ -483,141 +468,6 @@ assignments_genlisp/fast:
 .PHONY : assignments_genlisp/fast
 
 # Convenience name for target.
-assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule:
-	cd /home/abulanti/assign/build && $(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
-.PHONY : assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_eus: assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_eus
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_eus/fast:
-	cd /home/abulanti/assign/build && $(MAKE) -f assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
-.PHONY : rosgraph_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-assignments/CMakeFiles/_assignments_generate_messages_check_deps_InterpreterCommand.dir/rule:
-	cd /home/abulanti/assign/build && $(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/_assignments_generate_messages_check_deps_InterpreterCommand.dir/rule
-.PHONY : assignments/CMakeFiles/_assignments_generate_messages_check_deps_InterpreterCommand.dir/rule
-
-# Convenience name for target.
-_assignments_generate_messages_check_deps_InterpreterCommand: assignments/CMakeFiles/_assignments_generate_messages_check_deps_InterpreterCommand.dir/rule
-
-.PHONY : _assignments_generate_messages_check_deps_InterpreterCommand
-
-# fast build rule for target.
-_assignments_generate_messages_check_deps_InterpreterCommand/fast:
-	cd /home/abulanti/assign/build && $(MAKE) -f assignments/CMakeFiles/_assignments_generate_messages_check_deps_InterpreterCommand.dir/build.make assignments/CMakeFiles/_assignments_generate_messages_check_deps_InterpreterCommand.dir/build
-.PHONY : _assignments_generate_messages_check_deps_InterpreterCommand/fast
-
-# Convenience name for target.
-assignments/CMakeFiles/roscpp_generate_messages_eus.dir/rule:
-	cd /home/abulanti/assign/build && $(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-.PHONY : assignments/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_eus: assignments/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-
-.PHONY : roscpp_generate_messages_eus
-
-# fast build rule for target.
-roscpp_generate_messages_eus/fast:
-	cd /home/abulanti/assign/build && $(MAKE) -f assignments/CMakeFiles/roscpp_generate_messages_eus.dir/build.make assignments/CMakeFiles/roscpp_generate_messages_eus.dir/build
-.PHONY : roscpp_generate_messages_eus/fast
-
-# Convenience name for target.
-assignments/CMakeFiles/_assignments_generate_messages_check_deps_VictimReport.dir/rule:
-	cd /home/abulanti/assign/build && $(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/_assignments_generate_messages_check_deps_VictimReport.dir/rule
-.PHONY : assignments/CMakeFiles/_assignments_generate_messages_check_deps_VictimReport.dir/rule
-
-# Convenience name for target.
-_assignments_generate_messages_check_deps_VictimReport: assignments/CMakeFiles/_assignments_generate_messages_check_deps_VictimReport.dir/rule
-
-.PHONY : _assignments_generate_messages_check_deps_VictimReport
-
-# fast build rule for target.
-_assignments_generate_messages_check_deps_VictimReport/fast:
-	cd /home/abulanti/assign/build && $(MAKE) -f assignments/CMakeFiles/_assignments_generate_messages_check_deps_VictimReport.dir/build.make assignments/CMakeFiles/_assignments_generate_messages_check_deps_VictimReport.dir/build
-.PHONY : _assignments_generate_messages_check_deps_VictimReport/fast
-
-# Convenience name for target.
-assignments/CMakeFiles/assignments_generate_messages_eus.dir/rule:
-	cd /home/abulanti/assign/build && $(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/assignments_generate_messages_eus.dir/rule
-.PHONY : assignments/CMakeFiles/assignments_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-assignments_generate_messages_eus: assignments/CMakeFiles/assignments_generate_messages_eus.dir/rule
-
-.PHONY : assignments_generate_messages_eus
-
-# fast build rule for target.
-assignments_generate_messages_eus/fast:
-	cd /home/abulanti/assign/build && $(MAKE) -f assignments/CMakeFiles/assignments_generate_messages_eus.dir/build.make assignments/CMakeFiles/assignments_generate_messages_eus.dir/build
-.PHONY : assignments_generate_messages_eus/fast
-
-# Convenience name for target.
-assignments/CMakeFiles/_assignments_generate_messages_check_deps_Notifications.dir/rule:
-	cd /home/abulanti/assign/build && $(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/_assignments_generate_messages_check_deps_Notifications.dir/rule
-.PHONY : assignments/CMakeFiles/_assignments_generate_messages_check_deps_Notifications.dir/rule
-
-# Convenience name for target.
-_assignments_generate_messages_check_deps_Notifications: assignments/CMakeFiles/_assignments_generate_messages_check_deps_Notifications.dir/rule
-
-.PHONY : _assignments_generate_messages_check_deps_Notifications
-
-# fast build rule for target.
-_assignments_generate_messages_check_deps_Notifications/fast:
-	cd /home/abulanti/assign/build && $(MAKE) -f assignments/CMakeFiles/_assignments_generate_messages_check_deps_Notifications.dir/build.make assignments/CMakeFiles/_assignments_generate_messages_check_deps_Notifications.dir/build
-.PHONY : _assignments_generate_messages_check_deps_Notifications/fast
-
-# Convenience name for target.
-assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
-	cd /home/abulanti/assign/build && $(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-.PHONY : assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_cpp: assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : std_msgs_generate_messages_cpp
-
-# fast build rule for target.
-std_msgs_generate_messages_cpp/fast:
-	cd /home/abulanti/assign/build && $(MAKE) -f assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
-.PHONY : std_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-assignments/CMakeFiles/_assignments_generate_messages_check_deps_MissionStatus.dir/rule:
-	cd /home/abulanti/assign/build && $(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/_assignments_generate_messages_check_deps_MissionStatus.dir/rule
-.PHONY : assignments/CMakeFiles/_assignments_generate_messages_check_deps_MissionStatus.dir/rule
-
-# Convenience name for target.
-_assignments_generate_messages_check_deps_MissionStatus: assignments/CMakeFiles/_assignments_generate_messages_check_deps_MissionStatus.dir/rule
-
-.PHONY : _assignments_generate_messages_check_deps_MissionStatus
-
-# fast build rule for target.
-_assignments_generate_messages_check_deps_MissionStatus/fast:
-	cd /home/abulanti/assign/build && $(MAKE) -f assignments/CMakeFiles/_assignments_generate_messages_check_deps_MissionStatus.dir/build.make assignments/CMakeFiles/_assignments_generate_messages_check_deps_MissionStatus.dir/build
-.PHONY : _assignments_generate_messages_check_deps_MissionStatus/fast
-
-# Convenience name for target.
-assignments/CMakeFiles/_assignments_generate_messages_check_deps_RiskEvaluation.dir/rule:
-	cd /home/abulanti/assign/build && $(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/_assignments_generate_messages_check_deps_RiskEvaluation.dir/rule
-.PHONY : assignments/CMakeFiles/_assignments_generate_messages_check_deps_RiskEvaluation.dir/rule
-
-# Convenience name for target.
-_assignments_generate_messages_check_deps_RiskEvaluation: assignments/CMakeFiles/_assignments_generate_messages_check_deps_RiskEvaluation.dir/rule
-
-.PHONY : _assignments_generate_messages_check_deps_RiskEvaluation
-
-# fast build rule for target.
-_assignments_generate_messages_check_deps_RiskEvaluation/fast:
-	cd /home/abulanti/assign/build && $(MAKE) -f assignments/CMakeFiles/_assignments_generate_messages_check_deps_RiskEvaluation.dir/build.make assignments/CMakeFiles/_assignments_generate_messages_check_deps_RiskEvaluation.dir/build
-.PHONY : _assignments_generate_messages_check_deps_RiskEvaluation/fast
-
-# Convenience name for target.
 assignments/CMakeFiles/assignments_generate_messages_lisp.dir/rule:
 	cd /home/abulanti/assign/build && $(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/assignments_generate_messages_lisp.dir/rule
 .PHONY : assignments/CMakeFiles/assignments_generate_messages_lisp.dir/rule
@@ -662,52 +512,122 @@ assignments_generate_messages_cpp/fast:
 	cd /home/abulanti/assign/build && $(MAKE) -f assignments/CMakeFiles/assignments_generate_messages_cpp.dir/build.make assignments/CMakeFiles/assignments_generate_messages_cpp.dir/build
 .PHONY : assignments_generate_messages_cpp/fast
 
+# Convenience name for target.
+assignments/CMakeFiles/roscpp_generate_messages_eus.dir/rule:
+	cd /home/abulanti/assign/build && $(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/roscpp_generate_messages_eus.dir/rule
+.PHONY : assignments/CMakeFiles/roscpp_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+roscpp_generate_messages_eus: assignments/CMakeFiles/roscpp_generate_messages_eus.dir/rule
+
+.PHONY : roscpp_generate_messages_eus
+
+# fast build rule for target.
+roscpp_generate_messages_eus/fast:
+	cd /home/abulanti/assign/build && $(MAKE) -f assignments/CMakeFiles/roscpp_generate_messages_eus.dir/build.make assignments/CMakeFiles/roscpp_generate_messages_eus.dir/build
+.PHONY : roscpp_generate_messages_eus/fast
+
+# Convenience name for target.
+assignments/CMakeFiles/assignments_generate_messages_eus.dir/rule:
+	cd /home/abulanti/assign/build && $(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/assignments_generate_messages_eus.dir/rule
+.PHONY : assignments/CMakeFiles/assignments_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+assignments_generate_messages_eus: assignments/CMakeFiles/assignments_generate_messages_eus.dir/rule
+
+.PHONY : assignments_generate_messages_eus
+
+# fast build rule for target.
+assignments_generate_messages_eus/fast:
+	cd /home/abulanti/assign/build && $(MAKE) -f assignments/CMakeFiles/assignments_generate_messages_eus.dir/build.make assignments/CMakeFiles/assignments_generate_messages_eus.dir/build
+.PHONY : assignments_generate_messages_eus/fast
+
+# Convenience name for target.
+assignments/CMakeFiles/assignments_genpy.dir/rule:
+	cd /home/abulanti/assign/build && $(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/assignments_genpy.dir/rule
+.PHONY : assignments/CMakeFiles/assignments_genpy.dir/rule
+
+# Convenience name for target.
+assignments_genpy: assignments/CMakeFiles/assignments_genpy.dir/rule
+
+.PHONY : assignments_genpy
+
+# fast build rule for target.
+assignments_genpy/fast:
+	cd /home/abulanti/assign/build && $(MAKE) -f assignments/CMakeFiles/assignments_genpy.dir/build.make assignments/CMakeFiles/assignments_genpy.dir/build
+.PHONY : assignments_genpy/fast
+
+# Convenience name for target.
+assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/rule:
+	cd /home/abulanti/assign/build && $(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/rule
+.PHONY : assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+assignments_generate_messages_nodejs: assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/rule
+
+.PHONY : assignments_generate_messages_nodejs
+
+# fast build rule for target.
+assignments_generate_messages_nodejs/fast:
+	cd /home/abulanti/assign/build && $(MAKE) -f assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/build.make assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/build
+.PHONY : assignments_generate_messages_nodejs/fast
+
+# Convenience name for target.
+assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule:
+	cd /home/abulanti/assign/build && $(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+.PHONY : assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+rosgraph_msgs_generate_messages_cpp: assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : rosgraph_msgs_generate_messages_cpp
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_cpp/fast:
+	cd /home/abulanti/assign/build && $(MAKE) -f assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
+.PHONY : rosgraph_msgs_generate_messages_cpp/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... install/strip"
 	@echo "... install"
 	@echo "... list_install_components"
 	@echo "... edit_cache"
-	@echo "... assignments_generate_messages_py"
-	@echo "... assignments_gennodejs"
-	@echo "... assignments_genpy"
-	@echo "... assignments_generate_messages_nodejs"
 	@echo "... rosgraph_msgs_generate_messages_py"
 	@echo "... roscpp_generate_messages_lisp"
-	@echo "... test"
-	@echo "... rosgraph_msgs_generate_messages_cpp"
-	@echo "... roscpp_generate_messages_nodejs"
+	@echo "... install/local"
+	@echo "... rosgraph_msgs_generate_messages_eus"
+	@echo "... std_msgs_generate_messages_cpp"
 	@echo "... std_msgs_generate_messages_eus"
 	@echo "... assignments_gencpp"
+	@echo "... assignments_generate_messages_py"
 	@echo "... roscpp_generate_messages_py"
 	@echo "... std_msgs_generate_messages_lisp"
-	@echo "... _assignments_generate_messages_check_deps_ResolveConflict"
+	@echo "... assignments_gennodejs"
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
 	@echo "... roscpp_generate_messages_cpp"
+	@echo "... roscpp_generate_messages_nodejs"
+	@echo "... _assignments_generate_messages_check_deps_Speaker"
 	@echo "... std_msgs_generate_messages_py"
 	@echo "... assignments_generate_messages"
 	@echo "... assignments_geneus"
 	@echo "... _assignments_generate_messages_check_deps_CheckJointState"
 	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... assignments_genlisp"
-	@echo "... install/local"
-	@echo "... rosgraph_msgs_generate_messages_eus"
-	@echo "... _assignments_generate_messages_check_deps_InterpreterCommand"
-	@echo "... rebuild_cache"
-	@echo "... roscpp_generate_messages_eus"
-	@echo "... _assignments_generate_messages_check_deps_VictimReport"
-	@echo "... assignments_generate_messages_eus"
-	@echo "... install/strip"
-	@echo "... _assignments_generate_messages_check_deps_Notifications"
-	@echo "... std_msgs_generate_messages_cpp"
-	@echo "... _assignments_generate_messages_check_deps_MissionStatus"
-	@echo "... _assignments_generate_messages_check_deps_RiskEvaluation"
 	@echo "... assignments_generate_messages_lisp"
 	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... assignments_generate_messages_cpp"
+	@echo "... rebuild_cache"
+	@echo "... roscpp_generate_messages_eus"
+	@echo "... assignments_generate_messages_eus"
+	@echo "... assignments_genpy"
+	@echo "... assignments_generate_messages_nodejs"
+	@echo "... rosgraph_msgs_generate_messages_cpp"
+	@echo "... test"
 .PHONY : help
 
 

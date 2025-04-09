@@ -7,6 +7,7 @@ let Notifications = require('./Notifications.js')
 let VictimReport = require('./VictimReport.js')
 let InterpreterCommand = require('./InterpreterCommand.js')
 let ResolveConflict = require('./ResolveConflict.js')
+let Speaker = require('./Speaker.js')
 let RiskEvaluation = require('./RiskEvaluation.js')
 
 module.exports = {
@@ -16,5 +17,6 @@ module.exports = {
   VictimReport: VictimReport,
   InterpreterCommand: InterpreterCommand,
   ResolveConflict: ResolveConflict,
+  Speaker: Speaker,
   RiskEvaluation: RiskEvaluation,
 };

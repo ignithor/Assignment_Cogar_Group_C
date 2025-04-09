@@ -1,2 +1,2 @@
 set(assignments_MESSAGE_FILES "")
-set(assignments_SERVICE_FILES "/home/abulanti/assign/src/assignments/srv/CheckJointState.srv;/home/abulanti/assign/src/assignments/srv/InterpreterCommand.srv;/home/abulanti/assign/src/assignments/srv/MissionStatus.srv;/home/abulanti/assign/src/assignments/srv/Notifications.srv;/home/abulanti/assign/src/assignments/srv/ResolveConflict.srv;/home/abulanti/assign/src/assignments/srv/RiskEvaluation.srv;/home/abulanti/assign/src/assignments/srv/VictimReport.srv")
+set(assignments_SERVICE_FILES "/home/abulanti/assign/src/assignments/srv/CheckJointState.srv;/home/abulanti/assign/src/assignments/srv/Speaker.srv")

@@ -7,7 +7,4 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/abulanti/assign/devel:$CMAKE_PREFIX_PATH"
 export PWD='/home/abulanti/assign/build'
-export ROSLISP_PACKAGE_DIRECTORIES='/home/abulanti/assign/devel/share/common-lisp'
-export ROS_PACKAGE_PATH="/home/abulanti/assign/src:$ROS_PACKAGE_PATH"

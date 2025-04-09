@@ -54,12 +54,7 @@ CMAKE_BINARY_DIR = /home/abulanti/assign/build
 include assignments/CMakeFiles/assignments_generate_messages_lisp.dir/progress.make
 
 assignments/CMakeFiles/assignments_generate_messages_lisp: /home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/CheckJointState.lisp
-assignments/CMakeFiles/assignments_generate_messages_lisp: /home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/InterpreterCommand.lisp
-assignments/CMakeFiles/assignments_generate_messages_lisp: /home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/MissionStatus.lisp
-assignments/CMakeFiles/assignments_generate_messages_lisp: /home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/Notifications.lisp
-assignments/CMakeFiles/assignments_generate_messages_lisp: /home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/ResolveConflict.lisp
-assignments/CMakeFiles/assignments_generate_messages_lisp: /home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/RiskEvaluation.lisp
-assignments/CMakeFiles/assignments_generate_messages_lisp: /home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/VictimReport.lisp
+assignments/CMakeFiles/assignments_generate_messages_lisp: /home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/Speaker.lisp
 
 
 /home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/CheckJointState.lisp: /opt/ros/noetic/lib/genlisp/gen_lisp.py
@@ -67,44 +62,14 @@ assignments/CMakeFiles/assignments_generate_messages_lisp: /home/abulanti/assign
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Lisp code from assignments/CheckJointState.srv"
 	cd /home/abulanti/assign/build/assignments && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/abulanti/assign/src/assignments/srv/CheckJointState.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv
 
-/home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/InterpreterCommand.lisp: /opt/ros/noetic/lib/genlisp/gen_lisp.py
-/home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/InterpreterCommand.lisp: /home/abulanti/assign/src/assignments/srv/InterpreterCommand.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Lisp code from assignments/InterpreterCommand.srv"
-	cd /home/abulanti/assign/build/assignments && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/abulanti/assign/src/assignments/srv/InterpreterCommand.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv
-
-/home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/MissionStatus.lisp: /opt/ros/noetic/lib/genlisp/gen_lisp.py
-/home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/MissionStatus.lisp: /home/abulanti/assign/src/assignments/srv/MissionStatus.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Lisp code from assignments/MissionStatus.srv"
-	cd /home/abulanti/assign/build/assignments && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/abulanti/assign/src/assignments/srv/MissionStatus.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv
-
-/home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/Notifications.lisp: /opt/ros/noetic/lib/genlisp/gen_lisp.py
-/home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/Notifications.lisp: /home/abulanti/assign/src/assignments/srv/Notifications.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Lisp code from assignments/Notifications.srv"
-	cd /home/abulanti/assign/build/assignments && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/abulanti/assign/src/assignments/srv/Notifications.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv
-
-/home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/ResolveConflict.lisp: /opt/ros/noetic/lib/genlisp/gen_lisp.py
-/home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/ResolveConflict.lisp: /home/abulanti/assign/src/assignments/srv/ResolveConflict.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Lisp code from assignments/ResolveConflict.srv"
-	cd /home/abulanti/assign/build/assignments && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/abulanti/assign/src/assignments/srv/ResolveConflict.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv
-
-/home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/RiskEvaluation.lisp: /opt/ros/noetic/lib/genlisp/gen_lisp.py
-/home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/RiskEvaluation.lisp: /home/abulanti/assign/src/assignments/srv/RiskEvaluation.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Lisp code from assignments/RiskEvaluation.srv"
-	cd /home/abulanti/assign/build/assignments && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/abulanti/assign/src/assignments/srv/RiskEvaluation.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv
-
-/home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/VictimReport.lisp: /opt/ros/noetic/lib/genlisp/gen_lisp.py
-/home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/VictimReport.lisp: /home/abulanti/assign/src/assignments/srv/VictimReport.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating Lisp code from assignments/VictimReport.srv"
-	cd /home/abulanti/assign/build/assignments && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/abulanti/assign/src/assignments/srv/VictimReport.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv
+/home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/Speaker.lisp: /opt/ros/noetic/lib/genlisp/gen_lisp.py
+/home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/Speaker.lisp: /home/abulanti/assign/src/assignments/srv/Speaker.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Lisp code from assignments/Speaker.srv"
+	cd /home/abulanti/assign/build/assignments && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/abulanti/assign/src/assignments/srv/Speaker.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv
 
 assignments_generate_messages_lisp: assignments/CMakeFiles/assignments_generate_messages_lisp
 assignments_generate_messages_lisp: /home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/CheckJointState.lisp
-assignments_generate_messages_lisp: /home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/InterpreterCommand.lisp
-assignments_generate_messages_lisp: /home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/MissionStatus.lisp
-assignments_generate_messages_lisp: /home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/Notifications.lisp
-assignments_generate_messages_lisp: /home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/ResolveConflict.lisp
-assignments_generate_messages_lisp: /home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/RiskEvaluation.lisp
-assignments_generate_messages_lisp: /home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/VictimReport.lisp
+assignments_generate_messages_lisp: /home/abulanti/assign/devel/share/common-lisp/ros/assignments/srv/Speaker.lisp
 assignments_generate_messages_lisp: assignments/CMakeFiles/assignments_generate_messages_lisp.dir/build.make
 
 .PHONY : assignments_generate_messages_lisp

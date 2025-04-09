@@ -58,12 +58,7 @@ find_package(catkin REQUIRED COMPONENTS
 add_service_files(
   FILES
   CheckJointState.srv
-  InterpreterCommand.srv
-  MissionStatus.srv
-  Notifications.srv
-  ResolveConflict.srv
-  RiskEvaluation.srv
-  VictimReport.srv
+  Speaker.srv
 )
 
 ## Generate actions in the 'action' folder

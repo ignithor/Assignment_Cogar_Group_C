@@ -16,6 +16,8 @@
     (:file "_package_ResolveConflict" :depends-on ("_package"))
     (:file "RiskEvaluation" :depends-on ("_package_RiskEvaluation"))
     (:file "_package_RiskEvaluation" :depends-on ("_package"))
+    (:file "Speaker" :depends-on ("_package_Speaker"))
+    (:file "_package_Speaker" :depends-on ("_package"))
     (:file "VictimReport" :depends-on ("_package_VictimReport"))
     (:file "_package_VictimReport" :depends-on ("_package"))
   ))

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import rospy
 from assignments.srv import CheckJointState, CheckJointStateResponse
-
+import random
 
 expected_joint_count = 7
 
@@ -10,6 +10,12 @@ def check_joint_state(req):
     Service callback that checks the dimensions of the provided JointState request.
     """
     rospy.loginfo("Received joint state for comparison.")
+    num = random.randint(1, 100)
+    
+    if(num < 20):
+        rospy.loginfo("Pose unreachable")
+        rospy.sleep(5)
+        return CheckJointStateResponse(False)
 
     # Check if the dimensions of positions, velocities, and efforts match the expected joint count
     if len(req.positions) == expected_joint_count and \

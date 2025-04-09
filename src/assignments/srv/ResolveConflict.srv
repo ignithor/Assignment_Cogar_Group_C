@@ -1,8 +1,0 @@
-# Request
-string user_command
-string planned_action
-
----
-# Response
-bool success
-string action_taken

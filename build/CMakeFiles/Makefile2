@@ -89,39 +89,34 @@ assignments/preinstall:
 .PHONY : assignments/preinstall
 
 # Recursive "clean" directory target.
-assignments/clean: assignments/CMakeFiles/assignments_generate_messages_py.dir/clean
-assignments/clean: assignments/CMakeFiles/assignments_gennodejs.dir/clean
-assignments/clean: assignments/CMakeFiles/assignments_genpy.dir/clean
-assignments/clean: assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/clean
 assignments/clean: assignments/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
 assignments/clean: assignments/CMakeFiles/roscpp_generate_messages_lisp.dir/clean
-assignments/clean: assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean
-assignments/clean: assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/clean
+assignments/clean: assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/clean
+assignments/clean: assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
 assignments/clean: assignments/CMakeFiles/std_msgs_generate_messages_eus.dir/clean
 assignments/clean: assignments/CMakeFiles/assignments_gencpp.dir/clean
+assignments/clean: assignments/CMakeFiles/assignments_generate_messages_py.dir/clean
 assignments/clean: assignments/CMakeFiles/roscpp_generate_messages_py.dir/clean
 assignments/clean: assignments/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
-assignments/clean: assignments/CMakeFiles/_assignments_generate_messages_check_deps_ResolveConflict.dir/clean
+assignments/clean: assignments/CMakeFiles/assignments_gennodejs.dir/clean
 assignments/clean: assignments/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/clean
 assignments/clean: assignments/CMakeFiles/roscpp_generate_messages_cpp.dir/clean
+assignments/clean: assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/clean
+assignments/clean: assignments/CMakeFiles/_assignments_generate_messages_check_deps_Speaker.dir/clean
 assignments/clean: assignments/CMakeFiles/std_msgs_generate_messages_py.dir/clean
 assignments/clean: assignments/CMakeFiles/assignments_generate_messages.dir/clean
 assignments/clean: assignments/CMakeFiles/assignments_geneus.dir/clean
 assignments/clean: assignments/CMakeFiles/_assignments_generate_messages_check_deps_CheckJointState.dir/clean
 assignments/clean: assignments/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean
 assignments/clean: assignments/CMakeFiles/assignments_genlisp.dir/clean
-assignments/clean: assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/clean
-assignments/clean: assignments/CMakeFiles/_assignments_generate_messages_check_deps_InterpreterCommand.dir/clean
-assignments/clean: assignments/CMakeFiles/roscpp_generate_messages_eus.dir/clean
-assignments/clean: assignments/CMakeFiles/_assignments_generate_messages_check_deps_VictimReport.dir/clean
-assignments/clean: assignments/CMakeFiles/assignments_generate_messages_eus.dir/clean
-assignments/clean: assignments/CMakeFiles/_assignments_generate_messages_check_deps_Notifications.dir/clean
-assignments/clean: assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
-assignments/clean: assignments/CMakeFiles/_assignments_generate_messages_check_deps_MissionStatus.dir/clean
-assignments/clean: assignments/CMakeFiles/_assignments_generate_messages_check_deps_RiskEvaluation.dir/clean
 assignments/clean: assignments/CMakeFiles/assignments_generate_messages_lisp.dir/clean
 assignments/clean: assignments/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean
 assignments/clean: assignments/CMakeFiles/assignments_generate_messages_cpp.dir/clean
+assignments/clean: assignments/CMakeFiles/roscpp_generate_messages_eus.dir/clean
+assignments/clean: assignments/CMakeFiles/assignments_generate_messages_eus.dir/clean
+assignments/clean: assignments/CMakeFiles/assignments_genpy.dir/clean
+assignments/clean: assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/clean
+assignments/clean: assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean
 
 .PHONY : assignments/clean
 
@@ -325,7 +320,7 @@ gtest/googlemock/CMakeFiles/gmock_main.dir/all: gtest/googlemock/CMakeFiles/gmoc
 gtest/googlemock/CMakeFiles/gmock_main.dir/all: gtest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock_main.dir/build.make gtest/googlemock/CMakeFiles/gmock_main.dir/depend
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock_main.dir/build.make gtest/googlemock/CMakeFiles/gmock_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=40,41 "Built target gmock_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=15,16 "Built target gmock_main"
 .PHONY : gtest/googlemock/CMakeFiles/gmock_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -352,7 +347,7 @@ gtest/googlemock/CMakeFiles/gmock_main.dir/clean:
 gtest/googlemock/CMakeFiles/gmock.dir/all: gtest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock.dir/build.make gtest/googlemock/CMakeFiles/gmock.dir/depend
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock.dir/build.make gtest/googlemock/CMakeFiles/gmock.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=38,39 "Built target gmock"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=13,14 "Built target gmock"
 .PHONY : gtest/googlemock/CMakeFiles/gmock.dir/all
 
 # Build rule for subdir invocation for target.
@@ -379,7 +374,7 @@ gtest/googlemock/CMakeFiles/gmock.dir/clean:
 gtest/googletest/CMakeFiles/gtest_main.dir/all: gtest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest_main.dir/build.make gtest/googletest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest_main.dir/build.make gtest/googletest/CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=44,45 "Built target gtest_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=19,20 "Built target gtest_main"
 .PHONY : gtest/googletest/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -406,7 +401,7 @@ gtest/googletest/CMakeFiles/gtest_main.dir/clean:
 gtest/googletest/CMakeFiles/gtest.dir/all:
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest.dir/build.make gtest/googletest/CMakeFiles/gtest.dir/depend
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest.dir/build.make gtest/googletest/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=42,43 "Built target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=17,18 "Built target gtest"
 .PHONY : gtest/googletest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.
@@ -425,128 +420,6 @@ gtest: gtest/googletest/CMakeFiles/gtest.dir/rule
 gtest/googletest/CMakeFiles/gtest.dir/clean:
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest.dir/build.make gtest/googletest/CMakeFiles/gtest.dir/clean
 .PHONY : gtest/googletest/CMakeFiles/gtest.dir/clean
-
-#=============================================================================
-# Target rules for target assignments/CMakeFiles/assignments_generate_messages_py.dir
-
-# All Build rule for target.
-assignments/CMakeFiles/assignments_generate_messages_py.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_ResolveConflict.dir/all
-assignments/CMakeFiles/assignments_generate_messages_py.dir/all: assignments/CMakeFiles/std_msgs_generate_messages_py.dir/all
-assignments/CMakeFiles/assignments_generate_messages_py.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_CheckJointState.dir/all
-assignments/CMakeFiles/assignments_generate_messages_py.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_InterpreterCommand.dir/all
-assignments/CMakeFiles/assignments_generate_messages_py.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_VictimReport.dir/all
-assignments/CMakeFiles/assignments_generate_messages_py.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_Notifications.dir/all
-assignments/CMakeFiles/assignments_generate_messages_py.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_MissionStatus.dir/all
-assignments/CMakeFiles/assignments_generate_messages_py.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_RiskEvaluation.dir/all
-	$(MAKE) -f assignments/CMakeFiles/assignments_generate_messages_py.dir/build.make assignments/CMakeFiles/assignments_generate_messages_py.dir/depend
-	$(MAKE) -f assignments/CMakeFiles/assignments_generate_messages_py.dir/build.make assignments/CMakeFiles/assignments_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=30,31,32,33,34,35,36,37 "Built target assignments_generate_messages_py"
-.PHONY : assignments/CMakeFiles/assignments_generate_messages_py.dir/all
-
-# Build rule for subdir invocation for target.
-assignments/CMakeFiles/assignments_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 8
-	$(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/assignments_generate_messages_py.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
-.PHONY : assignments/CMakeFiles/assignments_generate_messages_py.dir/rule
-
-# Convenience name for target.
-assignments_generate_messages_py: assignments/CMakeFiles/assignments_generate_messages_py.dir/rule
-
-.PHONY : assignments_generate_messages_py
-
-# clean rule for target.
-assignments/CMakeFiles/assignments_generate_messages_py.dir/clean:
-	$(MAKE) -f assignments/CMakeFiles/assignments_generate_messages_py.dir/build.make assignments/CMakeFiles/assignments_generate_messages_py.dir/clean
-.PHONY : assignments/CMakeFiles/assignments_generate_messages_py.dir/clean
-
-#=============================================================================
-# Target rules for target assignments/CMakeFiles/assignments_gennodejs.dir
-
-# All Build rule for target.
-assignments/CMakeFiles/assignments_gennodejs.dir/all: assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/all
-	$(MAKE) -f assignments/CMakeFiles/assignments_gennodejs.dir/build.make assignments/CMakeFiles/assignments_gennodejs.dir/depend
-	$(MAKE) -f assignments/CMakeFiles/assignments_gennodejs.dir/build.make assignments/CMakeFiles/assignments_gennodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num= "Built target assignments_gennodejs"
-.PHONY : assignments/CMakeFiles/assignments_gennodejs.dir/all
-
-# Build rule for subdir invocation for target.
-assignments/CMakeFiles/assignments_gennodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 7
-	$(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/assignments_gennodejs.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
-.PHONY : assignments/CMakeFiles/assignments_gennodejs.dir/rule
-
-# Convenience name for target.
-assignments_gennodejs: assignments/CMakeFiles/assignments_gennodejs.dir/rule
-
-.PHONY : assignments_gennodejs
-
-# clean rule for target.
-assignments/CMakeFiles/assignments_gennodejs.dir/clean:
-	$(MAKE) -f assignments/CMakeFiles/assignments_gennodejs.dir/build.make assignments/CMakeFiles/assignments_gennodejs.dir/clean
-.PHONY : assignments/CMakeFiles/assignments_gennodejs.dir/clean
-
-#=============================================================================
-# Target rules for target assignments/CMakeFiles/assignments_genpy.dir
-
-# All Build rule for target.
-assignments/CMakeFiles/assignments_genpy.dir/all: assignments/CMakeFiles/assignments_generate_messages_py.dir/all
-	$(MAKE) -f assignments/CMakeFiles/assignments_genpy.dir/build.make assignments/CMakeFiles/assignments_genpy.dir/depend
-	$(MAKE) -f assignments/CMakeFiles/assignments_genpy.dir/build.make assignments/CMakeFiles/assignments_genpy.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num= "Built target assignments_genpy"
-.PHONY : assignments/CMakeFiles/assignments_genpy.dir/all
-
-# Build rule for subdir invocation for target.
-assignments/CMakeFiles/assignments_genpy.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 8
-	$(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/assignments_genpy.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
-.PHONY : assignments/CMakeFiles/assignments_genpy.dir/rule
-
-# Convenience name for target.
-assignments_genpy: assignments/CMakeFiles/assignments_genpy.dir/rule
-
-.PHONY : assignments_genpy
-
-# clean rule for target.
-assignments/CMakeFiles/assignments_genpy.dir/clean:
-	$(MAKE) -f assignments/CMakeFiles/assignments_genpy.dir/build.make assignments/CMakeFiles/assignments_genpy.dir/clean
-.PHONY : assignments/CMakeFiles/assignments_genpy.dir/clean
-
-#=============================================================================
-# Target rules for target assignments/CMakeFiles/assignments_generate_messages_nodejs.dir
-
-# All Build rule for target.
-assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_ResolveConflict.dir/all
-assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_CheckJointState.dir/all
-assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_InterpreterCommand.dir/all
-assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_VictimReport.dir/all
-assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_Notifications.dir/all
-assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_MissionStatus.dir/all
-assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_RiskEvaluation.dir/all
-assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/all: assignments/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
-	$(MAKE) -f assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/build.make assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/depend
-	$(MAKE) -f assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/build.make assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=23,24,25,26,27,28,29 "Built target assignments_generate_messages_nodejs"
-.PHONY : assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/all
-
-# Build rule for subdir invocation for target.
-assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 7
-	$(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
-.PHONY : assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-assignments_generate_messages_nodejs: assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/rule
-
-.PHONY : assignments_generate_messages_nodejs
-
-# clean rule for target.
-assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/clean:
-	$(MAKE) -f assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/build.make assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/clean
-.PHONY : assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/clean
 
 #=============================================================================
 # Target rules for target assignments/CMakeFiles/rosgraph_msgs_generate_messages_py.dir
@@ -603,58 +476,58 @@ assignments/CMakeFiles/roscpp_generate_messages_lisp.dir/clean:
 .PHONY : assignments/CMakeFiles/roscpp_generate_messages_lisp.dir/clean
 
 #=============================================================================
-# Target rules for target assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir
+# Target rules for target assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir
 
 # All Build rule for target.
-assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all:
-	$(MAKE) -f assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/depend
-	$(MAKE) -f assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num= "Built target rosgraph_msgs_generate_messages_cpp"
-.PHONY : assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
+assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all:
+	$(MAKE) -f assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/depend
+	$(MAKE) -f assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num= "Built target rosgraph_msgs_generate_messages_eus"
+.PHONY : assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
-assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
+assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
-.PHONY : assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+.PHONY : assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-rosgraph_msgs_generate_messages_cpp: assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+rosgraph_msgs_generate_messages_eus: assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
 
-.PHONY : rosgraph_msgs_generate_messages_cpp
+.PHONY : rosgraph_msgs_generate_messages_eus
 
 # clean rule for target.
-assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean:
-	$(MAKE) -f assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean
-.PHONY : assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean
+assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/clean:
+	$(MAKE) -f assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/clean
+.PHONY : assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/clean
 
 #=============================================================================
-# Target rules for target assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir
+# Target rules for target assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir
 
 # All Build rule for target.
-assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/all:
-	$(MAKE) -f assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/depend
-	$(MAKE) -f assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num= "Built target roscpp_generate_messages_nodejs"
-.PHONY : assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/all
+assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/all:
+	$(MAKE) -f assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/depend
+	$(MAKE) -f assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num= "Built target std_msgs_generate_messages_cpp"
+.PHONY : assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
-assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule: cmake_check_build_system
+assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
-.PHONY : assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
+.PHONY : assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
-roscpp_generate_messages_nodejs: assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
+std_msgs_generate_messages_cpp: assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
 
-.PHONY : roscpp_generate_messages_nodejs
+.PHONY : std_msgs_generate_messages_cpp
 
 # clean rule for target.
-assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/clean:
-	$(MAKE) -f assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/clean
-.PHONY : assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/clean
+assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean:
+	$(MAKE) -f assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
+.PHONY : assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
 
 #=============================================================================
 # Target rules for target assignments/CMakeFiles/std_msgs_generate_messages_eus.dir
@@ -695,7 +568,7 @@ assignments/CMakeFiles/assignments_gencpp.dir/all: assignments/CMakeFiles/assign
 
 # Build rule for subdir invocation for target.
 assignments/CMakeFiles/assignments_gencpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/assignments_gencpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
 .PHONY : assignments/CMakeFiles/assignments_gencpp.dir/rule
@@ -709,6 +582,35 @@ assignments_gencpp: assignments/CMakeFiles/assignments_gencpp.dir/rule
 assignments/CMakeFiles/assignments_gencpp.dir/clean:
 	$(MAKE) -f assignments/CMakeFiles/assignments_gencpp.dir/build.make assignments/CMakeFiles/assignments_gencpp.dir/clean
 .PHONY : assignments/CMakeFiles/assignments_gencpp.dir/clean
+
+#=============================================================================
+# Target rules for target assignments/CMakeFiles/assignments_generate_messages_py.dir
+
+# All Build rule for target.
+assignments/CMakeFiles/assignments_generate_messages_py.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_Speaker.dir/all
+assignments/CMakeFiles/assignments_generate_messages_py.dir/all: assignments/CMakeFiles/std_msgs_generate_messages_py.dir/all
+assignments/CMakeFiles/assignments_generate_messages_py.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_CheckJointState.dir/all
+	$(MAKE) -f assignments/CMakeFiles/assignments_generate_messages_py.dir/build.make assignments/CMakeFiles/assignments_generate_messages_py.dir/depend
+	$(MAKE) -f assignments/CMakeFiles/assignments_generate_messages_py.dir/build.make assignments/CMakeFiles/assignments_generate_messages_py.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=10,11,12 "Built target assignments_generate_messages_py"
+.PHONY : assignments/CMakeFiles/assignments_generate_messages_py.dir/all
+
+# Build rule for subdir invocation for target.
+assignments/CMakeFiles/assignments_generate_messages_py.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 3
+	$(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/assignments_generate_messages_py.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
+.PHONY : assignments/CMakeFiles/assignments_generate_messages_py.dir/rule
+
+# Convenience name for target.
+assignments_generate_messages_py: assignments/CMakeFiles/assignments_generate_messages_py.dir/rule
+
+.PHONY : assignments_generate_messages_py
+
+# clean rule for target.
+assignments/CMakeFiles/assignments_generate_messages_py.dir/clean:
+	$(MAKE) -f assignments/CMakeFiles/assignments_generate_messages_py.dir/build.make assignments/CMakeFiles/assignments_generate_messages_py.dir/clean
+.PHONY : assignments/CMakeFiles/assignments_generate_messages_py.dir/clean
 
 #=============================================================================
 # Target rules for target assignments/CMakeFiles/roscpp_generate_messages_py.dir
@@ -765,31 +667,31 @@ assignments/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean:
 .PHONY : assignments/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
 
 #=============================================================================
-# Target rules for target assignments/CMakeFiles/_assignments_generate_messages_check_deps_ResolveConflict.dir
+# Target rules for target assignments/CMakeFiles/assignments_gennodejs.dir
 
 # All Build rule for target.
-assignments/CMakeFiles/_assignments_generate_messages_check_deps_ResolveConflict.dir/all:
-	$(MAKE) -f assignments/CMakeFiles/_assignments_generate_messages_check_deps_ResolveConflict.dir/build.make assignments/CMakeFiles/_assignments_generate_messages_check_deps_ResolveConflict.dir/depend
-	$(MAKE) -f assignments/CMakeFiles/_assignments_generate_messages_check_deps_ResolveConflict.dir/build.make assignments/CMakeFiles/_assignments_generate_messages_check_deps_ResolveConflict.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num= "Built target _assignments_generate_messages_check_deps_ResolveConflict"
-.PHONY : assignments/CMakeFiles/_assignments_generate_messages_check_deps_ResolveConflict.dir/all
+assignments/CMakeFiles/assignments_gennodejs.dir/all: assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/all
+	$(MAKE) -f assignments/CMakeFiles/assignments_gennodejs.dir/build.make assignments/CMakeFiles/assignments_gennodejs.dir/depend
+	$(MAKE) -f assignments/CMakeFiles/assignments_gennodejs.dir/build.make assignments/CMakeFiles/assignments_gennodejs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num= "Built target assignments_gennodejs"
+.PHONY : assignments/CMakeFiles/assignments_gennodejs.dir/all
 
 # Build rule for subdir invocation for target.
-assignments/CMakeFiles/_assignments_generate_messages_check_deps_ResolveConflict.dir/rule: cmake_check_build_system
+assignments/CMakeFiles/assignments_gennodejs.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/assignments_gennodejs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/_assignments_generate_messages_check_deps_ResolveConflict.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
-.PHONY : assignments/CMakeFiles/_assignments_generate_messages_check_deps_ResolveConflict.dir/rule
+.PHONY : assignments/CMakeFiles/assignments_gennodejs.dir/rule
 
 # Convenience name for target.
-_assignments_generate_messages_check_deps_ResolveConflict: assignments/CMakeFiles/_assignments_generate_messages_check_deps_ResolveConflict.dir/rule
+assignments_gennodejs: assignments/CMakeFiles/assignments_gennodejs.dir/rule
 
-.PHONY : _assignments_generate_messages_check_deps_ResolveConflict
+.PHONY : assignments_gennodejs
 
 # clean rule for target.
-assignments/CMakeFiles/_assignments_generate_messages_check_deps_ResolveConflict.dir/clean:
-	$(MAKE) -f assignments/CMakeFiles/_assignments_generate_messages_check_deps_ResolveConflict.dir/build.make assignments/CMakeFiles/_assignments_generate_messages_check_deps_ResolveConflict.dir/clean
-.PHONY : assignments/CMakeFiles/_assignments_generate_messages_check_deps_ResolveConflict.dir/clean
+assignments/CMakeFiles/assignments_gennodejs.dir/clean:
+	$(MAKE) -f assignments/CMakeFiles/assignments_gennodejs.dir/build.make assignments/CMakeFiles/assignments_gennodejs.dir/clean
+.PHONY : assignments/CMakeFiles/assignments_gennodejs.dir/clean
 
 #=============================================================================
 # Target rules for target assignments/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir
@@ -846,6 +748,60 @@ assignments/CMakeFiles/roscpp_generate_messages_cpp.dir/clean:
 .PHONY : assignments/CMakeFiles/roscpp_generate_messages_cpp.dir/clean
 
 #=============================================================================
+# Target rules for target assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir
+
+# All Build rule for target.
+assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/all:
+	$(MAKE) -f assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/depend
+	$(MAKE) -f assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num= "Built target roscpp_generate_messages_nodejs"
+.PHONY : assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/all
+
+# Build rule for subdir invocation for target.
+assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
+.PHONY : assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+roscpp_generate_messages_nodejs: assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
+
+.PHONY : roscpp_generate_messages_nodejs
+
+# clean rule for target.
+assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/clean:
+	$(MAKE) -f assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/clean
+.PHONY : assignments/CMakeFiles/roscpp_generate_messages_nodejs.dir/clean
+
+#=============================================================================
+# Target rules for target assignments/CMakeFiles/_assignments_generate_messages_check_deps_Speaker.dir
+
+# All Build rule for target.
+assignments/CMakeFiles/_assignments_generate_messages_check_deps_Speaker.dir/all:
+	$(MAKE) -f assignments/CMakeFiles/_assignments_generate_messages_check_deps_Speaker.dir/build.make assignments/CMakeFiles/_assignments_generate_messages_check_deps_Speaker.dir/depend
+	$(MAKE) -f assignments/CMakeFiles/_assignments_generate_messages_check_deps_Speaker.dir/build.make assignments/CMakeFiles/_assignments_generate_messages_check_deps_Speaker.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num= "Built target _assignments_generate_messages_check_deps_Speaker"
+.PHONY : assignments/CMakeFiles/_assignments_generate_messages_check_deps_Speaker.dir/all
+
+# Build rule for subdir invocation for target.
+assignments/CMakeFiles/_assignments_generate_messages_check_deps_Speaker.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/_assignments_generate_messages_check_deps_Speaker.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
+.PHONY : assignments/CMakeFiles/_assignments_generate_messages_check_deps_Speaker.dir/rule
+
+# Convenience name for target.
+_assignments_generate_messages_check_deps_Speaker: assignments/CMakeFiles/_assignments_generate_messages_check_deps_Speaker.dir/rule
+
+.PHONY : _assignments_generate_messages_check_deps_Speaker
+
+# clean rule for target.
+assignments/CMakeFiles/_assignments_generate_messages_check_deps_Speaker.dir/clean:
+	$(MAKE) -f assignments/CMakeFiles/_assignments_generate_messages_check_deps_Speaker.dir/build.make assignments/CMakeFiles/_assignments_generate_messages_check_deps_Speaker.dir/clean
+.PHONY : assignments/CMakeFiles/_assignments_generate_messages_check_deps_Speaker.dir/clean
+
+#=============================================================================
 # Target rules for target assignments/CMakeFiles/std_msgs_generate_messages_py.dir
 
 # All Build rule for target.
@@ -877,10 +833,10 @@ assignments/CMakeFiles/std_msgs_generate_messages_py.dir/clean:
 
 # All Build rule for target.
 assignments/CMakeFiles/assignments_generate_messages.dir/all: assignments/CMakeFiles/assignments_generate_messages_py.dir/all
-assignments/CMakeFiles/assignments_generate_messages.dir/all: assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/all
-assignments/CMakeFiles/assignments_generate_messages.dir/all: assignments/CMakeFiles/assignments_generate_messages_eus.dir/all
 assignments/CMakeFiles/assignments_generate_messages.dir/all: assignments/CMakeFiles/assignments_generate_messages_lisp.dir/all
 assignments/CMakeFiles/assignments_generate_messages.dir/all: assignments/CMakeFiles/assignments_generate_messages_cpp.dir/all
+assignments/CMakeFiles/assignments_generate_messages.dir/all: assignments/CMakeFiles/assignments_generate_messages_eus.dir/all
+assignments/CMakeFiles/assignments_generate_messages.dir/all: assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/all
 	$(MAKE) -f assignments/CMakeFiles/assignments_generate_messages.dir/build.make assignments/CMakeFiles/assignments_generate_messages.dir/depend
 	$(MAKE) -f assignments/CMakeFiles/assignments_generate_messages.dir/build.make assignments/CMakeFiles/assignments_generate_messages.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num= "Built target assignments_generate_messages"
@@ -888,7 +844,7 @@ assignments/CMakeFiles/assignments_generate_messages.dir/all: assignments/CMakeF
 
 # Build rule for subdir invocation for target.
 assignments/CMakeFiles/assignments_generate_messages.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 37
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 12
 	$(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/assignments_generate_messages.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
 .PHONY : assignments/CMakeFiles/assignments_generate_messages.dir/rule
@@ -915,7 +871,7 @@ assignments/CMakeFiles/assignments_geneus.dir/all: assignments/CMakeFiles/assign
 
 # Build rule for subdir invocation for target.
 assignments/CMakeFiles/assignments_geneus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/assignments_geneus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
 .PHONY : assignments/CMakeFiles/assignments_geneus.dir/rule
@@ -996,7 +952,7 @@ assignments/CMakeFiles/assignments_genlisp.dir/all: assignments/CMakeFiles/assig
 
 # Build rule for subdir invocation for target.
 assignments/CMakeFiles/assignments_genlisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/assignments_genlisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
 .PHONY : assignments/CMakeFiles/assignments_genlisp.dir/rule
@@ -1012,275 +968,20 @@ assignments/CMakeFiles/assignments_genlisp.dir/clean:
 .PHONY : assignments/CMakeFiles/assignments_genlisp.dir/clean
 
 #=============================================================================
-# Target rules for target assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir
-
-# All Build rule for target.
-assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all:
-	$(MAKE) -f assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/depend
-	$(MAKE) -f assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num= "Built target rosgraph_msgs_generate_messages_eus"
-.PHONY : assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all
-
-# Build rule for subdir invocation for target.
-assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
-.PHONY : assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_eus: assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_eus
-
-# clean rule for target.
-assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/clean:
-	$(MAKE) -f assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/clean
-.PHONY : assignments/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/clean
-
-#=============================================================================
-# Target rules for target assignments/CMakeFiles/_assignments_generate_messages_check_deps_InterpreterCommand.dir
-
-# All Build rule for target.
-assignments/CMakeFiles/_assignments_generate_messages_check_deps_InterpreterCommand.dir/all:
-	$(MAKE) -f assignments/CMakeFiles/_assignments_generate_messages_check_deps_InterpreterCommand.dir/build.make assignments/CMakeFiles/_assignments_generate_messages_check_deps_InterpreterCommand.dir/depend
-	$(MAKE) -f assignments/CMakeFiles/_assignments_generate_messages_check_deps_InterpreterCommand.dir/build.make assignments/CMakeFiles/_assignments_generate_messages_check_deps_InterpreterCommand.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num= "Built target _assignments_generate_messages_check_deps_InterpreterCommand"
-.PHONY : assignments/CMakeFiles/_assignments_generate_messages_check_deps_InterpreterCommand.dir/all
-
-# Build rule for subdir invocation for target.
-assignments/CMakeFiles/_assignments_generate_messages_check_deps_InterpreterCommand.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/_assignments_generate_messages_check_deps_InterpreterCommand.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
-.PHONY : assignments/CMakeFiles/_assignments_generate_messages_check_deps_InterpreterCommand.dir/rule
-
-# Convenience name for target.
-_assignments_generate_messages_check_deps_InterpreterCommand: assignments/CMakeFiles/_assignments_generate_messages_check_deps_InterpreterCommand.dir/rule
-
-.PHONY : _assignments_generate_messages_check_deps_InterpreterCommand
-
-# clean rule for target.
-assignments/CMakeFiles/_assignments_generate_messages_check_deps_InterpreterCommand.dir/clean:
-	$(MAKE) -f assignments/CMakeFiles/_assignments_generate_messages_check_deps_InterpreterCommand.dir/build.make assignments/CMakeFiles/_assignments_generate_messages_check_deps_InterpreterCommand.dir/clean
-.PHONY : assignments/CMakeFiles/_assignments_generate_messages_check_deps_InterpreterCommand.dir/clean
-
-#=============================================================================
-# Target rules for target assignments/CMakeFiles/roscpp_generate_messages_eus.dir
-
-# All Build rule for target.
-assignments/CMakeFiles/roscpp_generate_messages_eus.dir/all:
-	$(MAKE) -f assignments/CMakeFiles/roscpp_generate_messages_eus.dir/build.make assignments/CMakeFiles/roscpp_generate_messages_eus.dir/depend
-	$(MAKE) -f assignments/CMakeFiles/roscpp_generate_messages_eus.dir/build.make assignments/CMakeFiles/roscpp_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num= "Built target roscpp_generate_messages_eus"
-.PHONY : assignments/CMakeFiles/roscpp_generate_messages_eus.dir/all
-
-# Build rule for subdir invocation for target.
-assignments/CMakeFiles/roscpp_generate_messages_eus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/roscpp_generate_messages_eus.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
-.PHONY : assignments/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_eus: assignments/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-
-.PHONY : roscpp_generate_messages_eus
-
-# clean rule for target.
-assignments/CMakeFiles/roscpp_generate_messages_eus.dir/clean:
-	$(MAKE) -f assignments/CMakeFiles/roscpp_generate_messages_eus.dir/build.make assignments/CMakeFiles/roscpp_generate_messages_eus.dir/clean
-.PHONY : assignments/CMakeFiles/roscpp_generate_messages_eus.dir/clean
-
-#=============================================================================
-# Target rules for target assignments/CMakeFiles/_assignments_generate_messages_check_deps_VictimReport.dir
-
-# All Build rule for target.
-assignments/CMakeFiles/_assignments_generate_messages_check_deps_VictimReport.dir/all:
-	$(MAKE) -f assignments/CMakeFiles/_assignments_generate_messages_check_deps_VictimReport.dir/build.make assignments/CMakeFiles/_assignments_generate_messages_check_deps_VictimReport.dir/depend
-	$(MAKE) -f assignments/CMakeFiles/_assignments_generate_messages_check_deps_VictimReport.dir/build.make assignments/CMakeFiles/_assignments_generate_messages_check_deps_VictimReport.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num= "Built target _assignments_generate_messages_check_deps_VictimReport"
-.PHONY : assignments/CMakeFiles/_assignments_generate_messages_check_deps_VictimReport.dir/all
-
-# Build rule for subdir invocation for target.
-assignments/CMakeFiles/_assignments_generate_messages_check_deps_VictimReport.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/_assignments_generate_messages_check_deps_VictimReport.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
-.PHONY : assignments/CMakeFiles/_assignments_generate_messages_check_deps_VictimReport.dir/rule
-
-# Convenience name for target.
-_assignments_generate_messages_check_deps_VictimReport: assignments/CMakeFiles/_assignments_generate_messages_check_deps_VictimReport.dir/rule
-
-.PHONY : _assignments_generate_messages_check_deps_VictimReport
-
-# clean rule for target.
-assignments/CMakeFiles/_assignments_generate_messages_check_deps_VictimReport.dir/clean:
-	$(MAKE) -f assignments/CMakeFiles/_assignments_generate_messages_check_deps_VictimReport.dir/build.make assignments/CMakeFiles/_assignments_generate_messages_check_deps_VictimReport.dir/clean
-.PHONY : assignments/CMakeFiles/_assignments_generate_messages_check_deps_VictimReport.dir/clean
-
-#=============================================================================
-# Target rules for target assignments/CMakeFiles/assignments_generate_messages_eus.dir
-
-# All Build rule for target.
-assignments/CMakeFiles/assignments_generate_messages_eus.dir/all: assignments/CMakeFiles/std_msgs_generate_messages_eus.dir/all
-assignments/CMakeFiles/assignments_generate_messages_eus.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_ResolveConflict.dir/all
-assignments/CMakeFiles/assignments_generate_messages_eus.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_CheckJointState.dir/all
-assignments/CMakeFiles/assignments_generate_messages_eus.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_InterpreterCommand.dir/all
-assignments/CMakeFiles/assignments_generate_messages_eus.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_VictimReport.dir/all
-assignments/CMakeFiles/assignments_generate_messages_eus.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_Notifications.dir/all
-assignments/CMakeFiles/assignments_generate_messages_eus.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_MissionStatus.dir/all
-assignments/CMakeFiles/assignments_generate_messages_eus.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_RiskEvaluation.dir/all
-	$(MAKE) -f assignments/CMakeFiles/assignments_generate_messages_eus.dir/build.make assignments/CMakeFiles/assignments_generate_messages_eus.dir/depend
-	$(MAKE) -f assignments/CMakeFiles/assignments_generate_messages_eus.dir/build.make assignments/CMakeFiles/assignments_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=8,9,10,11,12,13,14,15 "Built target assignments_generate_messages_eus"
-.PHONY : assignments/CMakeFiles/assignments_generate_messages_eus.dir/all
-
-# Build rule for subdir invocation for target.
-assignments/CMakeFiles/assignments_generate_messages_eus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 8
-	$(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/assignments_generate_messages_eus.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
-.PHONY : assignments/CMakeFiles/assignments_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-assignments_generate_messages_eus: assignments/CMakeFiles/assignments_generate_messages_eus.dir/rule
-
-.PHONY : assignments_generate_messages_eus
-
-# clean rule for target.
-assignments/CMakeFiles/assignments_generate_messages_eus.dir/clean:
-	$(MAKE) -f assignments/CMakeFiles/assignments_generate_messages_eus.dir/build.make assignments/CMakeFiles/assignments_generate_messages_eus.dir/clean
-.PHONY : assignments/CMakeFiles/assignments_generate_messages_eus.dir/clean
-
-#=============================================================================
-# Target rules for target assignments/CMakeFiles/_assignments_generate_messages_check_deps_Notifications.dir
-
-# All Build rule for target.
-assignments/CMakeFiles/_assignments_generate_messages_check_deps_Notifications.dir/all:
-	$(MAKE) -f assignments/CMakeFiles/_assignments_generate_messages_check_deps_Notifications.dir/build.make assignments/CMakeFiles/_assignments_generate_messages_check_deps_Notifications.dir/depend
-	$(MAKE) -f assignments/CMakeFiles/_assignments_generate_messages_check_deps_Notifications.dir/build.make assignments/CMakeFiles/_assignments_generate_messages_check_deps_Notifications.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num= "Built target _assignments_generate_messages_check_deps_Notifications"
-.PHONY : assignments/CMakeFiles/_assignments_generate_messages_check_deps_Notifications.dir/all
-
-# Build rule for subdir invocation for target.
-assignments/CMakeFiles/_assignments_generate_messages_check_deps_Notifications.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/_assignments_generate_messages_check_deps_Notifications.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
-.PHONY : assignments/CMakeFiles/_assignments_generate_messages_check_deps_Notifications.dir/rule
-
-# Convenience name for target.
-_assignments_generate_messages_check_deps_Notifications: assignments/CMakeFiles/_assignments_generate_messages_check_deps_Notifications.dir/rule
-
-.PHONY : _assignments_generate_messages_check_deps_Notifications
-
-# clean rule for target.
-assignments/CMakeFiles/_assignments_generate_messages_check_deps_Notifications.dir/clean:
-	$(MAKE) -f assignments/CMakeFiles/_assignments_generate_messages_check_deps_Notifications.dir/build.make assignments/CMakeFiles/_assignments_generate_messages_check_deps_Notifications.dir/clean
-.PHONY : assignments/CMakeFiles/_assignments_generate_messages_check_deps_Notifications.dir/clean
-
-#=============================================================================
-# Target rules for target assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir
-
-# All Build rule for target.
-assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/all:
-	$(MAKE) -f assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/depend
-	$(MAKE) -f assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num= "Built target std_msgs_generate_messages_cpp"
-.PHONY : assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
-
-# Build rule for subdir invocation for target.
-assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
-.PHONY : assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_cpp: assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : std_msgs_generate_messages_cpp
-
-# clean rule for target.
-assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean:
-	$(MAKE) -f assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
-.PHONY : assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
-
-#=============================================================================
-# Target rules for target assignments/CMakeFiles/_assignments_generate_messages_check_deps_MissionStatus.dir
-
-# All Build rule for target.
-assignments/CMakeFiles/_assignments_generate_messages_check_deps_MissionStatus.dir/all:
-	$(MAKE) -f assignments/CMakeFiles/_assignments_generate_messages_check_deps_MissionStatus.dir/build.make assignments/CMakeFiles/_assignments_generate_messages_check_deps_MissionStatus.dir/depend
-	$(MAKE) -f assignments/CMakeFiles/_assignments_generate_messages_check_deps_MissionStatus.dir/build.make assignments/CMakeFiles/_assignments_generate_messages_check_deps_MissionStatus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num= "Built target _assignments_generate_messages_check_deps_MissionStatus"
-.PHONY : assignments/CMakeFiles/_assignments_generate_messages_check_deps_MissionStatus.dir/all
-
-# Build rule for subdir invocation for target.
-assignments/CMakeFiles/_assignments_generate_messages_check_deps_MissionStatus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/_assignments_generate_messages_check_deps_MissionStatus.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
-.PHONY : assignments/CMakeFiles/_assignments_generate_messages_check_deps_MissionStatus.dir/rule
-
-# Convenience name for target.
-_assignments_generate_messages_check_deps_MissionStatus: assignments/CMakeFiles/_assignments_generate_messages_check_deps_MissionStatus.dir/rule
-
-.PHONY : _assignments_generate_messages_check_deps_MissionStatus
-
-# clean rule for target.
-assignments/CMakeFiles/_assignments_generate_messages_check_deps_MissionStatus.dir/clean:
-	$(MAKE) -f assignments/CMakeFiles/_assignments_generate_messages_check_deps_MissionStatus.dir/build.make assignments/CMakeFiles/_assignments_generate_messages_check_deps_MissionStatus.dir/clean
-.PHONY : assignments/CMakeFiles/_assignments_generate_messages_check_deps_MissionStatus.dir/clean
-
-#=============================================================================
-# Target rules for target assignments/CMakeFiles/_assignments_generate_messages_check_deps_RiskEvaluation.dir
-
-# All Build rule for target.
-assignments/CMakeFiles/_assignments_generate_messages_check_deps_RiskEvaluation.dir/all:
-	$(MAKE) -f assignments/CMakeFiles/_assignments_generate_messages_check_deps_RiskEvaluation.dir/build.make assignments/CMakeFiles/_assignments_generate_messages_check_deps_RiskEvaluation.dir/depend
-	$(MAKE) -f assignments/CMakeFiles/_assignments_generate_messages_check_deps_RiskEvaluation.dir/build.make assignments/CMakeFiles/_assignments_generate_messages_check_deps_RiskEvaluation.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num= "Built target _assignments_generate_messages_check_deps_RiskEvaluation"
-.PHONY : assignments/CMakeFiles/_assignments_generate_messages_check_deps_RiskEvaluation.dir/all
-
-# Build rule for subdir invocation for target.
-assignments/CMakeFiles/_assignments_generate_messages_check_deps_RiskEvaluation.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/_assignments_generate_messages_check_deps_RiskEvaluation.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
-.PHONY : assignments/CMakeFiles/_assignments_generate_messages_check_deps_RiskEvaluation.dir/rule
-
-# Convenience name for target.
-_assignments_generate_messages_check_deps_RiskEvaluation: assignments/CMakeFiles/_assignments_generate_messages_check_deps_RiskEvaluation.dir/rule
-
-.PHONY : _assignments_generate_messages_check_deps_RiskEvaluation
-
-# clean rule for target.
-assignments/CMakeFiles/_assignments_generate_messages_check_deps_RiskEvaluation.dir/clean:
-	$(MAKE) -f assignments/CMakeFiles/_assignments_generate_messages_check_deps_RiskEvaluation.dir/build.make assignments/CMakeFiles/_assignments_generate_messages_check_deps_RiskEvaluation.dir/clean
-.PHONY : assignments/CMakeFiles/_assignments_generate_messages_check_deps_RiskEvaluation.dir/clean
-
-#=============================================================================
 # Target rules for target assignments/CMakeFiles/assignments_generate_messages_lisp.dir
 
 # All Build rule for target.
 assignments/CMakeFiles/assignments_generate_messages_lisp.dir/all: assignments/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
-assignments/CMakeFiles/assignments_generate_messages_lisp.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_ResolveConflict.dir/all
+assignments/CMakeFiles/assignments_generate_messages_lisp.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_Speaker.dir/all
 assignments/CMakeFiles/assignments_generate_messages_lisp.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_CheckJointState.dir/all
-assignments/CMakeFiles/assignments_generate_messages_lisp.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_InterpreterCommand.dir/all
-assignments/CMakeFiles/assignments_generate_messages_lisp.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_VictimReport.dir/all
-assignments/CMakeFiles/assignments_generate_messages_lisp.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_Notifications.dir/all
-assignments/CMakeFiles/assignments_generate_messages_lisp.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_MissionStatus.dir/all
-assignments/CMakeFiles/assignments_generate_messages_lisp.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_RiskEvaluation.dir/all
 	$(MAKE) -f assignments/CMakeFiles/assignments_generate_messages_lisp.dir/build.make assignments/CMakeFiles/assignments_generate_messages_lisp.dir/depend
 	$(MAKE) -f assignments/CMakeFiles/assignments_generate_messages_lisp.dir/build.make assignments/CMakeFiles/assignments_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=16,17,18,19,20,21,22 "Built target assignments_generate_messages_lisp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=6,7 "Built target assignments_generate_messages_lisp"
 .PHONY : assignments/CMakeFiles/assignments_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
 assignments/CMakeFiles/assignments_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/assignments_generate_messages_lisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
 .PHONY : assignments/CMakeFiles/assignments_generate_messages_lisp.dir/rule
@@ -1326,22 +1027,17 @@ assignments/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean:
 # Target rules for target assignments/CMakeFiles/assignments_generate_messages_cpp.dir
 
 # All Build rule for target.
-assignments/CMakeFiles/assignments_generate_messages_cpp.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_ResolveConflict.dir/all
-assignments/CMakeFiles/assignments_generate_messages_cpp.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_CheckJointState.dir/all
-assignments/CMakeFiles/assignments_generate_messages_cpp.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_InterpreterCommand.dir/all
-assignments/CMakeFiles/assignments_generate_messages_cpp.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_VictimReport.dir/all
-assignments/CMakeFiles/assignments_generate_messages_cpp.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_Notifications.dir/all
 assignments/CMakeFiles/assignments_generate_messages_cpp.dir/all: assignments/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
-assignments/CMakeFiles/assignments_generate_messages_cpp.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_MissionStatus.dir/all
-assignments/CMakeFiles/assignments_generate_messages_cpp.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_RiskEvaluation.dir/all
+assignments/CMakeFiles/assignments_generate_messages_cpp.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_Speaker.dir/all
+assignments/CMakeFiles/assignments_generate_messages_cpp.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_CheckJointState.dir/all
 	$(MAKE) -f assignments/CMakeFiles/assignments_generate_messages_cpp.dir/build.make assignments/CMakeFiles/assignments_generate_messages_cpp.dir/depend
 	$(MAKE) -f assignments/CMakeFiles/assignments_generate_messages_cpp.dir/build.make assignments/CMakeFiles/assignments_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target assignments_generate_messages_cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=1,2 "Built target assignments_generate_messages_cpp"
 .PHONY : assignments/CMakeFiles/assignments_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
 assignments/CMakeFiles/assignments_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/assignments_generate_messages_cpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
 .PHONY : assignments/CMakeFiles/assignments_generate_messages_cpp.dir/rule
@@ -1355,6 +1051,145 @@ assignments_generate_messages_cpp: assignments/CMakeFiles/assignments_generate_m
 assignments/CMakeFiles/assignments_generate_messages_cpp.dir/clean:
 	$(MAKE) -f assignments/CMakeFiles/assignments_generate_messages_cpp.dir/build.make assignments/CMakeFiles/assignments_generate_messages_cpp.dir/clean
 .PHONY : assignments/CMakeFiles/assignments_generate_messages_cpp.dir/clean
+
+#=============================================================================
+# Target rules for target assignments/CMakeFiles/roscpp_generate_messages_eus.dir
+
+# All Build rule for target.
+assignments/CMakeFiles/roscpp_generate_messages_eus.dir/all:
+	$(MAKE) -f assignments/CMakeFiles/roscpp_generate_messages_eus.dir/build.make assignments/CMakeFiles/roscpp_generate_messages_eus.dir/depend
+	$(MAKE) -f assignments/CMakeFiles/roscpp_generate_messages_eus.dir/build.make assignments/CMakeFiles/roscpp_generate_messages_eus.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num= "Built target roscpp_generate_messages_eus"
+.PHONY : assignments/CMakeFiles/roscpp_generate_messages_eus.dir/all
+
+# Build rule for subdir invocation for target.
+assignments/CMakeFiles/roscpp_generate_messages_eus.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/roscpp_generate_messages_eus.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
+.PHONY : assignments/CMakeFiles/roscpp_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+roscpp_generate_messages_eus: assignments/CMakeFiles/roscpp_generate_messages_eus.dir/rule
+
+.PHONY : roscpp_generate_messages_eus
+
+# clean rule for target.
+assignments/CMakeFiles/roscpp_generate_messages_eus.dir/clean:
+	$(MAKE) -f assignments/CMakeFiles/roscpp_generate_messages_eus.dir/build.make assignments/CMakeFiles/roscpp_generate_messages_eus.dir/clean
+.PHONY : assignments/CMakeFiles/roscpp_generate_messages_eus.dir/clean
+
+#=============================================================================
+# Target rules for target assignments/CMakeFiles/assignments_generate_messages_eus.dir
+
+# All Build rule for target.
+assignments/CMakeFiles/assignments_generate_messages_eus.dir/all: assignments/CMakeFiles/std_msgs_generate_messages_eus.dir/all
+assignments/CMakeFiles/assignments_generate_messages_eus.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_Speaker.dir/all
+assignments/CMakeFiles/assignments_generate_messages_eus.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_CheckJointState.dir/all
+	$(MAKE) -f assignments/CMakeFiles/assignments_generate_messages_eus.dir/build.make assignments/CMakeFiles/assignments_generate_messages_eus.dir/depend
+	$(MAKE) -f assignments/CMakeFiles/assignments_generate_messages_eus.dir/build.make assignments/CMakeFiles/assignments_generate_messages_eus.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=3,4,5 "Built target assignments_generate_messages_eus"
+.PHONY : assignments/CMakeFiles/assignments_generate_messages_eus.dir/all
+
+# Build rule for subdir invocation for target.
+assignments/CMakeFiles/assignments_generate_messages_eus.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 3
+	$(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/assignments_generate_messages_eus.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
+.PHONY : assignments/CMakeFiles/assignments_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+assignments_generate_messages_eus: assignments/CMakeFiles/assignments_generate_messages_eus.dir/rule
+
+.PHONY : assignments_generate_messages_eus
+
+# clean rule for target.
+assignments/CMakeFiles/assignments_generate_messages_eus.dir/clean:
+	$(MAKE) -f assignments/CMakeFiles/assignments_generate_messages_eus.dir/build.make assignments/CMakeFiles/assignments_generate_messages_eus.dir/clean
+.PHONY : assignments/CMakeFiles/assignments_generate_messages_eus.dir/clean
+
+#=============================================================================
+# Target rules for target assignments/CMakeFiles/assignments_genpy.dir
+
+# All Build rule for target.
+assignments/CMakeFiles/assignments_genpy.dir/all: assignments/CMakeFiles/assignments_generate_messages_py.dir/all
+	$(MAKE) -f assignments/CMakeFiles/assignments_genpy.dir/build.make assignments/CMakeFiles/assignments_genpy.dir/depend
+	$(MAKE) -f assignments/CMakeFiles/assignments_genpy.dir/build.make assignments/CMakeFiles/assignments_genpy.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num= "Built target assignments_genpy"
+.PHONY : assignments/CMakeFiles/assignments_genpy.dir/all
+
+# Build rule for subdir invocation for target.
+assignments/CMakeFiles/assignments_genpy.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 3
+	$(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/assignments_genpy.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
+.PHONY : assignments/CMakeFiles/assignments_genpy.dir/rule
+
+# Convenience name for target.
+assignments_genpy: assignments/CMakeFiles/assignments_genpy.dir/rule
+
+.PHONY : assignments_genpy
+
+# clean rule for target.
+assignments/CMakeFiles/assignments_genpy.dir/clean:
+	$(MAKE) -f assignments/CMakeFiles/assignments_genpy.dir/build.make assignments/CMakeFiles/assignments_genpy.dir/clean
+.PHONY : assignments/CMakeFiles/assignments_genpy.dir/clean
+
+#=============================================================================
+# Target rules for target assignments/CMakeFiles/assignments_generate_messages_nodejs.dir
+
+# All Build rule for target.
+assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_Speaker.dir/all
+assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/all: assignments/CMakeFiles/_assignments_generate_messages_check_deps_CheckJointState.dir/all
+assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/all: assignments/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
+	$(MAKE) -f assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/build.make assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/depend
+	$(MAKE) -f assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/build.make assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=8,9 "Built target assignments_generate_messages_nodejs"
+.PHONY : assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/all
+
+# Build rule for subdir invocation for target.
+assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
+.PHONY : assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+assignments_generate_messages_nodejs: assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/rule
+
+.PHONY : assignments_generate_messages_nodejs
+
+# clean rule for target.
+assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/clean:
+	$(MAKE) -f assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/build.make assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/clean
+.PHONY : assignments/CMakeFiles/assignments_generate_messages_nodejs.dir/clean
+
+#=============================================================================
+# Target rules for target assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir
+
+# All Build rule for target.
+assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all:
+	$(MAKE) -f assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/depend
+	$(MAKE) -f assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num= "Built target rosgraph_msgs_generate_messages_cpp"
+.PHONY : assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
+
+# Build rule for subdir invocation for target.
+assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/abulanti/assign/build/CMakeFiles 0
+.PHONY : assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+rosgraph_msgs_generate_messages_cpp: assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : rosgraph_msgs_generate_messages_cpp
+
+# clean rule for target.
+assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean:
+	$(MAKE) -f assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean
+.PHONY : assignments/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

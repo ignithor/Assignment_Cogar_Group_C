@@ -54,12 +54,7 @@ CMAKE_BINARY_DIR = /home/abulanti/assign/build
 include assignments/CMakeFiles/assignments_generate_messages_py.dir/progress.make
 
 assignments/CMakeFiles/assignments_generate_messages_py: /home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/_CheckJointState.py
-assignments/CMakeFiles/assignments_generate_messages_py: /home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/_InterpreterCommand.py
-assignments/CMakeFiles/assignments_generate_messages_py: /home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/_MissionStatus.py
-assignments/CMakeFiles/assignments_generate_messages_py: /home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/_Notifications.py
-assignments/CMakeFiles/assignments_generate_messages_py: /home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/_ResolveConflict.py
-assignments/CMakeFiles/assignments_generate_messages_py: /home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/_RiskEvaluation.py
-assignments/CMakeFiles/assignments_generate_messages_py: /home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/_VictimReport.py
+assignments/CMakeFiles/assignments_generate_messages_py: /home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/_Speaker.py
 assignments/CMakeFiles/assignments_generate_messages_py: /home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/__init__.py
 
 
@@ -68,55 +63,20 @@ assignments/CMakeFiles/assignments_generate_messages_py: /home/abulanti/assign/d
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python code from SRV assignments/CheckJointState"
 	cd /home/abulanti/assign/build/assignments && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/abulanti/assign/src/assignments/srv/CheckJointState.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv
 
-/home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/_InterpreterCommand.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
-/home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/_InterpreterCommand.py: /home/abulanti/assign/src/assignments/srv/InterpreterCommand.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python code from SRV assignments/InterpreterCommand"
-	cd /home/abulanti/assign/build/assignments && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/abulanti/assign/src/assignments/srv/InterpreterCommand.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv
-
-/home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/_MissionStatus.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
-/home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/_MissionStatus.py: /home/abulanti/assign/src/assignments/srv/MissionStatus.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python code from SRV assignments/MissionStatus"
-	cd /home/abulanti/assign/build/assignments && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/abulanti/assign/src/assignments/srv/MissionStatus.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv
-
-/home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/_Notifications.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
-/home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/_Notifications.py: /home/abulanti/assign/src/assignments/srv/Notifications.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python code from SRV assignments/Notifications"
-	cd /home/abulanti/assign/build/assignments && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/abulanti/assign/src/assignments/srv/Notifications.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv
-
-/home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/_ResolveConflict.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
-/home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/_ResolveConflict.py: /home/abulanti/assign/src/assignments/srv/ResolveConflict.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Python code from SRV assignments/ResolveConflict"
-	cd /home/abulanti/assign/build/assignments && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/abulanti/assign/src/assignments/srv/ResolveConflict.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv
-
-/home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/_RiskEvaluation.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
-/home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/_RiskEvaluation.py: /home/abulanti/assign/src/assignments/srv/RiskEvaluation.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Python code from SRV assignments/RiskEvaluation"
-	cd /home/abulanti/assign/build/assignments && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/abulanti/assign/src/assignments/srv/RiskEvaluation.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv
-
-/home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/_VictimReport.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
-/home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/_VictimReport.py: /home/abulanti/assign/src/assignments/srv/VictimReport.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating Python code from SRV assignments/VictimReport"
-	cd /home/abulanti/assign/build/assignments && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/abulanti/assign/src/assignments/srv/VictimReport.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv
+/home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/_Speaker.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
+/home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/_Speaker.py: /home/abulanti/assign/src/assignments/srv/Speaker.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python code from SRV assignments/Speaker"
+	cd /home/abulanti/assign/build/assignments && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/abulanti/assign/src/assignments/srv/Speaker.srv -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p assignments -o /home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv
 
 /home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
 /home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/__init__.py: /home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/_CheckJointState.py
-/home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/__init__.py: /home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/_InterpreterCommand.py
-/home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/__init__.py: /home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/_MissionStatus.py
-/home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/__init__.py: /home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/_Notifications.py
-/home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/__init__.py: /home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/_ResolveConflict.py
-/home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/__init__.py: /home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/_RiskEvaluation.py
-/home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/__init__.py: /home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/_VictimReport.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating Python srv __init__.py for assignments"
+/home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/__init__.py: /home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/_Speaker.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/abulanti/assign/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python srv __init__.py for assignments"
 	cd /home/abulanti/assign/build/assignments && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv --initpy
 
 assignments_generate_messages_py: assignments/CMakeFiles/assignments_generate_messages_py
 assignments_generate_messages_py: /home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/_CheckJointState.py
-assignments_generate_messages_py: /home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/_InterpreterCommand.py
-assignments_generate_messages_py: /home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/_MissionStatus.py
-assignments_generate_messages_py: /home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/_Notifications.py
-assignments_generate_messages_py: /home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/_ResolveConflict.py
-assignments_generate_messages_py: /home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/_RiskEvaluation.py
-assignments_generate_messages_py: /home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/_VictimReport.py
+assignments_generate_messages_py: /home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/_Speaker.py
 assignments_generate_messages_py: /home/abulanti/assign/devel/lib/python3/dist-packages/assignments/srv/__init__.py
 assignments_generate_messages_py: assignments/CMakeFiles/assignments_generate_messages_py.dir/build.make
 

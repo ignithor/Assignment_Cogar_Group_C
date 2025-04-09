@@ -4,4 +4,5 @@ from ._MissionStatus import *
 from ._Notifications import *
 from ._ResolveConflict import *
 from ._RiskEvaluation import *
+from ._Speaker import *
 from ._VictimReport import *
