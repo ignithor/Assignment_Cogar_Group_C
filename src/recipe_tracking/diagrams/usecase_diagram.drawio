@@ -1,0 +1,85 @@
+<mxGraphModel dx="1026" dy="703" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+    <mxCell id="2" value="loop" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;" vertex="1" parent="1">
+      <mxGeometry x="30" y="140" width="640" height="260" as="geometry" />
+    </mxCell>
+    <mxCell id="3" value="[step==end]" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+      <mxGeometry x="90" y="140" width="90" height="30" as="geometry" />
+    </mxCell>
+    <mxCell id="4" value="opt" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;" vertex="1" parent="1">
+      <mxGeometry x="50" y="190" width="610" height="200" as="geometry" />
+    </mxCell>
+    <mxCell id="6" value="[step reached]" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+      <mxGeometry x="110" y="190" width="100" height="30" as="geometry" />
+    </mxCell>
+    <mxCell id="7" value="Step&lt;div&gt;Tracker&lt;/div&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="1">
+      <mxGeometry x="190" y="55" width="100" height="365" as="geometry" />
+    </mxCell>
+    <mxCell id="8" value="Step-by-step&lt;div&gt;recipe checklist&lt;/div&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="1">
+      <mxGeometry x="320" y="55" width="100" height="375" as="geometry" />
+    </mxCell>
+    <mxCell id="9" value="Action&lt;div&gt;Planner&lt;/div&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="1">
+      <mxGeometry x="490" y="52.5" width="100" height="367.5" as="geometry" />
+    </mxCell>
+    <mxCell id="12" value="" style="endArrow=none;startArrow=none;endFill=0;startFill=0;endSize=8;html=1;verticalAlign=bottom;labelBackgroundColor=none;strokeWidth=2;exitX=0.513;exitY=0.154;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="11">
+      <mxGeometry width="160" relative="1" as="geometry">
+        <mxPoint x="260" y="250" as="sourcePoint" />
+        <mxPoint x="240" y="430" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="15" value="" style="endArrow=none;startArrow=none;endFill=0;startFill=0;endSize=8;html=1;verticalAlign=bottom;labelBackgroundColor=none;strokeWidth=2;entryX=0.505;entryY=0.998;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.493;exitY=0.104;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="7" target="11">
+      <mxGeometry width="160" relative="1" as="geometry">
+        <mxPoint x="300" y="120" as="sourcePoint" />
+        <mxPoint x="241" y="519" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="11" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fillColor=strokeColor;" vertex="1" parent="1">
+      <mxGeometry x="237.5" y="210" width="5" height="170" as="geometry" />
+    </mxCell>
+    <mxCell id="16" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fillColor=strokeColor;" vertex="1" parent="1">
+      <mxGeometry x="367.5" y="210" width="5" height="70" as="geometry" />
+    </mxCell>
+    <mxCell id="17" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fillColor=strokeColor;" vertex="1" parent="1">
+      <mxGeometry x="537.5" y="210" width="5" height="150" as="geometry" />
+    </mxCell>
+    <mxCell id="18" value="communicate goal_state (step) is reached" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;entryX=0.435;entryY=0.636;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="9" target="11">
+      <mxGeometry width="80" relative="1" as="geometry">
+        <mxPoint x="530" y="314.5" as="sourcePoint" />
+        <mxPoint x="610" y="314.5" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="19" value="acquire the goal state of the&lt;div&gt;system associated to the step&lt;/div&gt;" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" edge="1" parent="1" source="9">
+      <mxGeometry width="80" relative="1" as="geometry">
+        <mxPoint x="502.5" y="230" as="sourcePoint" />
+        <mxPoint x="370" y="230" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="21" value="validate current step&amp;nbsp;&lt;div&gt;&amp;amp;&amp;nbsp;&lt;div&gt;change to the next one&lt;/div&gt;&lt;/div&gt;" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.851;exitY=0.14;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="11" target="8">
+      <mxGeometry width="80" relative="1" as="geometry">
+        <mxPoint x="300" y="290" as="sourcePoint" />
+        <mxPoint x="380" y="290" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="22" value="" style="endArrow=open;endSize=12;dashed=1;html=1;entryX=0.851;entryY=0.289;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+      <mxGeometry width="160" relative="1" as="geometry">
+        <mxPoint x="370.25" y="270.00000000000006" as="sourcePoint" />
+        <mxPoint x="242.505" y="270.00000000000006" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="23" value="" style="endArrow=open;endSize=12;dashed=1;html=1;" edge="1" parent="1">
+      <mxGeometry width="160" relative="1" as="geometry">
+        <mxPoint x="367.5" y="260" as="sourcePoint" />
+        <mxPoint x="537.5" y="260" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="24" value="" style="endArrow=none;startArrow=none;endFill=0;startFill=0;endSize=8;html=1;verticalAlign=bottom;labelBackgroundColor=none;strokeWidth=2;exitX=0.513;exitY=0.154;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1">
+      <mxGeometry width="160" relative="1" as="geometry">
+        <mxPoint x="540.5" y="91" as="sourcePoint" />
+        <mxPoint x="540" y="430" as="targetPoint" />
+      </mxGeometry>
+    </mxCell>
+  </root>
+</mxGraphModel>
+
