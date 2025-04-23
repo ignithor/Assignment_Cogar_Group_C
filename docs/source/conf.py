@@ -26,7 +26,6 @@ extensions = [
 'sphinx.ext.githubpages',
 "sphinx.ext.napoleon",
 'sphinx.ext.inheritance_diagram',
-'breathe'
 ]
 
 templates_path = ['_templates']
