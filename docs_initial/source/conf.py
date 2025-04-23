@@ -6,28 +6,14 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Assignment_Cogar_Group_C'
-copyright = '2025, BEAUJEAN Bertille PHAM DANG Paul ROYANT Emma'
-author = 'BEAUJEAN Bertille PHAM DANG Paul ROYANT Emma'
-release = '0.0'
+project = 'Cogar_Assignments'
+copyright = '2025, ABulanti'
+author = 'ABulanti'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = [
-'sphinx.ext.autodoc',
-'sphinx.ext.doctest',
-'sphinx.ext.intersphinx',
-'sphinx.ext.todo',
-'sphinx.ext.coverage',
-'sphinx.ext.mathjax',
-'sphinx.ext.ifconfig',
-'sphinx.ext.viewcode',
-'sphinx.ext.githubpages',
-"sphinx.ext.napoleon",
-'sphinx.ext.inheritance_diagram',
-'breathe'
-]
+extensions = []
 
 templates_path = ['_templates']
 exclude_patterns = []
@@ -39,3 +25,13 @@ exclude_patterns = []
 
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
+
+html_show_sourcelink = False
+
+html_context = {
+    "display_github": True,
+    "github_user": "AleBulanti",
+    "github_repo": "Assignment_Cogar",
+    "github_version": "main",
+    "conf_py_path": "/docs/source/",
+}
