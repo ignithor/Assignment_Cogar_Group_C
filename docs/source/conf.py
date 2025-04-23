@@ -36,5 +36,8 @@ exclude_patterns = []
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
+highlight_language = 'python'
+source_suffix = '.rst'
+master_doc = 'index'
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
