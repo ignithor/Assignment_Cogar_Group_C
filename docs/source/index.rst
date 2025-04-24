@@ -12,7 +12,7 @@ This project is the work of **Group C** on **Topic 3**:
 
 - BEAUJEAN Bertille, S7899816
 - PHAM DANG Paul, S7899827
-- ROYANT Emma, Sxxxxxxx
+- ROYANT Emma, S8552743
 
 In this document, you will find a description of the software architecture that we designed to assist elder people in cooking tasks with a TIAGo robot.
 
@@ -42,7 +42,17 @@ Presentation of the architecture
 blablabla This is the architecture component diagram with accurate description detailing where different design
 patters could play a role in the final architecture implementation.
 
-Add a png of the component diagram.
+.. image:: https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/component_diagram.drawio.png
+   :alt: Component diagram
+   :align: center
+   :width: 60%
+
+.. raw:: html
+
+   <br><br>
+
+KPI: Recipe Tracker
+------------------------------
 
 The components
 ================
@@ -50,8 +60,12 @@ The components
 Recipe Tracking and Execution History
 *****************************************
 
-.. automodule:: Assignment_Cogar_Group_C.src.recipe_tracking.scripts.recipe_tracking
+.. automodule:: src.recipe_tracking.scripts.recipe_tracking
    :members:
+
+.. raw:: html
+
+   <br><br>
 
 .. image:: https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/activity_diagram_V2.drawio.png
    :alt: Activity diagram
@@ -67,17 +81,32 @@ Recipe Tracking and Execution History
    :align: center
    :width: 60%
 
+.. raw:: html
+
+   <br><br>
+
 Action Planning Based on Cooking State and Task History
 *********************************************************
 
-.. automodule:: Assignment_Cogar_Group_C.src.action_planning.scripts.action_planning
+.. automodule:: src.action_planning.scripts.action_planning
    :members:
+
+.. raw:: html
+
+   <br><br>
+
+KPI: Action Planning
+------------------------------
 
 Human Command Monitoring and Conflict Resolution
 ***************************************************
 
-.. automodule:: Assignment_Cogar_Group_C.src.human_command.scripts.human_command
+.. automodule:: src.human_command.scripts.human_command
    :members:
+
+.. raw:: html
+
+   <br><br>
 
 .. image:: https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/human_command/diagrams/activity_diagram.drawio.png
    :alt: Activity diagram
@@ -101,3 +130,11 @@ Human Command Monitoring and Conflict Resolution
    :alt: State Machine diagram
    :align: center
    :width: 60%
+
+
+KPI: Human Command Handling
+------------------------------
+
+- **Response time to human command**
+- **Conflict resolution accuracy**
+- **Percentage of commands recognized and interpreted**
