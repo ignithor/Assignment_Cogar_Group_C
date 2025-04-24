@@ -1,5 +1,16 @@
 #!/usr/bin/env python3
 
+"""
+.. module: action_planning
+   :platform: unix
+   :synopsis: Python node to be described.
+
+.. moduleauthor:: Paul Pham Dang
+
+Description of the module action_planning sphinx.
+
+"""
+
 import rospy
 from std_msgs.msg import String
 from sensor_msgs.msg import Image

@@ -1,5 +1,16 @@
 #!/usr/bin/env python3
 
+"""
+.. module: human_command
+   :platform: unix
+   :synopsis: Python node to be described.
+
+.. moduleauthor:: Emma Royant
+
+Description of the module human_command sphinx.
+
+"""
+
 import rospy
 from std_msgs.msg import String
 from assignments.srv import Speaker

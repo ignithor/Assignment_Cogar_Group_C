@@ -1,5 +1,16 @@
 #!/usr/bin/env python3
 
+"""
+.. module: recipe_tracking
+   :platform: unix
+   :synopsis: Python node to be described.
+
+.. moduleauthor:: Bertille Beaujean
+
+Description of the module recipe_tracking sphinx.
+
+"""
+
 import rospy
 from std_msgs.msg import String, Bool
 from recipe_tracking.msg import RecipeControl
