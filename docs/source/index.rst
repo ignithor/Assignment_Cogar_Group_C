@@ -1,10 +1,5 @@
-.. Assignment_Cogar_Group_C documentation master file, created by
-   sphinx-quickstart on Wed Apr 23 16:14:16 2025.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
 Assisting elderly individuals in meal preparation
-==================================================================
+=================================================
 
 Welcome to the documentation of the first assignment of Cognitive Architecture.
 
@@ -25,19 +20,19 @@ The documentation will outline the specifications of the assignment, then presen
 
 
 Indices and tables
-==================
+------------------
 
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
 
 Assignment: Topic 3
-=====================================
+-------------------
 
 blablabla This is the description of the assignment
 
 Presentation of the architecture
-======================================
+--------------------------------
 
 blablabla This is the architecture component diagram with accurate description detailing where different design
 patters could play a role in the final architecture implementation.
@@ -52,13 +47,13 @@ patters could play a role in the final architecture implementation.
    <br><br>
 
 KPI: Recipe Tracker
-------------------------------
+~~~~~~~~~~~~~~~~~~~
 
 The components
-================
+--------------
 
 Recipe Tracking and Execution History
-*****************************************
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. automodule:: recipe_tracking.scripts.recipe_tracking
    :members:
@@ -86,7 +81,7 @@ Recipe Tracking and Execution History
    <br><br>
 
 Action Planning Based on Cooking State and Task History
-*********************************************************
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. automodule:: action_planning.scripts.action_planning
    :members:
@@ -96,10 +91,10 @@ Action Planning Based on Cooking State and Task History
    <br><br>
 
 KPI: Action Planning
-------------------------------
+~~~~~~~~~~~~~~~~~~~~
 
 Human Command Monitoring and Conflict Resolution
-***************************************************
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. automodule:: human_command.scripts.human_command
    :members:
@@ -133,7 +128,7 @@ Human Command Monitoring and Conflict Resolution
 
 
 KPI: Human Command Handling
-------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - **Response time to human command**
 - **Conflict resolution accuracy**
