@@ -35,6 +35,7 @@ extensions = [
 templates_path = ['_templates']
 exclude_patterns = []
 
+autodoc_mock_imports = ["rospy", "std_msgs", "sensor_msgs", "assignments"]
 
 
 # -- Options for HTML output -------------------------------------------------
