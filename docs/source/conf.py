@@ -41,3 +41,13 @@ source_suffix = '.rst'
 master_doc = 'index'
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
+
+html_show_sourcelink = False
+
+html_context = {
+    "display_github": True,  # Integrate GitHub
+    "github_user": "ignithor",  # Username
+    "github_repo": "Assignment_Cogar_Group_C",  # Repo name
+    "github_version": "main", 
+    "conf_py_path": "/docs/source/",  # Path in the checkout to the docs root
+}
