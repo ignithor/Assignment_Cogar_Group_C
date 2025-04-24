@@ -60,7 +60,7 @@ The components
 Recipe Tracking and Execution History
 *****************************************
 
-.. automodule:: src.recipe_tracking.scripts.recipe_tracking
+.. automodule:: recipe_tracking.scripts.recipe_tracking
    :members:
 
 .. raw:: html
@@ -88,7 +88,7 @@ Recipe Tracking and Execution History
 Action Planning Based on Cooking State and Task History
 *********************************************************
 
-.. automodule:: src.action_planning.scripts.action_planning
+.. automodule:: action_planning.scripts.action_planning
    :members:
 
 .. raw:: html
@@ -101,7 +101,7 @@ KPI: Action Planning
 Human Command Monitoring and Conflict Resolution
 ***************************************************
 
-.. automodule:: src.human_command.scripts.human_command
+.. automodule:: human_command.scripts.human_command
    :members:
 
 .. raw:: html
