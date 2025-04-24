@@ -62,7 +62,7 @@ Recipe Tracking and Execution History
 
    <br><br>
 
-.. image:: https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/state_machine_1.drawio.png
+.. image:: https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/state_diagram.png
    :alt: State Machine diagram
    :align: center
    :width: 60%
