@@ -55,9 +55,6 @@ The components
 Recipe Tracking and Execution History
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. automodule:: recipe_tracking.scripts.recipe_tracking
-   :members:
-
 .. raw:: html
 
    <br><br>
