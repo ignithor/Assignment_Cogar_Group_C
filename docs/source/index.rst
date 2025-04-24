@@ -38,8 +38,45 @@ The components
 Recipe Tracking and Execution History
 *****************************************
 
+.. image:: https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/activity_diagram_V2.drawio.png
+   :alt: Activity diagram
+   :align: center
+   :width: 60%
+
+.. raw:: html
+
+   <br><br>
+
+.. image:: https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/state_machine_1.drawio.png
+   :alt: State Machine diagram
+   :align: center
+   :width: 60%
+
 Action Planning Based on Cooking State and Task History
 *********************************************************
 
 Human Command Monitoring and Conflict Resolution
 ***************************************************
+
+.. image:: https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/human_command/diagrams/activity_diagram.drawio.png
+   :alt: Activity diagram
+   :align: center
+   :width: 60%
+
+.. raw:: html
+
+   <br><br>
+
+.. image:: https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/human_command/diagrams/sequence_diagram.drawio.png
+   :alt: Sequence diagram
+   :align: center
+   :width: 60%
+
+.. raw:: html
+
+   <br><br>
+
+.. image:: https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/human_command/diagrams/state_machine.drawio.png
+   :alt: State Machine diagram
+   :align: center
+   :width: 60%
