@@ -43,41 +43,42 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <!-- Local TOC -->
               <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Assisting elderly individuals in meal preparation</a></li>
+<li><a class="reference internal" href="#">Assisting elderly individuals in meal preparation</a><ul>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
 <li><a class="reference internal" href="#assignment-topic-3">Assignment: Topic 3</a></li>
-<li><a class="reference internal" href="#presentation-of-the-architecture">Presentation of the architecture</a></li>
+<li><a class="reference internal" href="#presentation-of-the-architecture">Presentation of the architecture</a><ul>
+<li><a class="reference internal" href="#kpi-recipe-tracker">KPI: Recipe Tracker</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#the-components">The components</a><ul>
-<li><a class="reference internal" href="#module-Assignment_Cogar_Group_C.src.recipe_tracking.scripts.recipe_tracking">Recipe Tracking and Execution History</a><ul>
-<li><a class="reference internal" href="#Assignment_Cogar_Group_C.src.recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode"><code class="docutils literal notranslate"><span class="pre">RecipeTrackingNode</span></code></a><ul>
-<li><a class="reference internal" href="#Assignment_Cogar_Group_C.src.recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode.goal_callback"><code class="docutils literal notranslate"><span class="pre">RecipeTrackingNode.goal_callback()</span></code></a></li>
+<li><a class="reference internal" href="#recipe-tracking-and-execution-history">Recipe Tracking and Execution History</a></li>
+<li><a class="reference internal" href="#module-action_planning.scripts.action_planning">Action Planning Based on Cooking State and Task History</a><ul>
+<li><a class="reference internal" href="#action_planning.scripts.action_planning.ActionPlanningNode"><code class="docutils literal notranslate"><span class="pre">ActionPlanningNode</span></code></a><ul>
+<li><a class="reference internal" href="#action_planning.scripts.action_planning.ActionPlanningNode.latest_step"><code class="docutils literal notranslate"><span class="pre">ActionPlanningNode.latest_step</span></code></a></li>
+<li><a class="reference internal" href="#action_planning.scripts.action_planning.ActionPlanningNode.image_callback"><code class="docutils literal notranslate"><span class="pre">ActionPlanningNode.image_callback()</span></code></a></li>
+<li><a class="reference internal" href="#action_planning.scripts.action_planning.ActionPlanningNode.step_callback"><code class="docutils literal notranslate"><span class="pre">ActionPlanningNode.step_callback()</span></code></a></li>
+<li><a class="reference internal" href="#action_planning.scripts.action_planning.ActionPlanningNode.try_publish_plan"><code class="docutils literal notranslate"><span class="pre">ActionPlanningNode.try_publish_plan()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#module-Assignment_Cogar_Group_C.src.action_planning.scripts.action_planning">Action Planning Based on Cooking State and Task History</a><ul>
-<li><a class="reference internal" href="#Assignment_Cogar_Group_C.src.action_planning.scripts.action_planning.ActionPlanningNode"><code class="docutils literal notranslate"><span class="pre">ActionPlanningNode</span></code></a><ul>
-<li><a class="reference internal" href="#Assignment_Cogar_Group_C.src.action_planning.scripts.action_planning.ActionPlanningNode.latest_step"><code class="docutils literal notranslate"><span class="pre">ActionPlanningNode.latest_step</span></code></a></li>
-<li><a class="reference internal" href="#Assignment_Cogar_Group_C.src.action_planning.scripts.action_planning.ActionPlanningNode.image_callback"><code class="docutils literal notranslate"><span class="pre">ActionPlanningNode.image_callback()</span></code></a></li>
-<li><a class="reference internal" href="#Assignment_Cogar_Group_C.src.action_planning.scripts.action_planning.ActionPlanningNode.step_callback"><code class="docutils literal notranslate"><span class="pre">ActionPlanningNode.step_callback()</span></code></a></li>
-<li><a class="reference internal" href="#Assignment_Cogar_Group_C.src.action_planning.scripts.action_planning.ActionPlanningNode.try_publish_plan"><code class="docutils literal notranslate"><span class="pre">ActionPlanningNode.try_publish_plan()</span></code></a></li>
+<li><a class="reference internal" href="#kpi-action-planning">KPI: Action Planning</a></li>
+<li><a class="reference internal" href="#module-human_command.scripts.human_command">Human Command Monitoring and Conflict Resolution</a><ul>
+<li><a class="reference internal" href="#human_command.scripts.human_command.HumanCommandNode"><code class="docutils literal notranslate"><span class="pre">HumanCommandNode</span></code></a><ul>
+<li><a class="reference internal" href="#human_command.scripts.human_command.HumanCommandNode.command_callback"><code class="docutils literal notranslate"><span class="pre">HumanCommandNode.command_callback()</span></code></a></li>
+<li><a class="reference internal" href="#human_command.scripts.human_command.HumanCommandNode.conflict_resolution"><code class="docutils literal notranslate"><span class="pre">HumanCommandNode.conflict_resolution()</span></code></a></li>
+<li><a class="reference internal" href="#human_command.scripts.human_command.HumanCommandNode.interpret_command"><code class="docutils literal notranslate"><span class="pre">HumanCommandNode.interpret_command()</span></code></a></li>
+<li><a class="reference internal" href="#human_command.scripts.human_command.HumanCommandNode.is_command_valid"><code class="docutils literal notranslate"><span class="pre">HumanCommandNode.is_command_valid()</span></code></a></li>
+<li><a class="reference internal" href="#human_command.scripts.human_command.HumanCommandNode.modify_plan"><code class="docutils literal notranslate"><span class="pre">HumanCommandNode.modify_plan()</span></code></a></li>
+<li><a class="reference internal" href="#human_command.scripts.human_command.HumanCommandNode.notify_user"><code class="docutils literal notranslate"><span class="pre">HumanCommandNode.notify_user()</span></code></a></li>
+<li><a class="reference internal" href="#human_command.scripts.human_command.HumanCommandNode.plan_callback"><code class="docutils literal notranslate"><span class="pre">HumanCommandNode.plan_callback()</span></code></a></li>
+<li><a class="reference internal" href="#human_command.scripts.human_command.HumanCommandNode.recipe_callback"><code class="docutils literal notranslate"><span class="pre">HumanCommandNode.recipe_callback()</span></code></a></li>
+<li><a class="reference internal" href="#human_command.scripts.human_command.HumanCommandNode.step_callback"><code class="docutils literal notranslate"><span class="pre">HumanCommandNode.step_callback()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#module-Assignment_Cogar_Group_C.src.human_command.scripts.human_command">Human Command Monitoring and Conflict Resolution</a><ul>
-<li><a class="reference internal" href="#Assignment_Cogar_Group_C.src.human_command.scripts.human_command.HumanCommandNode"><code class="docutils literal notranslate"><span class="pre">HumanCommandNode</span></code></a><ul>
-<li><a class="reference internal" href="#Assignment_Cogar_Group_C.src.human_command.scripts.human_command.HumanCommandNode.command_callback"><code class="docutils literal notranslate"><span class="pre">HumanCommandNode.command_callback()</span></code></a></li>
-<li><a class="reference internal" href="#Assignment_Cogar_Group_C.src.human_command.scripts.human_command.HumanCommandNode.conflict_resolution"><code class="docutils literal notranslate"><span class="pre">HumanCommandNode.conflict_resolution()</span></code></a></li>
-<li><a class="reference internal" href="#Assignment_Cogar_Group_C.src.human_command.scripts.human_command.HumanCommandNode.interpret_command"><code class="docutils literal notranslate"><span class="pre">HumanCommandNode.interpret_command()</span></code></a></li>
-<li><a class="reference internal" href="#Assignment_Cogar_Group_C.src.human_command.scripts.human_command.HumanCommandNode.is_command_valid"><code class="docutils literal notranslate"><span class="pre">HumanCommandNode.is_command_valid()</span></code></a></li>
-<li><a class="reference internal" href="#Assignment_Cogar_Group_C.src.human_command.scripts.human_command.HumanCommandNode.modify_plan"><code class="docutils literal notranslate"><span class="pre">HumanCommandNode.modify_plan()</span></code></a></li>
-<li><a class="reference internal" href="#Assignment_Cogar_Group_C.src.human_command.scripts.human_command.HumanCommandNode.notify_user"><code class="docutils literal notranslate"><span class="pre">HumanCommandNode.notify_user()</span></code></a></li>
-<li><a class="reference internal" href="#Assignment_Cogar_Group_C.src.human_command.scripts.human_command.HumanCommandNode.plan_callback"><code class="docutils literal notranslate"><span class="pre">HumanCommandNode.plan_callback()</span></code></a></li>
-<li><a class="reference internal" href="#Assignment_Cogar_Group_C.src.human_command.scripts.human_command.HumanCommandNode.recipe_callback"><code class="docutils literal notranslate"><span class="pre">HumanCommandNode.recipe_callback()</span></code></a></li>
-<li><a class="reference internal" href="#Assignment_Cogar_Group_C.src.human_command.scripts.human_command.HumanCommandNode.step_callback"><code class="docutils literal notranslate"><span class="pre">HumanCommandNode.step_callback()</span></code></a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#kpi-human-command-handling">KPI: Human Command Handling</a></li>
 </ul>
 </li>
 </ul>
@@ -115,15 +116,14 @@
 <ul class="simple">
 <li><p>BEAUJEAN Bertille, S7899816</p></li>
 <li><p>PHAM DANG Paul, S7899827</p></li>
-<li><p>ROYANT Emma, Sxxxxxxx</p></li>
+<li><p>ROYANT Emma, S8552743</p></li>
 </ul>
 <p>In this document, you will find a description of the software architecture that we designed to assist elder people in cooking tasks with a TIAGo robot.</p>
 <p>The documentation will outline the specifications of the assignment, then present the architecture implementation of the given solution through its component diagram. Each component of the system will be described and illustrated with relevant behavioural diagrams. Thereafter, the integration testing KPIs will be presented.</p>
 <div class="toctree-wrapper compound">
 </div>
-</section>
 <section id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading"></a></h1>
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
@@ -131,81 +131,32 @@
 </ul>
 </section>
 <section id="assignment-topic-3">
-<h1>Assignment: Topic 3<a class="headerlink" href="#assignment-topic-3" title="Permalink to this heading"></a></h1>
+<h2>Assignment: Topic 3<a class="headerlink" href="#assignment-topic-3" title="Permalink to this heading"></a></h2>
 <p>blablabla This is the description of the assignment</p>
 </section>
 <section id="presentation-of-the-architecture">
-<h1>Presentation of the architecture<a class="headerlink" href="#presentation-of-the-architecture" title="Permalink to this heading"></a></h1>
+<h2>Presentation of the architecture<a class="headerlink" href="#presentation-of-the-architecture" title="Permalink to this heading"></a></h2>
 <p>blablabla This is the architecture component diagram with accurate description detailing where different design
 patters could play a role in the final architecture implementation.</p>
-<p>Add a png of the component diagram.</p>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/component_diagram.drawio.png"><img alt="Component diagram" class="align-center" src="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/component_diagram.drawio.png" style="width: 60%;" /></a>
+<br><br><section id="kpi-recipe-tracker">
+<h3>KPI: Recipe Tracker<a class="headerlink" href="#kpi-recipe-tracker" title="Permalink to this heading"></a></h3>
+</section>
 </section>
 <section id="the-components">
-<h1>The components<a class="headerlink" href="#the-components" title="Permalink to this heading"></a></h1>
-<section id="module-Assignment_Cogar_Group_C.src.recipe_tracking.scripts.recipe_tracking">
-<span id="recipe-tracking-and-execution-history"></span><h2>Recipe Tracking and Execution History<a class="headerlink" href="#module-Assignment_Cogar_Group_C.src.recipe_tracking.scripts.recipe_tracking" title="Permalink to this heading"></a></h2>
-<p>Description of the module recipe_tracking sphinx.</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="Assignment_Cogar_Group_C.src.recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Assignment_Cogar_Group_C.src.recipe_tracking.scripts.recipe_tracking.</span></span><span class="sig-name descname"><span class="pre">RecipeTrackingNode</span></span><a class="reference internal" href="_modules/Assignment_Cogar_Group_C/src/recipe_tracking/scripts/recipe_tracking.html#RecipeTrackingNode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Assignment_Cogar_Group_C.src.recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode" title="Permalink to this definition"></a></dt>
-<dd><p>ROS node for recipe tracking and execution history.
-It listens to the state of validation of the current goal state.
-It publishes the current step of the recipe and the list of the steps of the recipe with their associated validation state (validated or not).</p>
-<dl class="simple">
-<dt>Subscribes to:</dt><dd><ul class="simple">
-<li><p>/goal_state (std_msgs/Bool): Indicates whether the current goal step is validated or not.</p></li>
-</ul>
-</dd>
-<dt>Publishes to:</dt><dd><ul class="simple">
-<li><p>/step (std_msgs/String): Step of the recipe. It is the latest non validated step.</p></li>
-<li><p>/recipe_control (recipe_tracking/RecipeControl): list of the steps of the recipe with their associated validation status (validated or not).</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py attribute">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">-</span> <span class="pre">current_step</span></span></dt>
-<dd><p>It is the latest step of the recipe which is not validated yet.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">-</span> <span class="pre">recipe_checklist</span></span></dt>
-<dd><p>list of the validation status of each step.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>RecipeControl</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="Assignment_Cogar_Group_C.src.recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode.goal_callback">
-<span class="sig-name descname"><span class="pre">goal_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Assignment_Cogar_Group_C/src/recipe_tracking/scripts/recipe_tracking.html#RecipeTrackingNode.goal_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Assignment_Cogar_Group_C.src.recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode.goal_callback" title="Permalink to this definition"></a></dt>
-<dd><p>Callback for /goal_state topic. Updates the topics /step and /recipe_control according to the value of “/goal_state”.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>msg</strong> (<em>std_msgs.msg.Bool</em>) – Validation or not of the current step of the recipe.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/activity_diagram_V2.drawio.png"><img alt="Activity diagram" class="align-center" src="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/activity_diagram_V2.drawio.png" style="width: 60%;" /></a>
+<h2>The components<a class="headerlink" href="#the-components" title="Permalink to this heading"></a></h2>
+<section id="recipe-tracking-and-execution-history">
+<h3>Recipe Tracking and Execution History<a class="headerlink" href="#recipe-tracking-and-execution-history" title="Permalink to this heading"></a></h3>
+<br><br><a class="reference internal image-reference" href="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/activity_diagram.png"><img alt="Activity diagram" class="align-center" src="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/activity_diagram.png" style="width: 60%;" /></a>
 <br><br><a class="reference internal image-reference" href="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/state_diagram.png"><img alt="State Machine diagram" class="align-center" src="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/state_diagram.png" style="width: 60%;" /></a>
-</section>
-<section id="module-Assignment_Cogar_Group_C.src.action_planning.scripts.action_planning">
-<span id="action-planning-based-on-cooking-state-and-task-history"></span><h2>Action Planning Based on Cooking State and Task History<a class="headerlink" href="#module-Assignment_Cogar_Group_C.src.action_planning.scripts.action_planning" title="Permalink to this heading"></a></h2>
+<br><br><a class="reference internal image-reference" href="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/sequence_diagram.png"><img alt="Sequence diagram" class="align-center" src="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/sequence_diagram.png" style="width: 60%;" /></a>
+<br><br></section>
+<section id="module-action_planning.scripts.action_planning">
+<span id="action-planning-based-on-cooking-state-and-task-history"></span><h3>Action Planning Based on Cooking State and Task History<a class="headerlink" href="#module-action_planning.scripts.action_planning" title="Permalink to this heading"></a></h3>
 <p>Description of the module action_planning sphinx.</p>
 <dl class="py class">
-<dt class="sig sig-object py" id="Assignment_Cogar_Group_C.src.action_planning.scripts.action_planning.ActionPlanningNode">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Assignment_Cogar_Group_C.src.action_planning.scripts.action_planning.</span></span><span class="sig-name descname"><span class="pre">ActionPlanningNode</span></span><a class="reference internal" href="_modules/Assignment_Cogar_Group_C/src/action_planning/scripts/action_planning.html#ActionPlanningNode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Assignment_Cogar_Group_C.src.action_planning.scripts.action_planning.ActionPlanningNode" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="action_planning.scripts.action_planning.ActionPlanningNode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">action_planning.scripts.action_planning.</span></span><span class="sig-name descname"><span class="pre">ActionPlanningNode</span></span><a class="reference internal" href="_modules/action_planning/scripts/action_planning.html#ActionPlanningNode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#action_planning.scripts.action_planning.ActionPlanningNode" title="Permalink to this definition"></a></dt>
 <dd><p>ROS node that listens to the step commands of the recipe and RGB images of the robot camera.
 It publishes the action planned.</p>
 <dl class="simple">
@@ -220,8 +171,8 @@ It publishes the action planned.</p>
 </dd>
 </dl>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="Assignment_Cogar_Group_C.src.action_planning.scripts.action_planning.ActionPlanningNode.latest_step">
-<span class="sig-name descname"><span class="pre">latest_step</span></span><a class="headerlink" href="#Assignment_Cogar_Group_C.src.action_planning.scripts.action_planning.ActionPlanningNode.latest_step" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="action_planning.scripts.action_planning.ActionPlanningNode.latest_step">
+<span class="sig-name descname"><span class="pre">latest_step</span></span><a class="headerlink" href="#action_planning.scripts.action_planning.ActionPlanningNode.latest_step" title="Permalink to this definition"></a></dt>
 <dd><p>Latest received step command.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -231,8 +182,8 @@ It publishes the action planned.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="Assignment_Cogar_Group_C.src.action_planning.scripts.action_planning.ActionPlanningNode.image_callback">
-<span class="sig-name descname"><span class="pre">image_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Assignment_Cogar_Group_C/src/action_planning/scripts/action_planning.html#ActionPlanningNode.image_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Assignment_Cogar_Group_C.src.action_planning.scripts.action_planning.ActionPlanningNode.image_callback" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="action_planning.scripts.action_planning.ActionPlanningNode.image_callback">
+<span class="sig-name descname"><span class="pre">image_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/action_planning/scripts/action_planning.html#ActionPlanningNode.image_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#action_planning.scripts.action_planning.ActionPlanningNode.image_callback" title="Permalink to this definition"></a></dt>
 <dd><p>Callback for /image_rgb topic.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -242,8 +193,8 @@ It publishes the action planned.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="Assignment_Cogar_Group_C.src.action_planning.scripts.action_planning.ActionPlanningNode.step_callback">
-<span class="sig-name descname"><span class="pre">step_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Assignment_Cogar_Group_C/src/action_planning/scripts/action_planning.html#ActionPlanningNode.step_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Assignment_Cogar_Group_C.src.action_planning.scripts.action_planning.ActionPlanningNode.step_callback" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="action_planning.scripts.action_planning.ActionPlanningNode.step_callback">
+<span class="sig-name descname"><span class="pre">step_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/action_planning/scripts/action_planning.html#ActionPlanningNode.step_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#action_planning.scripts.action_planning.ActionPlanningNode.step_callback" title="Permalink to this definition"></a></dt>
 <dd><p>Callback for /step topic.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -253,20 +204,23 @@ It publishes the action planned.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="Assignment_Cogar_Group_C.src.action_planning.scripts.action_planning.ActionPlanningNode.try_publish_plan">
-<span class="sig-name descname"><span class="pre">try_publish_plan</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Assignment_Cogar_Group_C/src/action_planning/scripts/action_planning.html#ActionPlanningNode.try_publish_plan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Assignment_Cogar_Group_C.src.action_planning.scripts.action_planning.ActionPlanningNode.try_publish_plan" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="action_planning.scripts.action_planning.ActionPlanningNode.try_publish_plan">
+<span class="sig-name descname"><span class="pre">try_publish_plan</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/action_planning/scripts/action_planning.html#ActionPlanningNode.try_publish_plan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#action_planning.scripts.action_planning.ActionPlanningNode.try_publish_plan" title="Permalink to this definition"></a></dt>
 <dd><p>Attempt to publish a plan if both a step and an image have been received.</p>
 </dd></dl>
 
 </dd></dl>
 
+<br><br></section>
+<section id="kpi-action-planning">
+<h3>KPI: Action Planning<a class="headerlink" href="#kpi-action-planning" title="Permalink to this heading"></a></h3>
 </section>
-<section id="module-Assignment_Cogar_Group_C.src.human_command.scripts.human_command">
-<span id="human-command-monitoring-and-conflict-resolution"></span><h2>Human Command Monitoring and Conflict Resolution<a class="headerlink" href="#module-Assignment_Cogar_Group_C.src.human_command.scripts.human_command" title="Permalink to this heading"></a></h2>
+<section id="module-human_command.scripts.human_command">
+<span id="human-command-monitoring-and-conflict-resolution"></span><h3>Human Command Monitoring and Conflict Resolution<a class="headerlink" href="#module-human_command.scripts.human_command" title="Permalink to this heading"></a></h3>
 <p>Description of the module human_command sphinx.</p>
 <dl class="py class">
-<dt class="sig sig-object py" id="Assignment_Cogar_Group_C.src.human_command.scripts.human_command.HumanCommandNode">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Assignment_Cogar_Group_C.src.human_command.scripts.human_command.</span></span><span class="sig-name descname"><span class="pre">HumanCommandNode</span></span><a class="reference internal" href="_modules/Assignment_Cogar_Group_C/src/human_command/scripts/human_command.html#HumanCommandNode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Assignment_Cogar_Group_C.src.human_command.scripts.human_command.HumanCommandNode" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="human_command.scripts.human_command.HumanCommandNode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">human_command.scripts.human_command.</span></span><span class="sig-name descname"><span class="pre">HumanCommandNode</span></span><a class="reference internal" href="_modules/human_command/scripts/human_command.html#HumanCommandNode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#human_command.scripts.human_command.HumanCommandNode" title="Permalink to this definition"></a></dt>
 <dd><p>ROS node that listens to verbal commands and evaluates their validity
 based on the current cooking plan.</p>
 <dl class="simple">
@@ -283,8 +237,8 @@ based on the current cooking plan.</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="Assignment_Cogar_Group_C.src.human_command.scripts.human_command.HumanCommandNode.command_callback">
-<span class="sig-name descname"><span class="pre">command_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Assignment_Cogar_Group_C/src/human_command/scripts/human_command.html#HumanCommandNode.command_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Assignment_Cogar_Group_C.src.human_command.scripts.human_command.HumanCommandNode.command_callback" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="human_command.scripts.human_command.HumanCommandNode.command_callback">
+<span class="sig-name descname"><span class="pre">command_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/human_command/scripts/human_command.html#HumanCommandNode.command_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#human_command.scripts.human_command.HumanCommandNode.command_callback" title="Permalink to this definition"></a></dt>
 <dd><p>Callback for /voice_command topic.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -294,38 +248,38 @@ based on the current cooking plan.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="Assignment_Cogar_Group_C.src.human_command.scripts.human_command.HumanCommandNode.conflict_resolution">
-<span class="sig-name descname"><span class="pre">conflict_resolution</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Assignment_Cogar_Group_C/src/human_command/scripts/human_command.html#HumanCommandNode.conflict_resolution"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Assignment_Cogar_Group_C.src.human_command.scripts.human_command.HumanCommandNode.conflict_resolution" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="human_command.scripts.human_command.HumanCommandNode.conflict_resolution">
+<span class="sig-name descname"><span class="pre">conflict_resolution</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/human_command/scripts/human_command.html#HumanCommandNode.conflict_resolution"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#human_command.scripts.human_command.HumanCommandNode.conflict_resolution" title="Permalink to this definition"></a></dt>
 <dd><p>Simulate conflict resolution using a random value.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="Assignment_Cogar_Group_C.src.human_command.scripts.human_command.HumanCommandNode.interpret_command">
-<span class="sig-name descname"><span class="pre">interpret_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Assignment_Cogar_Group_C/src/human_command/scripts/human_command.html#HumanCommandNode.interpret_command"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Assignment_Cogar_Group_C.src.human_command.scripts.human_command.HumanCommandNode.interpret_command" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="human_command.scripts.human_command.HumanCommandNode.interpret_command">
+<span class="sig-name descname"><span class="pre">interpret_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/human_command/scripts/human_command.html#HumanCommandNode.interpret_command"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#human_command.scripts.human_command.HumanCommandNode.interpret_command" title="Permalink to this definition"></a></dt>
 <dd><p>Simulate command interpretation.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="Assignment_Cogar_Group_C.src.human_command.scripts.human_command.HumanCommandNode.is_command_valid">
-<span class="sig-name descname"><span class="pre">is_command_valid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Assignment_Cogar_Group_C/src/human_command/scripts/human_command.html#HumanCommandNode.is_command_valid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Assignment_Cogar_Group_C.src.human_command.scripts.human_command.HumanCommandNode.is_command_valid" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="human_command.scripts.human_command.HumanCommandNode.is_command_valid">
+<span class="sig-name descname"><span class="pre">is_command_valid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/human_command/scripts/human_command.html#HumanCommandNode.is_command_valid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#human_command.scripts.human_command.HumanCommandNode.is_command_valid" title="Permalink to this definition"></a></dt>
 <dd><p>Check if the command is valid based on the current plan.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="Assignment_Cogar_Group_C.src.human_command.scripts.human_command.HumanCommandNode.modify_plan">
-<span class="sig-name descname"><span class="pre">modify_plan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Assignment_Cogar_Group_C/src/human_command/scripts/human_command.html#HumanCommandNode.modify_plan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Assignment_Cogar_Group_C.src.human_command.scripts.human_command.HumanCommandNode.modify_plan" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="human_command.scripts.human_command.HumanCommandNode.modify_plan">
+<span class="sig-name descname"><span class="pre">modify_plan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/human_command/scripts/human_command.html#HumanCommandNode.modify_plan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#human_command.scripts.human_command.HumanCommandNode.modify_plan" title="Permalink to this definition"></a></dt>
 <dd><p>Modify the plan based on the valid command.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="Assignment_Cogar_Group_C.src.human_command.scripts.human_command.HumanCommandNode.notify_user">
-<span class="sig-name descname"><span class="pre">notify_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Assignment_Cogar_Group_C/src/human_command/scripts/human_command.html#HumanCommandNode.notify_user"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Assignment_Cogar_Group_C.src.human_command.scripts.human_command.HumanCommandNode.notify_user" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="human_command.scripts.human_command.HumanCommandNode.notify_user">
+<span class="sig-name descname"><span class="pre">notify_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/human_command/scripts/human_command.html#HumanCommandNode.notify_user"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#human_command.scripts.human_command.HumanCommandNode.notify_user" title="Permalink to this definition"></a></dt>
 <dd><p>Notify the user using the speaker service.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="Assignment_Cogar_Group_C.src.human_command.scripts.human_command.HumanCommandNode.plan_callback">
-<span class="sig-name descname"><span class="pre">plan_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Assignment_Cogar_Group_C/src/human_command/scripts/human_command.html#HumanCommandNode.plan_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Assignment_Cogar_Group_C.src.human_command.scripts.human_command.HumanCommandNode.plan_callback" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="human_command.scripts.human_command.HumanCommandNode.plan_callback">
+<span class="sig-name descname"><span class="pre">plan_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/human_command/scripts/human_command.html#HumanCommandNode.plan_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#human_command.scripts.human_command.HumanCommandNode.plan_callback" title="Permalink to this definition"></a></dt>
 <dd><p>Callback for /plan topic to update the current plan.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -335,8 +289,8 @@ based on the current cooking plan.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="Assignment_Cogar_Group_C.src.human_command.scripts.human_command.HumanCommandNode.recipe_callback">
-<span class="sig-name descname"><span class="pre">recipe_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Assignment_Cogar_Group_C/src/human_command/scripts/human_command.html#HumanCommandNode.recipe_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Assignment_Cogar_Group_C.src.human_command.scripts.human_command.HumanCommandNode.recipe_callback" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="human_command.scripts.human_command.HumanCommandNode.recipe_callback">
+<span class="sig-name descname"><span class="pre">recipe_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/human_command/scripts/human_command.html#HumanCommandNode.recipe_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#human_command.scripts.human_command.HumanCommandNode.recipe_callback" title="Permalink to this definition"></a></dt>
 <dd><p>Callback for /recipe topic to update the status.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -346,8 +300,8 @@ based on the current cooking plan.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="Assignment_Cogar_Group_C.src.human_command.scripts.human_command.HumanCommandNode.step_callback">
-<span class="sig-name descname"><span class="pre">step_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Assignment_Cogar_Group_C/src/human_command/scripts/human_command.html#HumanCommandNode.step_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Assignment_Cogar_Group_C.src.human_command.scripts.human_command.HumanCommandNode.step_callback" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="human_command.scripts.human_command.HumanCommandNode.step_callback">
+<span class="sig-name descname"><span class="pre">step_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/human_command/scripts/human_command.html#HumanCommandNode.step_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#human_command.scripts.human_command.HumanCommandNode.step_callback" title="Permalink to this definition"></a></dt>
 <dd><p>Callback for /step topic to update the current step.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -358,9 +312,18 @@ based on the current cooking plan.</p>
 
 </dd></dl>
 
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/human_command/diagrams/activity_diagram.drawio.png"><img alt="Activity diagram" class="align-center" src="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/human_command/diagrams/activity_diagram.drawio.png" style="width: 60%;" /></a>
+<br><br><a class="reference internal image-reference" href="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/human_command/diagrams/activity_diagram.drawio.png"><img alt="Activity diagram" class="align-center" src="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/human_command/diagrams/activity_diagram.drawio.png" style="width: 60%;" /></a>
 <br><br><a class="reference internal image-reference" href="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/human_command/diagrams/sequence_diagram.drawio.png"><img alt="Sequence diagram" class="align-center" src="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/human_command/diagrams/sequence_diagram.drawio.png" style="width: 60%;" /></a>
 <br><br><a class="reference internal image-reference" href="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/human_command/diagrams/state_machine.drawio.png"><img alt="State Machine diagram" class="align-center" src="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/human_command/diagrams/state_machine.drawio.png" style="width: 60%;" /></a>
+</section>
+<section id="kpi-human-command-handling">
+<h3>KPI: Human Command Handling<a class="headerlink" href="#kpi-human-command-handling" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Response time to human command</strong></p></li>
+<li><p><strong>Conflict resolution accuracy</strong></p></li>
+<li><p><strong>Percentage of commands recognized and interpreted</strong></p></li>
+</ul>
+</section>
 </section>
 </section>
 

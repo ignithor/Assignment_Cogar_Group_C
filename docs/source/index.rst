@@ -59,7 +59,7 @@ Recipe Tracking and Execution History
 
    <br><br>
 
-.. image:: https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/activity_diagram_V2.drawio.png
+.. image:: https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/activity_diagram.png
    :alt: Activity diagram
    :align: center
    :width: 60%
@@ -70,6 +70,15 @@ Recipe Tracking and Execution History
 
 .. image:: https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/state_diagram.png
    :alt: State Machine diagram
+   :align: center
+   :width: 60%
+
+.. raw:: html
+
+   <br><br>
+
+.. image:: https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/sequence_diagram.png
+   :alt: Sequence diagram
    :align: center
    :width: 60%
 
