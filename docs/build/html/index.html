@@ -51,7 +51,13 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#the-components">The components</a><ul>
-<li><a class="reference internal" href="#recipe-tracking-and-execution-history">Recipe Tracking and Execution History</a></li>
+<li><a class="reference internal" href="#module-recipe_tracking.scripts.recipe_tracking">Recipe Tracking and Execution History</a><ul>
+<li><a class="reference internal" href="#recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode"><code class="docutils literal notranslate"><span class="pre">RecipeTrackingNode</span></code></a><ul>
+<li><a class="reference internal" href="#recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode.goal_callback"><code class="docutils literal notranslate"><span class="pre">RecipeTrackingNode.goal_callback()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-action_planning.scripts.action_planning">Action Planning Based on Cooking State and Task History</a><ul>
 <li><a class="reference internal" href="#action_planning.scripts.action_planning.ActionPlanningNode"><code class="docutils literal notranslate"><span class="pre">ActionPlanningNode</span></code></a><ul>
 <li><a class="reference internal" href="#action_planning.scripts.action_planning.ActionPlanningNode.latest_step"><code class="docutils literal notranslate"><span class="pre">ActionPlanningNode.latest_step</span></code></a></li>
@@ -145,8 +151,61 @@ patters could play a role in the final architecture implementation.</p>
 </section>
 <section id="the-components">
 <h2>The components<a class="headerlink" href="#the-components" title="Permalink to this heading"></a></h2>
-<section id="recipe-tracking-and-execution-history">
-<h3>Recipe Tracking and Execution History<a class="headerlink" href="#recipe-tracking-and-execution-history" title="Permalink to this heading"></a></h3>
+<section id="module-recipe_tracking.scripts.recipe_tracking">
+<span id="recipe-tracking-and-execution-history"></span><h3>Recipe Tracking and Execution History<a class="headerlink" href="#module-recipe_tracking.scripts.recipe_tracking" title="Permalink to this heading"></a></h3>
+<p>Description of the module recipe_tracking sphinx.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">recipe_tracking.scripts.recipe_tracking.</span></span><span class="sig-name descname"><span class="pre">RecipeTrackingNode</span></span><a class="reference internal" href="_modules/recipe_tracking/scripts/recipe_tracking.html#RecipeTrackingNode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode" title="Permalink to this definition"></a></dt>
+<dd><p>ROS node for recipe tracking and execution history.
+It listens to the state of validation of the current goal state.
+It publishes the current step of the recipe and the list of the steps of the recipe with their associated validation state (validated or not).</p>
+<dl class="simple">
+<dt>Subscribes to:</dt><dd><ul class="simple">
+<li><p>/goal_state (std_msgs/Bool): Indicates whether the current goal step is validated or not.</p></li>
+</ul>
+</dd>
+<dt>Publishes to:</dt><dd><ul class="simple">
+<li><p>/step (std_msgs/String): Step of the recipe. It is the latest non validated step.</p></li>
+<li><p>/recipe_control (recipe_tracking/RecipeControl): list of the steps of the recipe with their associated validation status (validated or not).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">-</span> <span class="pre">current_step</span></span></dt>
+<dd><p>It is the latest step of the recipe which is not validated yet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">-</span> <span class="pre">recipe_checklist</span></span></dt>
+<dd><p>list of the validation status of each step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>RecipeControl</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode.goal_callback">
+<span class="sig-name descname"><span class="pre">goal_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/recipe_tracking/scripts/recipe_tracking.html#RecipeTrackingNode.goal_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode.goal_callback" title="Permalink to this definition"></a></dt>
+<dd><p>Callback for /goal_state topic. Updates the topics /step and /recipe_control according to the value of “/goal_state”.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>msg</strong> (<em>std_msgs.msg.Bool</em>) – Validation or not of the current step of the recipe.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 <br><br><a class="reference internal image-reference" href="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/activity_diagram.png"><img alt="Activity diagram" class="align-center" src="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/activity_diagram.png" style="width: 60%;" /></a>
 <br><br><a class="reference internal image-reference" href="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/state_diagram.png"><img alt="State Machine diagram" class="align-center" src="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/state_diagram.png" style="width: 60%;" /></a>
 <br><br><a class="reference internal image-reference" href="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/sequence_diagram.png"><img alt="Sequence diagram" class="align-center" src="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/sequence_diagram.png" style="width: 60%;" /></a>
