@@ -81,6 +81,7 @@
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">rospy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">std_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">String</span><span class="p">,</span> <span class="n">Bool</span>
 
 <div class="viewcode-block" id="RecipeTrackingNode"><a class="viewcode-back" href="../../../index.html#recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">RecipeTrackingNode</span><span class="p">:</span>
@@ -110,25 +111,91 @@
         <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s1">&#39;recipe_tracking_node&#39;</span><span class="p">)</span>
         
         <span class="c1"># Initialize the cooking process</span>
-        <span class="c1">#self.recipe_checklist = RecipeControl() # Need to initalize with the recipe at some point</span>
-        <span class="n">recipe_steps</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s2">&quot;recipe&quot;</span><span class="p">,[</span><span class="s2">&quot;cut&quot;</span><span class="p">,</span> <span class="s2">&quot;cut&quot;</span><span class="p">,</span> <span class="s2">&quot;mix&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">])</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">recipe_checklist</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;steps&quot;</span><span class="p">:</span> <span class="n">recipe_steps</span><span class="p">,</span> <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="p">[</span><span class="kc">False</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span> <span class="p">(</span><span class="n">recipe_steps</span><span class="p">)</span> <span class="p">}</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">current_step</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">recipe_checklist</span><span class="p">[</span><span class="s2">&quot;steps&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="c1">#recipe_steps = rospy.get_param(&quot;recipe&quot;,[&quot;cut&quot;, &quot;cut&quot;, &quot;mix&quot;, &quot;end&quot;])</span>
+        <span class="c1">#self.recipe_checklist = { &quot;steps&quot;: recipe_steps, &quot;status&quot;: [False] * len (recipe_steps) }</span>
+        <span class="c1">#self.current_step = self.recipe_checklist[&quot;steps&quot;][0]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">recipe_txt</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s2">&quot;recipe_txt&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">recipe_checklist</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_step</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">initialize_recipe</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">recipe_txt</span><span class="p">)</span>
         
+        <span class="c1">#Check the validity of the recipe</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_a_valid_recipe</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">recipe_checklist</span><span class="p">)</span> <span class="p">:</span>
+            <span class="n">rospy</span><span class="o">.</span><span class="n">logerr</span><span class="p">(</span><span class="s2">&quot;Recipe is not valid.&quot;</span><span class="p">)</span>
+        <span class="k">else</span> <span class="p">:</span>
+            <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s2">&quot;Recipe is initialized and valid.&quot;</span><span class="p">)</span>
+        	
+            <span class="c1"># Subscribe to /goal_state (Bool messages)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">goal_sub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Subscriber</span><span class="p">(</span><span class="s1">&#39;/goal_state&#39;</span><span class="p">,</span> <span class="n">Bool</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">goal_callback</span><span class="p">)</span>
+            
+            <span class="c1"># Publisher for /step topic</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">step_pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s1">&#39;/step&#39;</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
         
-        
-        <span class="c1"># Subscribe to /goal_state (Bool messages)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">goal_sub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Subscriber</span><span class="p">(</span><span class="s1">&#39;/goal_state&#39;</span><span class="p">,</span> <span class="n">Bool</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">goal_callback</span><span class="p">)</span>
-        
-        <span class="c1"># Publisher for /step topic</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">step_pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s1">&#39;/step&#39;</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-        
-        <span class="c1"># Publisher for /recipe_control topic</span>
-        <span class="c1">#self.rec_control_pub = rospy.Publisher(&#39;/recipe_control&#39;, RecipeControl, queue_size=10)</span>
-        
-        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s2">&quot;TrackNode initialized and listening to /goal_state&quot;</span><span class="p">)</span>
+            <span class="c1"># Publisher for /recipe_control topic</span>
+            <span class="c1">#self.rec_control_pub = rospy.Publisher(&#39;/recipe_control&#39;, RecipeControl, queue_size=10)</span>
+		
+            <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s2">&quot;TrackNode initialized and listening to /goal_state&quot;</span><span class="p">)</span>
 
+    <span class="k">def</span><span class="w"> </span><span class="nf">initialize_recipe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+        <span class="n">recipe_checklist</span> <span class="o">=</span> <span class="p">{</span>
+                            <span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                            <span class="s2">&quot;ingredient&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                            <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="p">[]</span>
+                            <span class="p">}</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">action</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="n">ingredient</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="n">success</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="n">step_msg</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">step</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)]</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">step_msg</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">action</span> <span class="o">=</span> <span class="n">step_msg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">step_msg</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">ingredient</span> <span class="o">=</span> <span class="n">step_msg</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">step_msg</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span> <span class="c1"># notify if the recipe has too many parameters</span>
+                    <span class="n">success</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">success</span> <span class="o">=</span> <span class="kc">False</span>
+                
+                <span class="n">recipe_checklist</span><span class="p">[</span><span class="s2">&quot;action&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+                <span class="n">recipe_checklist</span><span class="p">[</span><span class="s2">&quot;ingredient&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ingredient</span><span class="p">)</span>
+                <span class="n">recipe_checklist</span><span class="p">[</span><span class="s2">&quot;success&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">success</span><span class="p">)</span>
+                
+                <span class="n">current_step</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;action&quot;</span><span class="p">:</span><span class="n">recipe_checklist</span><span class="p">[</span><span class="s2">&quot;action&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;ingredient&quot;</span><span class="p">:</span><span class="n">recipe_checklist</span><span class="p">[</span><span class="s2">&quot;ingredient&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;success&quot;</span><span class="p">:</span><span class="n">recipe_checklist</span><span class="p">[</span><span class="s2">&quot;success&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]}</span>
 
+            <span class="k">return</span> <span class="n">recipe_checklist</span><span class="p">,</span> <span class="n">current_step</span>
+        
+<div class="viewcode-block" id="RecipeTrackingNode.is_a_valid_recipe"><a class="viewcode-back" href="../../../index.html#recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode.is_a_valid_recipe">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">is_a_valid_recipe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">recipe</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check if the recipe is valid.</span>
+<span class="sd">        </span>
+<span class="sd">        :param recipe: recipe_checklist is the list of the steps to follow and their success status</span>
+<span class="sd">        :type recipe: list of (action (str), ingredient (str), success (str))</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">recipe</span><span class="p">[</span><span class="s2">&quot;action&quot;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;end&quot;</span><span class="p">:</span>
+            <span class="n">rospy</span><span class="o">.</span><span class="n">logerr</span><span class="p">(</span><span class="s1">&#39;Recipe does not end with &quot;end&quot; step.&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">for</span> <span class="n">action</span><span class="p">,</span> <span class="n">ingredient</span><span class="p">,</span> <span class="n">success</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">recipe</span><span class="p">[</span><span class="s2">&quot;action&quot;</span><span class="p">],</span> <span class="n">recipe</span><span class="p">[</span><span class="s2">&quot;ingredient&quot;</span><span class="p">],</span> <span class="n">recipe</span><span class="p">[</span><span class="s2">&quot;success&quot;</span><span class="p">]):</span>
+            <span class="k">if</span> <span class="n">success</span> <span class="o">!=</span> <span class="kc">False</span><span class="p">:</span>
+                <span class="n">rospy</span><span class="o">.</span><span class="n">logerr</span><span class="p">(</span><span class="s2">&quot;Too many parameters were written for one step.&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">False</span>
+            <span class="k">if</span> <span class="n">action</span> <span class="o">==</span> <span class="s2">&quot;pouring&quot;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">ingredient</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="c1"># pouring has exactly one ingredient</span>
+                    <span class="n">rospy</span><span class="o">.</span><span class="n">logerr</span><span class="p">(</span><span class="s2">&quot;Pouring action requires exactly one ingredient.&quot;</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="kc">False</span>
+            <span class="k">elif</span> <span class="n">action</span> <span class="o">==</span> <span class="s2">&quot;mixing&quot;</span><span class="p">:</span> 
+                <span class="k">if</span> <span class="n">ingredient</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span> <span class="c1"># cutting has no ingredient because it always mixes the same pot</span>
+                    <span class="n">rospy</span><span class="o">.</span><span class="n">logerr</span><span class="p">(</span><span class="s2">&quot;Mixing action requires exactly no ingredient.&quot;</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="kc">False</span>
+            <span class="k">elif</span> <span class="n">action</span> <span class="o">==</span> <span class="s2">&quot;cutting&quot;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">ingredient</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="c1"># cutting has exactly one ingredient</span>
+                    <span class="n">rospy</span><span class="o">.</span><span class="n">logerr</span><span class="p">(</span><span class="s2">&quot;Cutting action requires exactly one ingredient.&quot;</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="kc">False</span>
+            <span class="k">elif</span> <span class="n">action</span><span class="o">!=</span><span class="s2">&quot;end&quot;</span> <span class="p">:</span> <span class="c1"># unknown action (note that ingredients might be unknown)</span>
+                <span class="n">rospy</span><span class="o">.</span><span class="n">logerr</span><span class="p">(</span><span class="s2">&quot;Recipe asking unknown action.&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">False</span>
+        
+        <span class="k">return</span> <span class="kc">True</span></div>
+        
+        
 <div class="viewcode-block" id="RecipeTrackingNode.goal_callback"><a class="viewcode-back" href="../../../index.html#recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode.goal_callback">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">goal_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Callback for /goal_state topic. Updates the topics /step and /recipe_control according to the value of &quot;/goal_state&quot;.</span>

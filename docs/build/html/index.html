@@ -46,18 +46,17 @@
 <li><a class="reference internal" href="#">Assisting elderly individuals in meal preparation</a><ul>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
 <li><a class="reference internal" href="#assignment-topic-3">Assignment: Topic 3</a></li>
-<li><a class="reference internal" href="#presentation-of-the-architecture">Presentation of the architecture</a><ul>
-<li><a class="reference internal" href="#kpi-recipe-tracker">KPI: Recipe Tracker</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#presentation-of-the-architecture">Presentation of the architecture</a></li>
 <li><a class="reference internal" href="#the-components">The components</a><ul>
 <li><a class="reference internal" href="#module-recipe_tracking.scripts.recipe_tracking">Recipe Tracking and Execution History</a><ul>
 <li><a class="reference internal" href="#recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode"><code class="docutils literal notranslate"><span class="pre">RecipeTrackingNode</span></code></a><ul>
 <li><a class="reference internal" href="#recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode.goal_callback"><code class="docutils literal notranslate"><span class="pre">RecipeTrackingNode.goal_callback()</span></code></a></li>
+<li><a class="reference internal" href="#recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode.is_a_valid_recipe"><code class="docutils literal notranslate"><span class="pre">RecipeTrackingNode.is_a_valid_recipe()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li><a class="reference internal" href="#kpi-recipe-tracker">KPI: Recipe Tracker</a></li>
 <li><a class="reference internal" href="#module-action_planning.scripts.action_planning">Action Planning Based on Cooking State and Task History</a><ul>
 <li><a class="reference internal" href="#action_planning.scripts.action_planning.ActionPlanningNode"><code class="docutils literal notranslate"><span class="pre">ActionPlanningNode</span></code></a><ul>
 <li><a class="reference internal" href="#action_planning.scripts.action_planning.ActionPlanningNode.latest_step"><code class="docutils literal notranslate"><span class="pre">ActionPlanningNode.latest_step</span></code></a></li>
@@ -138,21 +137,34 @@
 </section>
 <section id="assignment-topic-3">
 <h2>Assignment: Topic 3<a class="headerlink" href="#assignment-topic-3" title="Permalink to this heading"></a></h2>
-<p>blablabla This is the description of the assignment</p>
+<p>This project aims to give assistance to elderly individuals in meal preparation, by helping them in the kitchen in the cooking tasks with the robot TIAGo.</p>
+<p>The robot TIAGo is equipped with RGB-D Camera, LiDAR, SONAR, Force Sensors, Microphones, and Speakers.</p>
+<p>The architecture should enable the robot to do the following tasks:</p>
+<ul class="simple">
+<li><p><strong>Ingredient retrieval</strong> - the robot retrieves ingredients from the shelf, planning an efficient and obstacle-free path using vision and real-time environment mapping.</p></li>
+<li><p><strong>Collaborative cooking process</strong> - the robot collaborates with the elderly person, executing the recipe step by step (mixing, cutting, pouring). Keeps track of the recipe and cooking progress, updating internal representation of the task.</p></li>
+<li><p><strong>Action decision-making</strong> - at each step, the robot determines the next action based on previous steps and current state. Verifies verbal commands (e.g., “Pass me the spoon”) and checks if they align with the planned sequence.</p></li>
+<li><p><strong>Verbal command handling</strong> - if a verbal command conflicts with the planned process, the robot must decide whether to override the plan or reject the request.</p></li>
+<li><p><strong>Object recognition</strong> -TIAGo should recognize objects (tools, ingredients) in the environment.</p></li>
+<li><p><strong>Mission completion</strong> - once the recipe is completed, the robot notifies the user that the meal preparation is finished and ensures that all steps have been followed correctly.</p></li>
+</ul>
+<p>To do so, the documentation will focus particularly on the architecture of three componants:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#recipe-tracking"><span class="std std-ref">Recipe Tracking and Execution History</span></a>: Maintains an updated internal representation of the recipe and the sequence of performed actions. Ensures the cooking process follows the correct step-by-step execution. Provides necessary data to determine the next best action.</p></li>
+<li><p><a class="reference internal" href="#action-planning"><span class="std std-ref">Action Planning Based on Cooking State and Task History</span></a>: Decides the next action based on the current cooking progress and past steps. Considers the state of the system, ensuring seamless task progression. Dynamically adjusts the sequence in response to unexpected conditions.</p></li>
+<li><p><a class="reference internal" href="#human-command"><span class="std std-ref">Human Command Monitoring and Conflict Resolution</span></a>: Recognizes and interprets verbal commands related to object passing or ingredient addition. Evaluates whether a request fits within the expected sequence of actions. If a command is valid, it modifies the plan accordingly. If it is incorrect, the robot rejects the request and follows the original plan.</p></li>
+</ul>
 </section>
 <section id="presentation-of-the-architecture">
 <h2>Presentation of the architecture<a class="headerlink" href="#presentation-of-the-architecture" title="Permalink to this heading"></a></h2>
 <p>blablabla This is the architecture component diagram with accurate description detailing where different design
 patters could play a role in the final architecture implementation.</p>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/component_diagram.drawio.png"><img alt="Component diagram" class="align-center" src="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/component_diagram.drawio.png" style="width: 60%;" /></a>
-<br><br><section id="kpi-recipe-tracker">
-<h3>KPI: Recipe Tracker<a class="headerlink" href="#kpi-recipe-tracker" title="Permalink to this heading"></a></h3>
-</section>
-</section>
+<br><br></section>
 <section id="the-components">
 <h2>The components<a class="headerlink" href="#the-components" title="Permalink to this heading"></a></h2>
 <section id="module-recipe_tracking.scripts.recipe_tracking">
-<span id="recipe-tracking-and-execution-history"></span><h3>Recipe Tracking and Execution History<a class="headerlink" href="#module-recipe_tracking.scripts.recipe_tracking" title="Permalink to this heading"></a></h3>
+<span id="recipe-tracking-and-execution-history"></span><span id="recipe-tracking"></span><h3>Recipe Tracking and Execution History<a class="headerlink" href="#module-recipe_tracking.scripts.recipe_tracking" title="Permalink to this heading"></a></h3>
 <p>Description of the module recipe_tracking sphinx.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode">
@@ -204,14 +216,28 @@ It publishes the current step of the recipe and the list of the steps of the rec
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode.is_a_valid_recipe">
+<span class="sig-name descname"><span class="pre">is_a_valid_recipe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recipe</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/recipe_tracking/scripts/recipe_tracking.html#RecipeTrackingNode.is_a_valid_recipe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode.is_a_valid_recipe" title="Permalink to this definition"></a></dt>
+<dd><p>Check if the recipe is valid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>recipe</strong> (<em>list</em><em> of </em><em>(</em><em>action</em><em> (</em><em>str</em><em>)</em><em>, </em><em>ingredient</em><em> (</em><em>str</em><em>)</em><em>, </em><em>success</em><em> (</em><em>str</em><em>)</em><em>)</em>) – recipe_checklist is the list of the steps to follow and their success status</p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 <br><br><a class="reference internal image-reference" href="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/activity_diagram.png"><img alt="Activity diagram" class="align-center" src="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/activity_diagram.png" style="width: 60%;" /></a>
 <br><br><a class="reference internal image-reference" href="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/state_diagram.png"><img alt="State Machine diagram" class="align-center" src="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/state_diagram.png" style="width: 60%;" /></a>
 <br><br><a class="reference internal image-reference" href="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/sequence_diagram.png"><img alt="Sequence diagram" class="align-center" src="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/sequence_diagram.png" style="width: 60%;" /></a>
 <br><br></section>
+<section id="kpi-recipe-tracker">
+<h3>KPI: Recipe Tracker<a class="headerlink" href="#kpi-recipe-tracker" title="Permalink to this heading"></a></h3>
+</section>
 <section id="module-action_planning.scripts.action_planning">
-<span id="action-planning-based-on-cooking-state-and-task-history"></span><h3>Action Planning Based on Cooking State and Task History<a class="headerlink" href="#module-action_planning.scripts.action_planning" title="Permalink to this heading"></a></h3>
+<span id="action-planning-based-on-cooking-state-and-task-history"></span><span id="action-planning"></span><h3>Action Planning Based on Cooking State and Task History<a class="headerlink" href="#module-action_planning.scripts.action_planning" title="Permalink to this heading"></a></h3>
 <p>Description of the module action_planning sphinx.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="action_planning.scripts.action_planning.ActionPlanningNode">
@@ -275,7 +301,7 @@ It publishes the action planned.</p>
 <h3>KPI: Action Planning<a class="headerlink" href="#kpi-action-planning" title="Permalink to this heading"></a></h3>
 </section>
 <section id="module-human_command.scripts.human_command">
-<span id="human-command-monitoring-and-conflict-resolution"></span><h3>Human Command Monitoring and Conflict Resolution<a class="headerlink" href="#module-human_command.scripts.human_command" title="Permalink to this heading"></a></h3>
+<span id="human-command-monitoring-and-conflict-resolution"></span><span id="human-command"></span><h3>Human Command Monitoring and Conflict Resolution<a class="headerlink" href="#module-human_command.scripts.human_command" title="Permalink to this heading"></a></h3>
 <p>Description of the module human_command sphinx.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="human_command.scripts.human_command.HumanCommandNode">

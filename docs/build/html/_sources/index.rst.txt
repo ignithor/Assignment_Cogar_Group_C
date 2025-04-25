@@ -27,9 +27,29 @@ Indices and tables
 * :ref:`search`
 
 Assignment: Topic 3
--------------------
+----------------------
 
-blablabla This is the description of the assignment
+This project aims to give assistance to elderly individuals in meal preparation, by helping them in the kitchen in the cooking tasks with the robot TIAGo.
+
+The robot TIAGo is equipped with RGB-D Camera, LiDAR, SONAR, Force Sensors, Microphones, and Speakers.
+
+The architecture should enable the robot to do the following tasks:
+
+-  **Ingredient retrieval** - the robot retrieves ingredients from the shelf, planning an efficient and obstacle-free path using vision and real-time environment mapping.
+- **Collaborative cooking process** - the robot collaborates with the elderly person, executing the recipe step by step (mixing, cutting, pouring). Keeps track of the recipe and cooking progress, updating internal representation of the task.
+- **Action decision-making** - at each step, the robot determines the next action based on previous steps and current state. Verifies verbal commands (e.g., “Pass me the spoon”) and checks if they align with the planned sequence.
+- **Verbal command handling** - if a verbal command conflicts with the planned process, the robot must decide whether to override the plan or reject the request.
+- **Object recognition** -TIAGo should recognize objects (tools, ingredients) in the environment.
+
+- **Mission completion** - once the recipe is completed, the robot notifies the user that the meal preparation is finished and ensures that all steps have been followed correctly.
+
+
+To do so, the documentation will focus particularly on the architecture of three componants:
+
+-  :ref:`recipe-tracking`: Maintains an updated internal representation of the recipe and the sequence of performed actions. Ensures the cooking process follows the correct step-by-step execution. Provides necessary data to determine the next best action.
+- :ref:`action-planning`: Decides the next action based on the current cooking progress and past steps. Considers the state of the system, ensuring seamless task progression. Dynamically adjusts the sequence in response to unexpected conditions.
+- :ref:`human-command`: Recognizes and interprets verbal commands related to object passing or ingredient addition. Evaluates whether a request fits within the expected sequence of actions. If a command is valid, it modifies the plan accordingly. If it is incorrect, the robot rejects the request and follows the original plan.
+
 
 Presentation of the architecture
 --------------------------------
@@ -46,11 +66,11 @@ patters could play a role in the final architecture implementation.
 
    <br><br>
 
-KPI: Recipe Tracker
-~~~~~~~~~~~~~~~~~~~
 
 The components
 --------------
+
+.. _recipe-tracking:
 
 Recipe Tracking and Execution History
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -89,6 +109,11 @@ Recipe Tracking and Execution History
 
    <br><br>
 
+KPI: Recipe Tracker
+~~~~~~~~~~~~~~~~~~~
+
+.. _action-planning:
+
 Action Planning Based on Cooking State and Task History
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -101,6 +126,8 @@ Action Planning Based on Cooking State and Task History
 
 KPI: Action Planning
 ~~~~~~~~~~~~~~~~~~~~
+
+.. _human-command:
 
 Human Command Monitoring and Conflict Resolution
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
