@@ -50,6 +50,7 @@
 <li><a class="reference internal" href="#the-components">The components</a><ul>
 <li><a class="reference internal" href="#recipe-tracking-and-execution-history">Recipe Tracking and Execution History</a><ul>
 <li><a class="reference internal" href="#use-case-diagram">Use case diagram</a></li>
+<li><a class="reference internal" href="#interfaces-with-the-other-components">Interfaces with the other components</a></li>
 <li><a class="reference internal" href="#sequence-diagram">Sequence diagram</a></li>
 <li><a class="reference internal" href="#activity-diagram">Activity diagram</a></li>
 <li><a class="reference internal" href="#state-machine-diagram">State machine diagram</a></li>
@@ -190,6 +191,26 @@ patters could play a role in the final architecture implementation.</p>
 <li><p>the <strong>Step by step recipe checklist</strong>, which correspond to a checklist of the steps of the recipe. This way, it represents the memory of the steps alrerady executed.</p></li>
 <li><p>the <strong>Step tracker</strong>, which stores the data of the current step and updates it every time its execution is validated by the Action Planner.</p></li>
 </ul>
+</section>
+<section id="interfaces-with-the-other-components">
+<h4>Interfaces with the other components<a class="headerlink" href="#interfaces-with-the-other-components" title="Permalink to this heading"></a></h4>
+<p>As illustrated in the <a class="reference internal" href="#uml-uc-rt"><span class="std std-ref">use case diagram</span></a>, the only interface of this component with another component is with the Action Planner.</p>
+<p>It is a data interface, exposing the data of the current step of the recipe.
+It is loosely-typed with an action planning which has the following structure:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># goal
+string action
+string ingredient
+---
+# result
+bool success
+---
+# feedback
+string status
+</pre></div>
+</div>
+<p>Thus, a step is represented by a verb of <strong>action</strong> (“cutting”, “pouring”, “mixing”) and an <strong>ingredient</strong> (“carrots”, “leaks”, “cheese”, etc.), which are defined by the Recipe tracker and acquired by the Action Planner, and the <strong>success</strong> status (boolean) to know if the step has successed. The string type enables to formalize the spoken language with token words which can be understood and spoken naturally both by the robot and an elder person.</p>
+<p>It is a stateless interface which forgets about the previous data it had as soon as the data of a new step is sent. Indeed, the dependence between the different steps is already dealt with by the fact that the steps are validated one by one and in order. So, for the interface, the success of a step can be considered independent of the success of the previous ones.</p>
+<p>Finally, the concerns are separated such that this recipe tracker can be initialized independently from the other components.</p>
 </section>
 <section id="sequence-diagram">
 <h4>Sequence diagram<a class="headerlink" href="#sequence-diagram" title="Permalink to this heading"></a></h4>

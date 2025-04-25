@@ -102,6 +102,33 @@ It operates with two principal objects:
 - the **Step by step recipe checklist**, which correspond to a checklist of the steps of the recipe. This way, it represents the memory of the steps alrerady executed.
 - the **Step tracker**, which stores the data of the current step and updates it every time its execution is validated by the Action Planner.
 
+Interfaces with the other components
+++++++++++++++++++++++++++++++++++++++++
+
+As illustrated in the :ref:`use case diagram <uml-uc-rt>`, the only interface of this component with another component is with the Action Planner.
+
+It is a data interface, exposing the data of the current step of the recipe.
+It is loosely-typed with an action planning which has the following structure:
+
+.. code-block:: text
+
+    # goal
+    string action
+    string ingredient
+    ---
+    # result
+    bool success
+    ---
+    # feedback
+    string status
+
+Thus, a step is represented by a verb of **action** ("cutting", "pouring", "mixing") and an **ingredient** ("carrots", "leaks", "cheese", etc.), which are defined by the Recipe tracker and acquired by the Action Planner, and the **success** status (boolean) to know if the step has successed. The string type enables to formalize the spoken language with token words which can be understood and spoken naturally both by the robot and an elder person.
+
+It is a stateless interface which forgets about the previous data it had as soon as the data of a new step is sent. Indeed, the dependence between the different steps is already dealt with by the fact that the steps are validated one by one and in order. So, for the interface, the success of a step can be considered independent of the success of the previous ones.
+
+Finally, the concerns are separated such that this recipe tracker can be initialized independently from the other components.
+
+
 Sequence diagram
 ++++++++++++++++++++
 
