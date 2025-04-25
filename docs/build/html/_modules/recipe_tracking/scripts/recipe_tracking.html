@@ -95,11 +95,10 @@
 
 <span class="sd">    Publishes to:</span>
 <span class="sd">        - /step (std_msgs/String): Step of the recipe. It is the latest non validated step.</span>
-<span class="sd">        - /recipe_control (recipe_tracking/RecipeControl): list of the steps of the recipe with their associated validation status (validated or not).</span>
 <span class="sd">    </span>
 <span class="sd">    Attributes:</span>
-<span class="sd">        - current_step (str): It is the latest step of the recipe which is not validated yet.</span>
-<span class="sd">        - recipe_checklist (RecipeControl): list of the validation status of each step.</span>
+<span class="sd">        current_step (str): It is the latest step of the recipe which is not validated yet.</span>
+<span class="sd">        recipe_checklist (dictionary): list of the steps and their success status.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -111,9 +110,6 @@
         <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s1">&#39;recipe_tracking_node&#39;</span><span class="p">)</span>
         
         <span class="c1"># Initialize the cooking process</span>
-        <span class="c1">#recipe_steps = rospy.get_param(&quot;recipe&quot;,[&quot;cut&quot;, &quot;cut&quot;, &quot;mix&quot;, &quot;end&quot;])</span>
-        <span class="c1">#self.recipe_checklist = { &quot;steps&quot;: recipe_steps, &quot;status&quot;: [False] * len (recipe_steps) }</span>
-        <span class="c1">#self.current_step = self.recipe_checklist[&quot;steps&quot;][0]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">recipe_txt</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s2">&quot;recipe_txt&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">recipe_checklist</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_step</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">initialize_recipe</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">recipe_txt</span><span class="p">)</span>
         
@@ -168,7 +164,7 @@
 <span class="sd">        Check if the recipe is valid.</span>
 <span class="sd">        </span>
 <span class="sd">        :param recipe: recipe_checklist is the list of the steps to follow and their success status</span>
-<span class="sd">        :type recipe: list of (action (str), ingredient (str), success (str))</span>
+<span class="sd">        :type recipe: dictionary of (action (str), ingredient (str), success (str))</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">recipe</span><span class="p">[</span><span class="s2">&quot;action&quot;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;end&quot;</span><span class="p">:</span>
             <span class="n">rospy</span><span class="o">.</span><span class="n">logerr</span><span class="p">(</span><span class="s1">&#39;Recipe does not end with &quot;end&quot; step.&#39;</span><span class="p">)</span>
