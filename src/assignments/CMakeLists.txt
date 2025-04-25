@@ -60,6 +60,7 @@ add_service_files(
   FILES
   CheckJointState.srv
   Speaker.srv
+  Perception.srv
 )
 
 ## Generate actions in the 'action' folder
