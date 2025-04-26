@@ -226,6 +226,91 @@ To indicate whether this component is meeting performance goals, the chosen metr
 Action Planning Based on Cooking State and Task History
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+This section describes the architecture of the "Action Planning Based on Cooking State and Task History" component, based on its behavioural diagrams (Sequence diagram, activity diagram and state machine diagram).
+
+
+Interfaces with the other components
+++++++++++++++++++++++++++++++++++++++++
+
+TODO
+
+As illustrated in the :ref:`use case diagram <uml-uc-rt>`, the only interface of this component with another component is with the Action Planner.
+
+It is a data interface, exposing the data of the current step of the recipe.
+It is loosely-typed with an action planning which has the following structure:
+
+.. code-block:: text
+
+    # goal
+    string action
+    string ingredient
+    ---
+    # result
+    bool success
+    ---
+    # feedback
+    string status
+
+Thus, a step is represented by a verb of **action** ("cutting", "pouring", "mixing") and an **ingredient** ("carrots", "leaks", "cheese", etc.), which are defined by the Recipe tracker and acquired by the Action Planner, and the **success** status (boolean) to know if the step has successed. The string type enables to formalize the spoken language with token words which can be understood and spoken naturally both by the robot and an elder person.
+
+It is a stateless interface which forgets about the previous data it had as soon as the data of a new step is sent. Indeed, the dependence between the different steps is already dealt with by the fact that the steps are validated one by one and in order. So, for the interface, the success of a step can be considered independent of the success of the previous ones.
+
+Finally, the concerns are separated such that this recipe tracker can be initialized independently from the other components.
+
+
+Sequence diagram
+++++++++++++++++++++
+
+.. _uml-seq-ap:
+
+.. figure:: https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/action_planning/diagrams/sequence_diagram.png
+   :alt: Sequence diagram
+   :align: center
+   :width: 80%
+
+   Sequence diagram for the Action Planning Based on Cooking State and Task History component.
+
+.. raw:: html
+
+   <br><br>
+
+Activity diagram
+++++++++++++++++++++
+
+.. _uml-a-ap:
+
+.. figure:: https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/action_planning/diagrams/activity_diagram.png
+   :alt: Activity diagram
+   :align: center
+   :width: 100%
+   
+   Activity diagram for the Action Planning Based on Cooking State and Task History component.
+
+.. raw:: html
+
+   <br><br>
+
+State machine diagram
+++++++++++++++++++++++++
+
+.. _uml-sm-ap:
+
+.. figure:: https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/action_planning/diagrams/state_machine_diagram.png
+   :alt: State machine diagram
+   :align: center
+   :width: 100%
+   
+   State diagram for the Action Planning Based on Cooking State and Task History component.
+
+.. raw:: html
+
+   <br><br>
+   
+
+
+Dummy implementation of the cognitive architecture
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. automodule:: action_planning.scripts.action_planning
    :members:
 
@@ -235,6 +320,13 @@ Action Planning Based on Cooking State and Task History
 
 KPI: Action Planning
 ~~~~~~~~~~~~~~~~~~~~
+
+We can define our KPI of Action Planning by the average time from receiving a step to successfully completing it (or failing).
+
+Define as sum(execution_times) / total_steps
+
+This shows system efficiency. Delays might be caused by perception latency, planning bottlenecks, slow conflicts resolution or poor hardware interaction.
+
 
 .. _human-command:
 

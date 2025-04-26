@@ -70,109 +70,188 @@
 <span></span><span class="ch">#!/usr/bin/env python3</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">.. module: action_planning</span>
-<span class="sd">   :platform: unix</span>
-<span class="sd">   :synopsis: Python node to be described.</span>
+<span class="sd">.. module:: action_planning_node</span>
+<span class="sd">   :platform: Unix</span>
+<span class="sd">   :synopsis: Handles execution of recipe steps through object perception and path planning.</span>
 
 <span class="sd">.. moduleauthor:: Paul Pham Dang</span>
 
-<span class="sd">Description of the module action_planning sphinx.</span>
+<span class="sd">ROS node that coordinates execution of recipe steps:</span>
+<span class="sd">- Receives steps via an action server</span>
+<span class="sd">- Uses a perception service to check for required objects</span>
+<span class="sd">- Sends valid steps to a path planning action server</span>
+<span class="sd">- Uses a speaker service to handle and announce conflicts</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">rospy</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">std_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">String</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sensor_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">assignments.srv</span><span class="w"> </span><span class="kn">import</span> <span class="n">Speaker</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">actionlib</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">std_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">String</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">assignments.srv</span><span class="w"> </span><span class="kn">import</span> <span class="n">Speaker</span><span class="p">,</span> <span class="n">Perception</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">assignments.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">stepAction</span><span class="p">,</span> <span class="n">stepFeedback</span><span class="p">,</span> <span class="n">stepResult</span><span class="p">,</span> <span class="n">stepGoal</span>
+
 
 <div class="viewcode-block" id="ActionPlanningNode"><a class="viewcode-back" href="../../../index.html#action_planning.scripts.action_planning.ActionPlanningNode">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">ActionPlanningNode</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    ROS node that listens to the step commands of the recipe and RGB images of the robot camera.</span>
-<span class="sd">    It publishes the action planned.</span>
-
-<span class="sd">    Subscribes to:</span>
-<span class="sd">        - /step (std_msgs/String): Step of the recipe input.</span>
-<span class="sd">        - /image_rgb (sensor_msgs/Image): RGB image input.</span>
-
-<span class="sd">    Publishes to:</span>
-<span class="sd">        - /plan (std_msgs/String): Generated plan based on the latest step and image.</span>
-
-<span class="sd">    Attributes:</span>
-<span class="sd">        latest_step (str): Latest received step command.</span>
+<span class="sd">    Class representing the action planning ROS node. Handles incoming steps,</span>
+<span class="sd">    checks object availability, resolves conflicts, and sends commands to a path planning server.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Initialize the Node, set up subscribers and publisher.</span>
+<span class="sd">        Initializes the node, sets up action servers and clients, and initializes state variables.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s1">&#39;action_planning_node&#39;</span><span class="p">)</span>
 
-        <span class="c1"># Subscribe to /step (String messages)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">step_sub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Subscriber</span><span class="p">(</span><span class="s1">&#39;/step&#39;</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">step_callback</span><span class="p">)</span>
+        <span class="c1"># Action server to receive steps</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">server</span> <span class="o">=</span> <span class="n">actionlib</span><span class="o">.</span><span class="n">SimpleActionServer</span><span class="p">(</span>
+            <span class="s1">&#39;/step_action&#39;</span><span class="p">,</span>
+            <span class="n">stepAction</span><span class="p">,</span>
+            <span class="n">execute_cb</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">execute_callback</span><span class="p">,</span>
+            <span class="n">auto_start</span><span class="o">=</span><span class="kc">False</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
-        <span class="c1"># Subscribe to /image_rgb (Image messages)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">image_sub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Subscriber</span><span class="p">(</span><span class="s1">&#39;/image_rgb&#39;</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_callback</span><span class="p">)</span>
+        <span class="c1"># Action client to send steps to the path planner</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">path_planning_client</span> <span class="o">=</span> <span class="n">actionlib</span><span class="o">.</span><span class="n">SimpleActionClient</span><span class="p">(</span><span class="s1">&#39;/path_planning&#39;</span><span class="p">,</span> <span class="n">stepAction</span><span class="p">)</span>
+        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s2">&quot;Waiting for /path_planning action server...&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">path_planning_client</span><span class="o">.</span><span class="n">wait_for_server</span><span class="p">()</span>
+        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s2">&quot;/path_planning action server available.&quot;</span><span class="p">)</span>
 
-        <span class="c1"># Publisher for /plan topic</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">plan_pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s1">&#39;/plan&#39;</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+        <span class="c1"># Stack of steps and completed steps</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stack_step</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">steps_done</span> <span class="o">=</span> <span class="p">[]</span>
 
-        <span class="c1"># Store the latest messages</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">latest_step</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">latest_image</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s2">&quot;ActionPlanningNode initialized and ready.&quot;</span><span class="p">)</span>
 
-        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s2">&quot;PlanNode initialized and listening to /step and /image_rgb&quot;</span><span class="p">)</span>
-
-<div class="viewcode-block" id="ActionPlanningNode.step_callback"><a class="viewcode-back" href="../../../index.html#action_planning.scripts.action_planning.ActionPlanningNode.step_callback">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">step_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+<div class="viewcode-block" id="ActionPlanningNode.execute_callback"><a class="viewcode-back" href="../../../index.html#action_planning.scripts.action_planning.ActionPlanningNode.execute_callback">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">execute_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">goal</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Callback for /step topic.</span>
+<span class="sd">        Callback triggered when a step is received on the /step_action action server.</span>
 
-<span class="sd">        :param msg: Incoming String message containing the step command.</span>
-<span class="sd">        :type msg: std_msgs.msg.String</span>
+<span class="sd">        :param goal: stepGoal object containing the action and ingredient</span>
+<span class="sd">        :type goal: assignments.msg.stepGoal</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Received step: </span><span class="si">{</span><span class="n">msg</span><span class="o">.</span><span class="n">data</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">latest_step</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">data</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">try_publish_plan</span><span class="p">()</span></div>
+        <span class="n">feedback</span> <span class="o">=</span> <span class="n">stepFeedback</span><span class="p">()</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">stepResult</span><span class="p">()</span>
+        <span class="n">new_step</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">goal</span><span class="o">.</span><span class="n">action</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">goal</span><span class="o">.</span><span class="n">ingredient</span><span class="si">}</span><span class="s2">&quot;</span>
 
-<div class="viewcode-block" id="ActionPlanningNode.image_callback"><a class="viewcode-back" href="../../../index.html#action_planning.scripts.action_planning.ActionPlanningNode.image_callback">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">image_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[New Step] </span><span class="si">{</span><span class="n">new_step</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">feedback</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Received step: </span><span class="si">{</span><span class="n">new_step</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">publish_feedback</span><span class="p">(</span><span class="n">feedback</span><span class="p">)</span>
+
+        <span class="c1"># Push the new step to the stack</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stack_step</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_step</span><span class="p">)</span>
+
+        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">stack_step</span><span class="p">:</span>
+            <span class="n">step</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stack_step</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># Peek at the top</span>
+            <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[Stack Peek] </span><span class="si">{</span><span class="n">step</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">action</span><span class="p">,</span> <span class="n">ingredient</span> <span class="o">=</span> <span class="n">step</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">maxsplit</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="n">rospy</span><span class="o">.</span><span class="n">logerr</span><span class="p">(</span><span class="s2">&quot;Invalid step format&quot;</span><span class="p">)</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">success</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">set_aborted</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="s2">&quot;Invalid step format&quot;</span><span class="p">)</span>
+                <span class="k">return</span>
+
+            <span class="c1"># Check if the object is available using perception</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_object_availability</span><span class="p">(</span><span class="n">ingredient</span><span class="p">,</span> <span class="n">feedback</span><span class="p">):</span>
+                <span class="n">feedback</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Object </span><span class="si">{</span><span class="n">ingredient</span><span class="si">}</span><span class="s2"> not available, resolving conflict...&quot;</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">publish_feedback</span><span class="p">(</span><span class="n">feedback</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">announce_conflict</span><span class="p">(</span><span class="n">ingredient</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">resolve_conflict</span><span class="p">(</span><span class="n">ingredient</span><span class="p">):</span>
+                    <span class="n">result</span><span class="o">.</span><span class="n">success</span> <span class="o">=</span> <span class="kc">False</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">set_aborted</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="s2">&quot;Could not resolve conflict&quot;</span><span class="p">)</span>
+                    <span class="k">return</span>
+                <span class="k">continue</span>  <span class="c1"># Retry step</span>
+
+            <span class="c1"># Send the goal to the path planner</span>
+            <span class="n">feedback</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Sending step to /path_planning: </span><span class="si">{</span><span class="n">step</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">publish_feedback</span><span class="p">(</span><span class="n">feedback</span><span class="p">)</span>
+
+            <span class="n">goal_msg</span> <span class="o">=</span> <span class="n">stepGoal</span><span class="p">()</span>
+            <span class="n">goal_msg</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="n">action</span>
+            <span class="n">goal_msg</span><span class="o">.</span><span class="n">ingredient</span> <span class="o">=</span> <span class="n">ingredient</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">path_planning_client</span><span class="o">.</span><span class="n">send_goal</span><span class="p">(</span><span class="n">goal_msg</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">path_planning_client</span><span class="o">.</span><span class="n">wait_for_result</span><span class="p">()</span>
+            <span class="n">path_result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">path_planning_client</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">path_result</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+                <span class="n">rospy</span><span class="o">.</span><span class="n">logerr</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Path planning failed for step: </span><span class="si">{</span><span class="n">step</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">success</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">set_aborted</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="s2">&quot;Path planning failed&quot;</span><span class="p">)</span>
+                <span class="k">return</span>
+
+            <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Path planning succeeded for step: </span><span class="si">{</span><span class="n">step</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="c1"># Remove from stack and mark as done</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">steps_done</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stack_step</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>
+            <span class="n">feedback</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Executed step: </span><span class="si">{</span><span class="n">step</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">publish_feedback</span><span class="p">(</span><span class="n">feedback</span><span class="p">)</span>
+            <span class="n">rospy</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+
+        <span class="n">result</span><span class="o">.</span><span class="n">success</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">set_succeeded</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="s2">&quot;All steps completed&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ActionPlanningNode.check_object_availability"><a class="viewcode-back" href="../../../index.html#action_planning.scripts.action_planning.ActionPlanningNode.check_object_availability">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">check_object_availability</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">feedback</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Callback for /image_rgb topic.</span>
+<span class="sd">        Checks if the required object is available using the /perception service.</span>
 
-<span class="sd">        :param msg: Incoming Image message.</span>
-<span class="sd">        :type msg: sensor_msgs.msg.Image</span>
+<span class="sd">        :param obj: Object to check</span>
+<span class="sd">        :type obj: str</span>
+<span class="sd">        :param feedback: stepFeedback to update the client</span>
+<span class="sd">        :type feedback: assignments.msg.stepFeedback</span>
+<span class="sd">        :return: True if object is found, False otherwise</span>
+<span class="sd">        :rtype: bool</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s2">&quot;Received image message&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">latest_image</span> <span class="o">=</span> <span class="n">msg</span></div>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">rospy</span><span class="o">.</span><span class="n">wait_for_service</span><span class="p">(</span><span class="s1">&#39;/perception&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+            <span class="n">perception</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span><span class="s1">&#39;/perception&#39;</span><span class="p">,</span> <span class="n">Perception</span><span class="p">)</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">perception</span><span class="p">([</span><span class="n">obj</span><span class="p">])</span>
+            <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">found</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">rospy</span><span class="o">.</span><span class="n">logerr</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Perception service error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">feedback</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Perception error for object: </span><span class="si">{</span><span class="n">obj</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">publish_feedback</span><span class="p">(</span><span class="n">feedback</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
 
-<div class="viewcode-block" id="ActionPlanningNode.try_publish_plan"><a class="viewcode-back" href="../../../index.html#action_planning.scripts.action_planning.ActionPlanningNode.try_publish_plan">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">try_publish_plan</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="ActionPlanningNode.announce_conflict"><a class="viewcode-back" href="../../../index.html#action_planning.scripts.action_planning.ActionPlanningNode.announce_conflict">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">announce_conflict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Attempt to publish a plan if both a step and an image have been received.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">latest_step</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">latest_image</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="c1"># Dummy plan generation logic</span>
-            <span class="n">plan_msg</span> <span class="o">=</span> <span class="n">String</span><span class="p">()</span>
-            
-            <span class="c1"># Generate a random number between 0 and 1</span>
-            <span class="n">random_value</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+<span class="sd">        Uses the /speaker service to announce that an object is missing.</span>
 
-            <span class="k">if</span> <span class="n">random_value</span> <span class="o">&gt;</span> <span class="mf">0.1</span><span class="p">:</span>
-                <span class="n">plan_msg</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">(</span>
-                    <span class="s2">&quot;Plan to do : ... &quot;</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">plan_msg</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="s2">&quot;Error: Plan is impossible to generate based on the current inputs...&quot;</span>
-                <span class="c1"># Log the error</span>
-                <span class="n">rospy</span><span class="o">.</span><span class="n">logerr</span><span class="p">(</span><span class="s2">&quot;Plan generation failed&quot;</span><span class="p">)</span>
-                <span class="c1"># use the speaker service to notify the user</span>
-                <span class="k">try</span><span class="p">:</span>
-                    <span class="n">rospy</span><span class="o">.</span><span class="n">wait_for_service</span><span class="p">(</span><span class="s1">&#39;/speaker&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-                    <span class="n">speaker_service</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span><span class="s1">&#39;/speaker&#39;</span><span class="p">,</span> <span class="n">Speaker</span><span class="p">)</span>
-                    <span class="n">speaker_service</span><span class="p">(</span><span class="s2">&quot;Plan generation failed&quot;</span><span class="p">)</span>
-                <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-                    <span class="n">rospy</span><span class="o">.</span><span class="n">logerr</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to call speaker service: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-                
-            <span class="c1"># Publish the generated plan</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">plan_pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">plan_msg</span><span class="p">)</span>
-            <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Published plan: </span><span class="si">{</span><span class="n">plan_msg</span><span class="o">.</span><span class="n">data</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div></div>
+<span class="sd">        :param obj: Name of the missing object</span>
+<span class="sd">        :type obj: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">rospy</span><span class="o">.</span><span class="n">wait_for_service</span><span class="p">(</span><span class="s1">&#39;/speaker&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+            <span class="n">speaker</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span><span class="s1">&#39;/speaker&#39;</span><span class="p">,</span> <span class="n">Speaker</span><span class="p">)</span>
+            <span class="n">speaker</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Object </span><span class="si">{</span><span class="n">obj</span><span class="si">}</span><span class="s2"> not found. Please check.&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">rospy</span><span class="o">.</span><span class="n">logerr</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Speaker service error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ActionPlanningNode.resolve_conflict"><a class="viewcode-back" href="../../../index.html#action_planning.scripts.action_planning.ActionPlanningNode.resolve_conflict">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">resolve_conflict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Attempts to resolve a missing object conflict by retrying perception after a delay.</span>
+
+<span class="sd">        :param obj: Object to check again</span>
+<span class="sd">        :type obj: str</span>
+<span class="sd">        :return: True if object becomes available, False otherwise</span>
+<span class="sd">        :rtype: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Attempting to resolve conflict for: </span><span class="si">{</span><span class="n">obj</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">rospy</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># Simulate manual correction time</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">rospy</span><span class="o">.</span><span class="n">wait_for_service</span><span class="p">(</span><span class="s1">&#39;/perception&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+            <span class="n">perception</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span><span class="s1">&#39;/perception&#39;</span><span class="p">,</span> <span class="n">Perception</span><span class="p">)</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">perception</span><span class="p">([</span><span class="n">obj</span><span class="p">])</span>
+            <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">found</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span></div></div>
+
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="k">try</span><span class="p">:</span>
