@@ -12,6 +12,7 @@ from assignments.srv import Perception, PerceptionResponse
 from assignments.srv import Speaker, SpeakerResponse
 from actionlib_msgs.msg import GoalStatus
 from threading import Thread
+import random
 
 from assignments.msg import stepActionResult
 from std_msgs.msg import String
@@ -44,18 +45,18 @@ class TestActionPlanningNode(unittest.TestCase):
         Always return True for simplicity
         """
         self.perception_call_count += 1
-        return PerceptionResponse(found=True)
+        return PerceptionResponse(found= (random.random() < 0.9))
 
     def speaker_callback(self, req):
         self.speaker_call_count += 1
-        return SpeakerResponse(success=True)
+        return SpeakerResponse(success= (random.random() < 0.9))
 
     def path_planning_callback(self, goal):
         """
         Simulates a successful path planning result.
         """
         rospy.sleep(0.5)  # simulate delay
-        result = stepResult(success=True)
+        result = stepResult(success= (random.random() < 0.9))
         self.path_planning_server.set_succeeded(result)
 
     def test_step_successful(self):
