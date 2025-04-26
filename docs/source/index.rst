@@ -70,6 +70,32 @@ patters could play a role in the final architecture implementation.
 The components
 --------------
 
+The global architecture of the system is described by the following :ref:`component diagram <uml-c>`.
+
+.. _uml-c:
+
+.. figure:: https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/component_diagram.drawio.png
+   :alt: Component diagram
+   :align: center
+   :width: 60%
+
+   Component diagram of the system.
+
+.. raw:: html
+
+   <br><br>
+
+The main sub-systems are:
+- Perception
+- Navigation
+- Robot
+- :ref:`recipe-tracking`
+- :ref:`action-planning`
+- :ref:`human-command`
+
+
+
+
 .. _recipe-tracking:
 
 Recipe Tracking and Execution History

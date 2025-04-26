@@ -3,20 +3,20 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Assisting elderly individuals in meal preparation &mdash; Assignment_Cogar_Group_C 0.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=eafc0fe6" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
 
   
-      <script src="_static/jquery.js?v=5d32c60e"></script>
-      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=44496db0"></script>
-      <script src="_static/doctools.js?v=888ff710"></script>
-      <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="_static/jquery.js"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+      <script src="_static/doctools.js"></script>
+      <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -76,7 +76,12 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#kpi-action-planning">KPI: Action Planning</a></li>
-<li><a class="reference internal" href="#module-human_command.scripts.human_command">Human Command Monitoring and Conflict Resolution</a><ul>
+<li><a class="reference internal" href="#human-command-monitoring-and-conflict-resolution">Human Command Monitoring and Conflict Resolution</a><ul>
+<li><a class="reference internal" href="#id6">Interfaces with the other components</a></li>
+<li><a class="reference internal" href="#id7">Sequence diagram</a></li>
+<li><a class="reference internal" href="#id8">Activity diagram</a></li>
+<li><a class="reference internal" href="#id9">State machine diagram</a></li>
+<li><a class="reference internal" href="#id10">Dummy implementation of the cognitive architecture</a><ul>
 <li><a class="reference internal" href="#human_command.scripts.human_command.HumanCommandNode"><code class="docutils literal notranslate"><span class="pre">HumanCommandNode</span></code></a><ul>
 <li><a class="reference internal" href="#human_command.scripts.human_command.HumanCommandNode.command_callback"><code class="docutils literal notranslate"><span class="pre">HumanCommandNode.command_callback()</span></code></a></li>
 <li><a class="reference internal" href="#human_command.scripts.human_command.HumanCommandNode.conflict_resolution"><code class="docutils literal notranslate"><span class="pre">HumanCommandNode.conflict_resolution()</span></code></a></li>
@@ -91,7 +96,9 @@
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#kpi-human-command-handling">KPI: Human Command Handling</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id11">KPI: Recipe Tracker</a></li>
 </ul>
 </li>
 </ul>
@@ -176,10 +183,10 @@ patters could play a role in the final architecture implementation.</p>
 <p>This section describes the architecture of the “Recipe Tracking and Execution History” component, based on its behavioural diagrams (use case diagram, sequence diagram, activity diagram and state machine diagram).</p>
 <section id="use-case-diagram">
 <h4>Use case diagram<a class="headerlink" href="#use-case-diagram" title="Permalink to this heading"></a></h4>
-<figure class="align-center" id="id6">
+<figure class="align-center" id="id12">
 <span id="uml-uc-rt"></span><a class="reference internal image-reference" href="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/use_case_diagram.png"><img alt="Use case diagram" src="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/use_case_diagram.png" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-text">Use case diagram for recipe tracking and execution history.</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Use case diagram for recipe tracking and execution history.</span><a class="headerlink" href="#id12" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <br><br><p>As illustrated in the <a class="reference internal" href="#uml-uc-rt"><span class="std std-ref">use case diagram for recipe tracking and execution history</span></a>, the main use cases of the component are to go from one step of the recipe to another, while validating those which have been executed properly.</p>
@@ -212,10 +219,10 @@ string status
 </section>
 <section id="sequence-diagram">
 <h4>Sequence diagram<a class="headerlink" href="#sequence-diagram" title="Permalink to this heading"></a></h4>
-<figure class="align-center" id="id7">
+<figure class="align-center" id="id13">
 <span id="uml-seq-rt"></span><a class="reference internal image-reference" href="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/sequence_diagram.png"><img alt="Sequence diagram" src="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/sequence_diagram.png" style="width: 80%;" /></a>
 <figcaption>
-<p><span class="caption-text">Sequence diagram for recipe tracking and execution history.</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Sequence diagram for recipe tracking and execution history.</span><a class="headerlink" href="#id13" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <br><br><p>In the <a class="reference internal" href="#uml-seq-rt"><span class="std std-ref">sequence diagram for recipe tracking and execution history</span></a>, we can again point the role of the elder, which is to select the recipe and notify it to the this component to set the recipe checklist accordingly and enable recipe tracking.</p>
@@ -225,10 +232,10 @@ string status
 </section>
 <section id="activity-diagram">
 <h4>Activity diagram<a class="headerlink" href="#activity-diagram" title="Permalink to this heading"></a></h4>
-<figure class="align-center" id="id8">
+<figure class="align-center" id="id14">
 <span id="uml-a-rt"></span><a class="reference internal image-reference" href="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/activity_diagram.png"><img alt="Activity diagram" src="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/activity_diagram.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-text">Activity diagram for recipe tracking and execution history.</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Activity diagram for recipe tracking and execution history.</span><a class="headerlink" href="#id14" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <br><br><p>The <a class="reference internal" href="#uml-a-rt"><span class="std std-ref">activity diagram for recipe tracking and execution history</span></a> can be partitioned into two swimlanes.</p>
@@ -239,10 +246,10 @@ If the updated current step is the “end” step, the activity is completely te
 </section>
 <section id="state-machine-diagram">
 <h4>State machine diagram<a class="headerlink" href="#state-machine-diagram" title="Permalink to this heading"></a></h4>
-<figure class="align-center" id="id9">
+<figure class="align-center" id="id15">
 <span id="uml-sm-rt"></span><a class="reference internal image-reference" href="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/state_diagram.png"><img alt="State machine diagram" src="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/state_diagram.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-text">State diagram for recipe tracking and execution history.</span><a class="headerlink" href="#id9" title="Permalink to this image"></a></p>
+<p><span class="caption-text">State diagram for recipe tracking and execution history.</span><a class="headerlink" href="#id15" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <br><br><p>Finally, the last behavioural diagram presented is the <a class="reference internal" href="#uml-sm-rt"><span class="std std-ref">state machine for recipe tracking and execution history</span></a>. One may note that the <a class="reference internal" href="#uml-a-rt"><span class="std std-ref">activity diagram</span></a> was more appropriate for this component: there are only only two different states defined and one of them represents the <strong>Idle</strong> phase, when the cooking process is initialized (recipe chechlist and current step). This is due to the fact that, with this architecture, the component is constantly checking whether the current step has been executed or not. There is no “waiting” state.</p>
@@ -288,28 +295,28 @@ string status
 </section>
 <section id="id2">
 <h4>Sequence diagram<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h4>
-<figure class="align-center" id="id10">
+<figure class="align-center" id="id16">
 <span id="uml-seq-ap"></span><a class="reference internal image-reference" href="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/action_planning/diagrams/sequence_diagram.png"><img alt="Sequence diagram" src="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/action_planning/diagrams/sequence_diagram.png" style="width: 80%;" /></a>
 <figcaption>
-<p><span class="caption-text">Sequence diagram for the Action Planning Based on Cooking State and Task History component.</span><a class="headerlink" href="#id10" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Sequence diagram for the Action Planning Based on Cooking State and Task History component.</span><a class="headerlink" href="#id16" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <br><br></section>
 <section id="id3">
 <h4>Activity diagram<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h4>
-<figure class="align-center" id="id11">
+<figure class="align-center" id="id17">
 <span id="uml-a-ap"></span><a class="reference internal image-reference" href="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/action_planning/diagrams/activity_diagram.png"><img alt="Activity diagram" src="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/action_planning/diagrams/activity_diagram.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-text">Activity diagram for the Action Planning Based on Cooking State and Task History component.</span><a class="headerlink" href="#id11" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Activity diagram for the Action Planning Based on Cooking State and Task History component.</span><a class="headerlink" href="#id17" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <br><br></section>
 <section id="id4">
 <h4>State machine diagram<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h4>
-<figure class="align-center" id="id12">
+<figure class="align-center" id="id18">
 <span id="uml-sm-ap"></span><a class="reference internal image-reference" href="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/action_planning/diagrams/state_machine_diagram.png"><img alt="State machine diagram" src="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/action_planning/diagrams/state_machine_diagram.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-text">State diagram for the Action Planning Based on Cooking State and Task History component.</span><a class="headerlink" href="#id12" title="Permalink to this image"></a></p>
+<p><span class="caption-text">State diagram for the Action Planning Based on Cooking State and Task History component.</span><a class="headerlink" href="#id18" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <br><br></section>
@@ -394,9 +401,57 @@ checks object availability, resolves conflicts, and sends commands to a path pla
 <p>Define as sum(execution_times) / total_steps</p>
 <p>This shows system efficiency. Delays might be caused by perception latency, planning bottlenecks, slow conflicts resolution or poor hardware interaction.</p>
 </section>
-<section id="module-human_command.scripts.human_command">
-<span id="human-command-monitoring-and-conflict-resolution"></span><span id="human-command"></span><h3>Human Command Monitoring and Conflict Resolution<a class="headerlink" href="#module-human_command.scripts.human_command" title="Permalink to this heading"></a></h3>
-<p>Description of the module human_command sphinx.</p>
+<section id="human-command-monitoring-and-conflict-resolution">
+<span id="human-command"></span><h3>Human Command Monitoring and Conflict Resolution<a class="headerlink" href="#human-command-monitoring-and-conflict-resolution" title="Permalink to this heading"></a></h3>
+<p>This section describes the architecture of the “Human Command Monitoring and Conflict Resolution” component, based on its behavioural diagrams (use case diagram, sequence diagram, activity diagram and state machine diagram).</p>
+<section id="id6">
+<h4>Interfaces with the other components<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h4>
+<p>TODO</p>
+</section>
+<section id="id7">
+<h4>Sequence diagram<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h4>
+<figure class="align-center" id="id19">
+<span id="uml-seq-hc"></span><a class="reference internal image-reference" href="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/human_command/diagrams/sequence_diagram.drawio.png"><img alt="Sequence diagram" src="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/human_command/diagrams/sequence_diagram.drawio.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-text">Sequence diagram for Human Command Monitoring and Conflict Resolution</span><a class="headerlink" href="#id19" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<br><br><p>In the <a class="reference internal" href="#uml-seq-hc"><span class="std std-ref">sequence diagram for Human Command Monitoring and Conflict Resolution</span></a>, we show how the elder and the robot interact using voice commands.
+The elder speaks, the TIAGo robot captures the command, and it is sent to the Human Command Monitoring system.</p>
+<p>When the command is received, the Human Command Monitoring checks the current step of the task and asks the Action Planner if the command can be accepted.
+If the command is valid, the system accepts it, notifies the user, and a new plan is created based on the command.
+If the command is not valid, the system rejects it, notifies the user, and the robot continues following the original plan without any changes.</p>
+<p>This way, the robot can adapt to human input when possible, while making sure the task stays organized and correct thnaks to the Conflict Resolution part of the system.</p>
+</section>
+<section id="id8">
+<h4>Activity diagram<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h4>
+<figure class="align-center" id="id20">
+<span id="uml-a-hc"></span><a class="reference internal image-reference" href="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/human_command/diagrams/activity_diagram.drawio.png"><img alt="Activity diagram" src="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/human_command/diagrams/activity_diagram.drawio.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-text">Activity diagram for Human Command Monitoring and Conflict Resolution.</span><a class="headerlink" href="#id20" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<br><br><p>The <a class="reference internal" href="#uml-a-hc"><span class="std std-ref">activity diagram for Human Command Monitoring and Conflict Resolution</span></a> shows how the system handles human commands during task execution.</p>
+<p>The process starts when the user (the elder) speaks a command. The system first processes and interprets the command. Then, it checks the current step of the recipe with the Action Planner to decide if the command matches the task or if there is a conflict.</p>
+<p>If the command matches the plan, it is accepted, and the Action Planner is notified. The user is then informed that their command was accepted. If the command causes a conflict, the system goes into a conflict resolution phase. It checks if the conflict can be solved without breaking the task.
+If the conflict can be solved, the next action is modified, and the flow continues. Otherwise, the system notifies the user that the command was rejected and keeps following the original plan.</p>
+<p>This flow ensures that the robot can adapt to the user’s commands when possible, while making sure the main task remains consistent and correct.</p>
+</section>
+<section id="id9">
+<h4>State machine diagram<a class="headerlink" href="#id9" title="Permalink to this heading"></a></h4>
+<figure class="align-center" id="id21">
+<span id="uml-sm-hc"></span><a class="reference internal image-reference" href="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/human_command/diagrams/state_machine.drawio.png"><img alt="State Machine diagram" src="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/human_command/diagrams/state_machine.drawio.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-text">State diagram for Human Command Monitoring and Conflict Resolution.</span><a class="headerlink" href="#id21" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<br><br><p>Finally, the last behavioural diagram is the <a class="reference internal" href="#uml-sm-hc"><span class="std std-ref">State diagram for Human Command Monitoring and Conflict Resolution</span></a>. The system starts in the Idle state, waiting for a verbal command from the user. When a command is received, it transitions to the Listening state and then to the Processing Command state, where the command is interpreted and checked against the current task.</p>
+<p>Depending on the validation result, the system either moves to the Command Accepted state to notify the user and adjust the plan, or to the Command Rejected state to reject the command and continue with the original plan. After either outcome, the system returns to Idle, ready to process new commands.</p>
+<p>This state machine ensures the robot remains reactive while maintaining consistency in the task execution.</p>
+</section>
+<section id="id10">
+<h4>Dummy implementation of the cognitive architecture<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h4>
+<span class="target" id="module-human_command.scripts.human_command"></span><p>Description of the module human_command sphinx.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="human_command.scripts.human_command.HumanCommandNode">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">human_command.scripts.human_command.</span></span><span class="sig-name descname"><span class="pre">HumanCommandNode</span></span><a class="reference internal" href="_modules/human_command/scripts/human_command.html#HumanCommandNode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#human_command.scripts.human_command.HumanCommandNode" title="Permalink to this definition"></a></dt>
@@ -491,16 +546,20 @@ based on the current cooking plan.</p>
 
 </dd></dl>
 
-<br><br><a class="reference internal image-reference" href="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/human_command/diagrams/activity_diagram.drawio.png"><img alt="Activity diagram" class="align-center" src="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/human_command/diagrams/activity_diagram.drawio.png" style="width: 60%;" /></a>
-<br><br><a class="reference internal image-reference" href="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/human_command/diagrams/sequence_diagram.drawio.png"><img alt="Sequence diagram" class="align-center" src="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/human_command/diagrams/sequence_diagram.drawio.png" style="width: 60%;" /></a>
-<br><br><a class="reference internal image-reference" href="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/human_command/diagrams/state_machine.drawio.png"><img alt="State Machine diagram" class="align-center" src="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/human_command/diagrams/state_machine.drawio.png" style="width: 60%;" /></a>
+<br><br></section>
 </section>
-<section id="kpi-human-command-handling">
-<h3>KPI: Human Command Handling<a class="headerlink" href="#kpi-human-command-handling" title="Permalink to this heading"></a></h3>
+<section id="id11">
+<h3>KPI: Recipe Tracker<a class="headerlink" href="#id11" title="Permalink to this heading"></a></h3>
 <ul class="simple">
-<li><p><strong>Response time to human command</strong></p></li>
-<li><p><strong>Conflict resolution accuracy</strong></p></li>
-<li><p><strong>Percentage of commands recognized and interpreted</strong></p></li>
+<li><p><strong>Response time to human command</strong>
+Measures the time between the moment the elder speaks a command and the robot responds (either by accepting, rejecting, or modifying the plan).
+Ideally, the response time should be under 2–3 seconds to maintain the user’s trust and system usability.</p></li>
+<li><p><strong>Conflict resolution accuracy</strong>
+Evaluates how often the system correctly detects and handles conflicts between human commands and the ongoing task plan.
+A high conflict resolution accuracy indicates that the robot can identify problematic commands without wrongly rejecting valid requests or accepting risky ones.</p></li>
+<li><p><strong>Percentage of commands recognized and interpreted</strong>
+Refers to the proportion of human commands that are successfully understood and mapped to a valid action or decision in the system.
+A high recognition rate (&gt; 90%) is desired to ensure smooth collaboration between the elder and the robot.</p></li>
 </ul>
 </section>
 </section>
