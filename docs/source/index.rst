@@ -431,14 +431,14 @@ KPI: Recipe Tracker
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - **Response time to human command**  
-  Measures the time between the moment the elder speaks a command and the robot responds (either by accepting, rejecting, or modifying the plan). A short response time is critical to ensure a natural and fluid human-robot interaction during the cooking task. 
+  Measures the time between the moment the elder speaks a command and the robot responds (either by accepting, rejecting, or modifying the plan).
   Ideally, the response time should be under 2–3 seconds to maintain the user's trust and system usability.
 
 - **Conflict resolution accuracy**  
   Evaluates how often the system correctly detects and handles conflicts between human commands and the ongoing task plan. 
-  A high conflict resolution accuracy indicates that the robot can identify problematic commands without wrongly rejecting valid requests or accepting risky ones, thus preserving both safety and task coherence.
+  A high conflict resolution accuracy indicates that the robot can identify problematic commands without wrongly rejecting valid requests or accepting risky ones.
 
 - **Percentage of commands recognized and interpreted**  
   Refers to the proportion of human commands that are successfully understood and mapped to a valid action or decision in the system. 
-  This KPI measures both the quality of command interpretation and the system's flexibility. A high recognition rate (> 90%) is desired to ensure smooth collaboration between the elder and the robot.
+  A high recognition rate (> 90%) is desired to ensure smooth collaboration between the elder and the robot.
 
