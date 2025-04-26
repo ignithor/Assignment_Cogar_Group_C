@@ -34,7 +34,11 @@ class ActionPlanningNode:
         Initializes the node, sets up action servers and clients, and initializes state variables.
         """
         rospy.init_node('action_planning_node')
-
+        
+        # Stack of steps and completed steps
+        self.stack_step = []
+        self.steps_done = []
+        
         # Action server to receive steps
         self.server = actionlib.SimpleActionServer(
             '/step_action',
@@ -49,10 +53,6 @@ class ActionPlanningNode:
         rospy.loginfo("Waiting for /path_planning action server...")
         self.path_planning_client.wait_for_server()
         rospy.loginfo("/path_planning action server available.")
-
-        # Stack of steps and completed steps
-        self.stack_step = []
-        self.steps_done = []
 
         rospy.loginfo("ActionPlanningNode initialized and ready.")
 
