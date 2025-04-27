@@ -1,5 +1,23 @@
 #!/usr/bin/env python3
 
+"""
+.. module:: human_command_node
+   :platform: Unix
+   :synopsis: Manages human commands, validates them, resolves conflicts, and sends validated commands to an Action Planner.
+
+.. moduleauthor:: Emma Royant
+
+ROS node responsible for interpreting and validating human commands related to cooking tasks:
+
+- Receives human commands via the `/voice_command` topic
+- Interprets and validates commands based on current system feedback
+- Resolves conflicts with the Action Planner (step actions)
+- Sends valid commands to an Action Planner via an action server
+- Uses a speaker service to notify the user about command validation and conflict resolution status
+- Handles feedback from the Action Planner to adjust command execution
+- Notifies the user if the command is invalid or unresolved
+"""
+
 import rospy
 import actionlib
 import random
@@ -78,9 +96,7 @@ class HumanCommandNode:
         Simulates the interpretation of the command.
         For now, it just returns the command as is.
         """
-
         rospy.loginfo(f"Interpreting command: {command}")
-        
         return command
 
     def validate_command(self, command):
