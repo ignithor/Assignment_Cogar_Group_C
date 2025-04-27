@@ -26,8 +26,8 @@ Indices and tables
 * :ref:`modindex`
 * :ref:`search`
 
-Assignment: Topic 3
-----------------------
+Presentation of the desired system (Topic 3)
+-------------------------------------------------
 
 This project aims to give assistance to elderly individuals in meal preparation, by helping them in the kitchen in the cooking tasks with the robot TIAGo.
 
@@ -43,8 +43,22 @@ The architecture should enable the robot to do the following tasks:
 
 - **Mission completion** - once the recipe is completed, the robot notifies the user that the meal preparation is finished and ensures that all steps have been followed correctly.
 
+To precise the functions required for this robot, here under is the :ref:`use case diagram <uml-ucd>` of the system:
 
-To do so, the documentation will focus particularly on the architecture of three components:
+.. _uml-ucd:
+
+.. image:: https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/use_case_diagram.drawio.png
+   :alt: Use case diagram (global)
+   :align: center
+   :width: 60%
+
+.. raw:: html
+
+   <br><br>
+
+In this diagram, the two actors considered are the user (an elder person) and the robot TIAGo. In the process of assisting the elder, the diagram illustrrates that the elder should be able to take the ingredients and execute the recipe while making verbal requests to the robot. In order to give assistance, the robot should be able to take the ingredients and execute the recipe instead of the user and adapt wisely its behaviour according to the recipe, the requests of the user.
+
+To do so, the documentation will focus particularly on the description of the architecture of three components:
 
 -  :ref:`recipe-tracking`: Maintains an updated internal representation of the recipe and the sequence of performed actions. Ensures the cooking process follows the correct step-by-step execution. Provides necessary data to determine the next best action.
 - :ref:`action-planning`: Decides the next action based on the current cooking progress and past steps. Considers the state of the system, ensuring seamless task progression. Dynamically adjusts the sequence in response to unexpected conditions.
@@ -57,6 +71,12 @@ Presentation of the architecture
 blablabla This is the architecture component diagram with accurate description detailing where different design
 patters could play a role in the final architecture implementation.
 
+TO DO
+
+The global architecture of the system is described by the following :ref:`component diagram <uml-c>`.
+
+.. _uml-c:
+
 .. image:: https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/component_diagram.drawio.png
    :alt: Component diagram
    :align: center
@@ -66,26 +86,8 @@ patters could play a role in the final architecture implementation.
 
    <br><br>
 
-
-The components
---------------
-
-The global architecture of the system is described by the following :ref:`component diagram <uml-c>`.
-
-.. _uml-c:
-
-.. figure:: https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/recipe_tracking/diagrams/component_diagram.drawio.png
-   :alt: Component diagram
-   :align: center
-   :width: 60%
-
-   Component diagram of the system.
-
-.. raw:: html
-
-   <br><br>
-
 The main sub-systems are:
+
 - Perception
 - Navigation
 - Robot
@@ -93,8 +95,10 @@ The main sub-systems are:
 - :ref:`action-planning`
 - :ref:`human-command`
 
+TO DO
 
-
+The components
+--------------
 
 .. _recipe-tracking:
 
