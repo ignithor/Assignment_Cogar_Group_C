@@ -117,7 +117,7 @@ If the objects are not located, the system transitions to the "Conflict Resoluti
 If a new step is determined during conflict resolution, the system loops back to reprocess steps. If no new step is found, it checks if the stack is empty. If the stack is empty, the process ends; otherwise, it continues checking requirements or waits for new instructions.
 
 Dummy Implementation of the Cognitive Architecture
----------------------
+---------------------------------------------------
 
 .. automodule:: action_planning.scripts.action_planning
    :members:
