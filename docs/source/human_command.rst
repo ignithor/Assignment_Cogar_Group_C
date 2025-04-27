@@ -20,13 +20,14 @@ The /voice_command topic expects commands as strings, which are then parsed and 
 This interface is divided into three main parts:
 
 1. **Goal**:
-   - The command consists of an action (e.g., "cutting", "pouring") and an ingredient (e.g., "carrots", "cheese"). The goal structure is:
-
+   - The command consists of an action (e.g., "cutting", "pouring") and an ingredient (e.g., "carrots", "cheese"). The stateless node sends the goal to the stateful Action Planner with the following structure:
+   
    .. code-block:: text
 
        # goal
        string action
        string ingredient
+
 
 2. **Feedback**:
    - Feedback is provided by the Action Planner to report the current status of the step. The feedback structure includes a status string indicating the progress or result of the action:
@@ -37,7 +38,7 @@ This interface is divided into three main parts:
        string status
 
 3. **Result**:
-   - The result of a step execution is reported by the Action Planner through a success flag (boolean):
+   - The result of a step execution is reported by the stateful Action Planner through a success flag (boolean):
 
    .. code-block:: text
 
