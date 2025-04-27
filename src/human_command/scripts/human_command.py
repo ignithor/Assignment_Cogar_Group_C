@@ -73,10 +73,6 @@ class HumanCommandNode:
             self.notify_user("Command not understood.")
             return
 
-        if not self.current_feedback:
-            rospy.logwarn("No feedback received yet.")
-            return
-
         if self.validate_command(interpreted_command):
             rospy.loginfo("Command validated. Sending to Action Planner...")
             self.send_goal(interpreted_command)
