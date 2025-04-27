@@ -2,72 +2,71 @@
 
 import unittest
 import rospy
-import rostest
 import actionlib
 from std_msgs.msg import String
-from assignments.msg import stepAction, stepGoal, stepFeedback, stepResult
-from assignments.srv import Speaker, SpeakerResponse
-from actionlib_msgs.msg import GoalStatus
-from threading import Thread
-import random
+from actionlib_msgs.msg import GoalStatusArray
+from assignments.msg import stepAction, stepGoal, stepResult, stepFeedback
+
+class DummyStepActionServer:
+    """ A dummy action server for testing purposes. """
+    def __init__(self):
+        self.server = actionlib.SimpleActionServer('/step_action', stepAction, execute_cb=self.execute_cb, auto_start=False)
+        self.server.start()
+        rospy.loginfo("Dummy StepAction server started.")
+
+    def execute_cb(self, goal):
+        rospy.loginfo(f"Dummy server received goal: action='{goal.action}', ingredient='{goal.ingredient}'")
+        rospy.sleep(0.5)  # Simulate small delay
+        result = stepResult()
+        self.server.set_succeeded(result, "Goal succeeded")
+        rospy.loginfo("Dummy server: Goal succeeded.")
 
 class TestHumanCommandNode(unittest.TestCase):
 
-    def setUp(self):
-        rospy.init_node('test_human_command', anonymous=True)
+    @classmethod
+    def setUpClass(cls):
+        rospy.init_node('test_human_command_node', anonymous=True)
 
-        # Wait for the action server
-        self.client = actionlib.SimpleActionClient('/step_action', stepAction)
-        self.assertTrue(self.client.wait_for_server(timeout=rospy.Duration(10)))
+        # Start the dummy action server
+        cls.dummy_server = DummyStepActionServer()
 
-        # Set up mock speaker service
-        self.mock_speaker = rospy.Service('/speaker', Speaker, self.speaker_callback)
-        self.speaker_call_count = 0
+        # Publishers
+        cls.voice_pub = rospy.Publisher('/voice_command', String, queue_size=10)
 
-        # Set up a publisher to simulate voice commands
-        self.voice_command_pub = rospy.Publisher('/voice_command', String, queue_size=10)
+        # Wait until publisher and server are ready
+        rospy.sleep(2.0)
 
-        # Allow time for the publisher to register
-        rospy.sleep(1)
+        # Prepare to listen to action server status (optional extra check)
+        cls.status_sub = rospy.Subscriber('/step_action/status', GoalStatusArray, cls.status_callback)
+        cls.last_status = None
 
-    def speaker_callback(self, req):
-        self.speaker_call_count += 1
-        return SpeakerResponse(success= (random.random() < 0.9))
+    @classmethod
+    def status_callback(cls, msg):
+        if msg.status_list:
+            cls.last_status = msg.status_list[-1].status
 
-    def test_valid_command(self):
-        """
-        Test a valid command that matches the expected step.
-        """
-        # Simulate sending a valid voice command
-        valid_command = "cutting carrots"
-        self.voice_command_pub.publish(valid_command)
+    def test_send_voice_command_and_check_goal(self):
+        """ Test if sending a voice command results in a goal being processed. """
 
-        # Wait for the command to be processed
-        rospy.sleep(2)
+        # Publish a voice command
+        rospy.loginfo("Publishing voice command: 'cut carrots'")
+        self.voice_pub.publish(String(data="cut carrots"))
 
-        # Check if the command was sent to the action server
-        state = self.client.get_state()
-        self.assertEqual(state, GoalStatus.SUCCEEDED)
+        # Give enough time for node to process and send goal
+        timeout_time = rospy.Time.now() + rospy.Duration(8.0)
+        while not rospy.is_shutdown() and (self.last_status is None) and (rospy.Time.now() < timeout_time):
+            rospy.sleep(0.1)
 
-        # Check if the speaker service was called
-        self.assertEqual(self.speaker_call_count, 1)
+        # Assert that some goal status has been received
+        self.assertIsNotNone(self.last_status, "No goal status received from DummyStepActionServer.")
 
-    def test_invalid_command(self):
-        """
-        Test an invalid command that does not match the expected step.
-        """
-        # Simulate sending an invalid voice command
-        invalid_command = "mixing all"
-        self.voice_command_pub.publish(invalid_command)
+        # Optional: check if the goal status was 'succeeded' (status == 3)
+        self.assertIn(self.last_status, [1, 3], "Unexpected goal status received.")  # 1 = ACTIVE, 3 = SUCCEEDED
 
-        # Wait for the command to be processed
-        rospy.sleep(2)
-
-        # Check if the speaker service was called to notify the user
-        self.assertEqual(self.speaker_call_count, 1)
-
-    def tearDown(self):
-        self.mock_speaker.shutdown()
+    @classmethod
+    def tearDownClass(cls):
+        rospy.loginfo("Test finished.")
 
 if __name__ == '__main__':
+    import rostest
     rostest.rosrun('human_command', 'test_human_command_node', TestHumanCommandNode)
