@@ -1,4 +1,4 @@
-.. _human_command:
+.. _human-command:
 
 Human Command Monitoring and Conflict Resolution
 ================================================
