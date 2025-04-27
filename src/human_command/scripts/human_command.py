@@ -22,7 +22,7 @@ import rospy
 import actionlib
 import random
 from std_msgs.msg import String
-from assignments.msg import stepAction, stepGoal, stepFeedback, stepResult
+from assignments.msg import stepAction, stepGoal, stepFeedback, stepResult, stepActionFeedback
 from assignments.srv import Speaker
 
 class HumanCommandNode:
@@ -39,7 +39,7 @@ class HumanCommandNode:
         self.expected_step = None
 
         # Subscribers
-        rospy.Subscriber('/step_action/feedback', stepFeedback, self.feedback_callback)
+        rospy.Subscriber('/step_action/feedback', stepActionFeedback, self.feedback_callback)
         rospy.Subscriber('/voice_command', String, self.command_callback)
 
         # Action client
