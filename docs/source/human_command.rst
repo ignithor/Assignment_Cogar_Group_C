@@ -10,6 +10,13 @@ Interfaces with Other Components
 
 As illustrated in the :ref:`use case diagram <uml-uc-rt>`, the `HumanCommandNode` interacts with the Action Planner through a data interface that handles human commands related to cooking tasks. The node receives commands via the `/voice_command` topic and validates them based on current system feedback, while resolving any conflicts with the Action Planner.
 
+Command Reception: The HumanCommandNode subscribes to the /voice_command topic to receive human commands. These commands are interpreted and validated before being sent to the Action Planner. The commands are expected to be in a simple text format, representing a cooking action and its associated ingredient.
+The /voice_command topic expects commands as strings, which are then parsed and interpreted by the HumanCommandNode to determine the action and ingredient involved.
+
+.. code-block:: text
+
+   string command
+
 This interface is divided into three main parts:
 
 1. **Goal**:
