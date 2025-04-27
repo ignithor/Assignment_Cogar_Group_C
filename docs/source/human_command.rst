@@ -21,6 +21,7 @@ This interface is divided into three main parts:
 
 1. **Goal**:
    - The command consists of an action (e.g., "cutting", "pouring") and an ingredient (e.g., "carrots", "cheese"). The stateless node sends the goal to the stateful Action Planner with the following structure:
+   
    .. code-block:: text
 
        # goal
