@@ -56,13 +56,6 @@ To do so, the documentation will focus particularly on the description of the ar
 Presentation of the architecture
 --------------------------------
 
-blablabla This is the architecture component diagram with accurate description detailing where different design
-patters could play a role in the final architecture implementation.
-
-TO DO
-
-The global architecture of the system is described by the following :ref:`component diagram <uml-c>`.
-
 .. _uml-c:
 
 .. image:: https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/assignments/diagrams/component_diagram.drawio.png
@@ -74,16 +67,18 @@ The global architecture of the system is described by the following :ref:`compon
 
    <br><br>
 
-The main sub-systems are:
+The global architecture of the system is described by the following :ref:`component diagram <uml-c>`. 
+The robot is equipped with various sensors and services, such as an RGB-D Camera, LiDAR, SONAR, force sensors, microphones, and speakers. The architecture is designed so that these components work together seamlessly to support the meal preparation process.
 
-- Perception
-- Navigation
-- Robot
-- :ref:`recipe-tracking`
-- :ref:`action-planning`
-- :ref:`human-command`
+The process begins with the **Recipe Tracking and Execution History Subsystem** and the **Human Command Monitoring and Conflict Resolution Subsystem**. The Recipe Tracking Subsystem maintains an internal representation of the recipe and the sequence of actions performed, ensuring that each step is followed correctly. The Human Command Monitoring Subsystem captures verbal commands from the user through microphones and evaluates their alignment with the meal preparation plan. It resolves any conflicts, ensuring the robot can adapt to user input while maintaining task integrity.
 
-TO DO
+Both of these subsystems feed information to the **Action Planning Subsystem**, which determines the next steps based on the current state of meal preparation and the history of actions taken. This planning is dynamic, adjusting to unexpected conditions or verbal commands from the user.
+
+Once the Action Planning Subsystem decides on the next action, it relies on the **Perception Subsystem** to execute it. The Perception Subsystem uses the RGB-D Camera to capture depth and RGB images, allowing it to map the environment in real-time and recognize objects. This data is crucial for the **Navigation Subsystem**, which plans efficient and obstacle-free paths using LiDAR for precise navigation and SONAR for measuring distances.
+
+Finally, the **Robot Subsystem** comes into play, using force sensors and arm joints to handle tools and ingredients with precision. This subsystem executes the commands decided by the Action Planning Subsystem, ensuring that the robot can navigate the environment, recognize and manipulate objects, and interact with the user to ensure a smooth and safe meal preparation process.
+
+Throughout this process, the subsystems work together, sharing data and coordinating actions to provide a cohesive and adaptive system for meal preparation assistance.
 
 
 .. toctree::
@@ -92,7 +87,6 @@ TO DO
    recipe_tracking
    action_planning
    human_command
-   launch_components_tests
 
 
 Indices and tables
