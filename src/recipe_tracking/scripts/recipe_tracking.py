@@ -15,6 +15,7 @@ import rospy
 import actionlib
 from std_msgs.msg import String, Bool
 from assignments.msg import stepAction, stepFeedback, stepResult, stepGoal
+import os
 
 class RecipeTrackingNode:
     """
@@ -36,8 +37,14 @@ class RecipeTrackingNode:
         """
         rospy.init_node('recipe_tracking_node')
         
+        # Get the current file's directory (where your script is located)
+        current_dir = os.path.dirname(os.path.realpath(__file__))
+        
+        # Build the path relative to current_dir
+        default_recipe_path = os.path.abspath(os.path.join(current_dir, "../../assignments/recipes/recipe.txt"))
+        
         # Initialize the cooking process
-        self.recipe_txt = rospy.get_param("recipe_txt")
+        self.recipe_txt = rospy.get_param("~recipe_txt", default_recipe_path)
         self.recipe_checklist, self.current_step = self.initialize_recipe(self.recipe_txt)
         
         #Check the validity of the recipe
@@ -45,17 +52,6 @@ class RecipeTrackingNode:
             rospy.logerr("Recipe is not valid.")
         else :
             rospy.loginfo("Recipe is initialized and valid.")
-        	
-            # Subscribe to /goal_state (Bool messages)
-            #self.goal_sub = rospy.Subscriber('/goal_state', Bool, self.goal_callback)
-            
-            # Publisher for /step topic
-            #self.step_pub = rospy.Publisher('/step', String, queue_size=10)
-        
-            # Publisher for /recipe_control topic
-            #self.rec_control_pub = rospy.Publisher('/recipe_control', RecipeControl, queue_size=10)
-		
-            #rospy.loginfo("TrackNode initialized and listening to /goal_state")
             
             # Create the action client
             self.step_client = actionlib.SimpleActionClient('/step_action', stepAction)
