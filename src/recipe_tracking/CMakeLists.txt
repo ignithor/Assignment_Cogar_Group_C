@@ -212,5 +212,5 @@ catkin_install_python(PROGRAMS
 
 if(CATKIN_ENABLE_TESTING)
   find_package(rostest REQUIRED)
-  add_rostest(tests/test_recipe_tracking_node.test)
+  add_rostest(test/test_recipe_tracking_node.test)
 endif()
