@@ -127,12 +127,14 @@ KPIs: Action Planning
 
 The performance of the Action Planning module can be evaluated using several key KPIs.
 
-- **Step Success Rate**: Measures the percentage of steps that are successfully executed without requiring conflict resolution or manual intervention. A high success rate indicates efficient planning and accurate execution.
+- **Step Success Rate**: Measures the percentage of steps that are successfully executed without requiring conflict resolution or manual intervention. A high success rate indicates efficient planning and accurate execution (>90%).
 
-- **Average Conflict Resolution Time**: Tracks how long the system takes to detect, resolve, and recover from conflicts when a planned step cannot be executed as expected. Shorter resolution times reflect better system reactivity and user experience.
+- **Average Conflict Resolution Time**: Tracks how long the system takes to detect, resolve, and recover from conflicts when a planned step cannot be executed as expected. Shorter resolution times reflect better system reactivity and user experience. A resolution time of less than 3 seconds is ideal.
 
-- **Step Processing Time**: Monitors the time taken from the reception of a new step to its full integration into the execution stack, including parsing, checking requirements, and preparing the step. Efficient processing ensures that the system can handle real-time instructions without delay.
+- **Step Processing Time**: Monitors the time taken from the reception of a new step to its full integration into the execution stack, including parsing, checking requirements, and preparing the step. Efficient processing ensures that the system can handle real-time instructions without delay. An average processing time of less than 2 seconds is desirable
 
-- **Error Rate**: Captures the number of failed steps or unresolved conflicts relative to the total number of actions attempted. A low error rate indicates a robust action planning system.
+- **Error Rate**: Captures the number of failed steps or unresolved conflicts relative to the total number of actions attempted. A low error rate indicates a robust action planning system. An error rate of less than 10% is acceptable.
 
-- **User Satisfaction Score**: Can be collected through user feedback, assessing how well the system meets user expectations and needs during the cooking process. This qualitative measure is essential for understanding the overall effectiveness of the action planning component in a real-world scenario.
+- **User Satisfaction Score**: Can be collected through user feedback, assessing how well the system meets user expectations and needs during the cooking process. This qualitative measure is essential for understanding the overall effectiveness of the action planning component in a real-world scenario. A score of 4 out of 5 or higher is considered satisfactory.
+
+- **Object Detection Accuracy**: Evaluates the system's ability to accurately identify and locate required objects in the environment. High accuracy ensures that the action planning module can effectively prepare for each step. An accuracy rate of 95% or higher is ideal.
