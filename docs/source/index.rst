@@ -87,6 +87,7 @@ TO DO
 
 
 .. toctree::
+   :maxdepth: 2
 
    recipe_tracking
    action_planning
