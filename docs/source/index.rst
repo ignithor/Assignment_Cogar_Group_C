@@ -92,6 +92,7 @@ TO DO
    recipe_tracking
    action_planning
    human_command
+   launch_components_tests
 
 
 Indices and tables

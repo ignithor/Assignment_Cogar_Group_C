@@ -1,3 +1,5 @@
+.. _launch_components_tests:
+
 
 Launch Components and Tests
 =================================
