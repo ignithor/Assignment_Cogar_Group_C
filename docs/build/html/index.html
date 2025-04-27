@@ -45,7 +45,7 @@
               <div class="local-toc"><ul>
 <li><a class="reference internal" href="#">Assisting elderly individuals in meal preparation</a><ul>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
-<li><a class="reference internal" href="#assignment-topic-3">Assignment: Topic 3</a></li>
+<li><a class="reference internal" href="#presentation-of-the-desired-system-topic-3">Presentation of the desired system (Topic 3)</a></li>
 <li><a class="reference internal" href="#presentation-of-the-architecture">Presentation of the architecture</a></li>
 <li><a class="reference internal" href="#the-components">The components</a><ul>
 <li><a class="reference internal" href="#recipe-tracking-and-execution-history">Recipe Tracking and Execution History</a><ul>
@@ -54,7 +54,17 @@
 <li><a class="reference internal" href="#sequence-diagram">Sequence diagram</a></li>
 <li><a class="reference internal" href="#activity-diagram">Activity diagram</a></li>
 <li><a class="reference internal" href="#state-machine-diagram">State machine diagram</a></li>
-<li><a class="reference internal" href="#dummy-implementation-of-the-cognitive-architecture">Dummy implementation of the cognitive architecture</a></li>
+<li><a class="reference internal" href="#module-recipe_tracking.scripts.recipe_tracking">Dummy implementation of the cognitive architecture</a><ul>
+<li><a class="reference internal" href="#recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode"><code class="docutils literal notranslate"><span class="pre">RecipeTrackingNode</span></code></a><ul>
+<li><a class="reference internal" href="#recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode.current_step"><code class="docutils literal notranslate"><span class="pre">RecipeTrackingNode.current_step</span></code></a></li>
+<li><a class="reference internal" href="#recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode.recipe_checklist"><code class="docutils literal notranslate"><span class="pre">RecipeTrackingNode.recipe_checklist</span></code></a></li>
+<li><a class="reference internal" href="#recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode.initialize_recipe"><code class="docutils literal notranslate"><span class="pre">RecipeTrackingNode.initialize_recipe()</span></code></a></li>
+<li><a class="reference internal" href="#recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode.is_a_valid_recipe"><code class="docutils literal notranslate"><span class="pre">RecipeTrackingNode.is_a_valid_recipe()</span></code></a></li>
+<li><a class="reference internal" href="#recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode.step_tracking"><code class="docutils literal notranslate"><span class="pre">RecipeTrackingNode.step_tracking()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#kpi-recipe-tracker">KPI: Recipe Tracker</a></li>
@@ -150,8 +160,8 @@
 <li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
 </ul>
 </section>
-<section id="assignment-topic-3">
-<h2>Assignment: Topic 3<a class="headerlink" href="#assignment-topic-3" title="Permalink to this heading"></a></h2>
+<section id="presentation-of-the-desired-system-topic-3">
+<h2>Presentation of the desired system (Topic 3)<a class="headerlink" href="#presentation-of-the-desired-system-topic-3" title="Permalink to this heading"></a></h2>
 <p>This project aims to give assistance to elderly individuals in meal preparation, by helping them in the kitchen in the cooking tasks with the robot TIAGo.</p>
 <p>The robot TIAGo is equipped with RGB-D Camera, LiDAR, SONAR, Force Sensors, Microphones, and Speakers.</p>
 <p>The architecture should enable the robot to do the following tasks:</p>
@@ -163,7 +173,10 @@
 <li><p><strong>Object recognition</strong> -TIAGo should recognize objects (tools, ingredients) in the environment.</p></li>
 <li><p><strong>Mission completion</strong> - once the recipe is completed, the robot notifies the user that the meal preparation is finished and ensures that all steps have been followed correctly.</p></li>
 </ul>
-<p>To do so, the documentation will focus particularly on the architecture of three components:</p>
+<p>To precise the functions required for this robot, here under is the <a class="reference internal" href="#uml-ucd"><span class="std std-ref">use case diagram</span></a> of the system:</p>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/use_case_diagram.drawio.png" id="uml-ucd"><img alt="Use case diagram (global)" class="align-center" id="uml-ucd" src="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/use_case_diagram.drawio.png" style="width: 60%;" /></a>
+<br><br><p>In this diagram, the two actors considered are the user (an elder person) and the robot TIAGo. In the process of assisting the elder, the diagram illustrrates that the elder should be able to take the ingredients and execute the recipe while making verbal requests to the robot. In order to give assistance, the robot should be able to take the ingredients and execute the recipe instead of the user and adapt wisely its behaviour according to the recipe, the requests of the user.</p>
+<p>To do so, the documentation will focus particularly on the description of the architecture of three components:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#recipe-tracking"><span class="std std-ref">Recipe Tracking and Execution History</span></a>: Maintains an updated internal representation of the recipe and the sequence of performed actions. Ensures the cooking process follows the correct step-by-step execution. Provides necessary data to determine the next best action.</p></li>
 <li><p><a class="reference internal" href="#action-planning"><span class="std std-ref">Action Planning Based on Cooking State and Task History</span></a>: Decides the next action based on the current cooking progress and past steps. Considers the state of the system, ensuring seamless task progression. Dynamically adjusts the sequence in response to unexpected conditions.</p></li>
@@ -174,8 +187,20 @@
 <h2>Presentation of the architecture<a class="headerlink" href="#presentation-of-the-architecture" title="Permalink to this heading"></a></h2>
 <p>blablabla This is the architecture component diagram with accurate description detailing where different design
 patters could play a role in the final architecture implementation.</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/component_diagram.drawio.png"><img alt="Component diagram" class="align-center" src="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/component_diagram.drawio.png" style="width: 60%;" /></a>
-<br><br></section>
+<p>TO DO</p>
+<p>The global architecture of the system is described by the following <a class="reference internal" href="#uml-c"><span class="std std-ref">component diagram</span></a>.</p>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/component_diagram.drawio.png" id="uml-c"><img alt="Component diagram" class="align-center" id="uml-c" src="https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/component_diagram.drawio.png" style="width: 60%;" /></a>
+<br><br><p>The main sub-systems are:</p>
+<ul class="simple">
+<li><p>Perception</p></li>
+<li><p>Navigation</p></li>
+<li><p>Robot</p></li>
+<li><p><a class="reference internal" href="#recipe-tracking"><span class="std std-ref">Recipe Tracking and Execution History</span></a></p></li>
+<li><p><a class="reference internal" href="#action-planning"><span class="std std-ref">Action Planning Based on Cooking State and Task History</span></a></p></li>
+<li><p><a class="reference internal" href="#human-command"><span class="std std-ref">Human Command Monitoring and Conflict Resolution</span></a></p></li>
+</ul>
+<p>TO DO</p>
+</section>
 <section id="the-components">
 <h2>The components<a class="headerlink" href="#the-components" title="Permalink to this heading"></a></h2>
 <section id="recipe-tracking-and-execution-history">
@@ -256,8 +281,64 @@ If the updated current step is the “end” step, the activity is completely te
 <p>The first state <strong>Idle</strong> is the initialization phase. It checks the validity of the recipe file provided when entering the state, then creates and initializes the recipe checklist, and finally initializes the current step to the first step when leaving the state.</p>
 <p>Then the second state represents <strong>Step tracking</strong>. The success of the current step is repetitively checked, until it becomes true. In this case, the state is entered via another entry, to validate the current step in the recipe checklist, then go to the next step, exit all states if the “end” step is reached or send the new step to the action planner otherwise. After checking the success status of the current step for both entries, the state has two different exits, if the step successed or not yet.</p>
 </section>
-<section id="dummy-implementation-of-the-cognitive-architecture">
-<h4>Dummy implementation of the cognitive architecture<a class="headerlink" href="#dummy-implementation-of-the-cognitive-architecture" title="Permalink to this heading"></a></h4>
+<section id="module-recipe_tracking.scripts.recipe_tracking">
+<span id="dummy-implementation-of-the-cognitive-architecture"></span><h4>Dummy implementation of the cognitive architecture<a class="headerlink" href="#module-recipe_tracking.scripts.recipe_tracking" title="Permalink to this heading"></a></h4>
+<p>Python implementation of the architecture of the component “Recipe Tracking and Execution History”, according to what is described in its behavioural diagrams.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">recipe_tracking.scripts.recipe_tracking.</span></span><span class="sig-name descname"><span class="pre">RecipeTrackingNode</span></span><a class="reference internal" href="_modules/recipe_tracking/scripts/recipe_tracking.html#RecipeTrackingNode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode" title="Permalink to this definition"></a></dt>
+<dd><p>ROS node for recipe tracking and execution history.
+It implements the action client to send the goal step of the recipe to the Action Planner and get the success state of the step as result.</p>
+<p>Uses the action client step_action.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode.current_step">
+<span class="sig-name descname"><span class="pre">current_step</span></span><a class="headerlink" href="#recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode.current_step" title="Permalink to this definition"></a></dt>
+<dd><p>It is the latest step of the recipe which is not validated yet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode.recipe_checklist">
+<span class="sig-name descname"><span class="pre">recipe_checklist</span></span><a class="headerlink" href="#recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode.recipe_checklist" title="Permalink to this definition"></a></dt>
+<dd><p>list of the steps and their success status.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode.initialize_recipe">
+<span class="sig-name descname"><span class="pre">initialize_recipe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/recipe_tracking/scripts/recipe_tracking.html#RecipeTrackingNode.initialize_recipe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode.initialize_recipe" title="Permalink to this definition"></a></dt>
+<dd><p>Creates the checklist of steps from the .txt version of the recipe, then initializes the current step of the recipe.
+:param msg: recipe as a sequence of steps
+:type msg: .txt (ros parameter)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode.is_a_valid_recipe">
+<span class="sig-name descname"><span class="pre">is_a_valid_recipe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recipe</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/recipe_tracking/scripts/recipe_tracking.html#RecipeTrackingNode.is_a_valid_recipe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode.is_a_valid_recipe" title="Permalink to this definition"></a></dt>
+<dd><p>Check if the recipe is valid. A recipe is valid if it ends with the “end” step and if every other step is made of one action (cutting, pouring, mixing) and an ingredient.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>recipe</strong> (<em>dictionary</em><em> of </em><em>(</em><em>action</em><em> (</em><em>str</em><em>)</em><em>, </em><em>ingredient</em><em> (</em><em>str</em><em>)</em><em>, </em><em>success</em><em> (</em><em>str</em><em>)</em><em>)</em>) – recipe_checklist is the list of the steps to follow and their success status</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode.step_tracking">
+<span class="sig-name descname"><span class="pre">step_tracking</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/recipe_tracking/scripts/recipe_tracking.html#RecipeTrackingNode.step_tracking"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#recipe_tracking.scripts.recipe_tracking.RecipeTrackingNode.step_tracking" title="Permalink to this definition"></a></dt>
+<dd><p>Tracks the cooking process with an action client to go from step to step in the recipe, send the current step it to the Action Planner and update the execution history when the Action Planner informs of the success of a step.</p>
+</dd></dl>
+
+</dd></dl>
+
 <br><br></section>
 </section>
 <section id="kpi-recipe-tracker">

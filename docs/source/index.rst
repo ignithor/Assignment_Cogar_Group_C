@@ -35,7 +35,7 @@ The robot TIAGo is equipped with RGB-D Camera, LiDAR, SONAR, Force Sensors, Micr
 
 The architecture should enable the robot to do the following tasks:
 
--  **Ingredient retrieval** - the robot retrieves ingredients from the shelf, planning an efficient and obstacle-free path using vision and real-time environment mapping.
+- **Ingredient retrieval** - the robot retrieves ingredients from the shelf, planning an efficient and obstacle-free path using vision and real-time environment mapping.
 - **Collaborative cooking process** - the robot collaborates with the elderly person, executing the recipe step by step (mixing, cutting, pouring). Keeps track of the recipe and cooking progress, updating internal representation of the task.
 - **Action decision-making** - at each step, the robot determines the next action based on previous steps and current state. Verifies verbal commands (e.g., “Pass me the spoon”) and checks if they align with the planned sequence.
 - **Verbal command handling** - if a verbal command conflicts with the planned process, the robot must decide whether to override the plan or reject the request.
