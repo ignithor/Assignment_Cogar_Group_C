@@ -11,13 +11,15 @@ Interfaces with Other Components
 As illustrated in the :ref:`use case diagram <uml-uc-rt>`, the `HumanCommandNode` interacts with the Action Planner through a data interface that handles human commands related to cooking tasks. The node receives commands via the `/voice_command` topic and validates them based on current system feedback, while resolving any conflicts with the Action Planner.
 
 Command Reception: The HumanCommandNode subscribes to the /voice_command topic to receive human commands. These commands are interpreted and validated before being sent to the Action Planner. The commands are expected to be in a simple text format, representing a cooking action and its associated ingredient.
-The /voice_command topic expects commands as strings, which are then parsed and interpreted by the HumanCommandNode to determine the action and ingredient involved.
+The /voice_command topic expects messages of type std_msgs.msg String, which are then parsed and interpreted by the HumanCommandNode to determine the action and ingredient involved.
 
 .. code-block:: text
 
-   string command
+   string data
 
-This interface is divided into three main parts:
+
+
+The data interface called *step.action* is divided into three main parts:
 
 1. **Goal**:
    - The command consists of an action (e.g., "cutting", "pouring") and an ingredient (e.g., "carrots", "cheese"). The stateless node sends the goal to the stateful Action Planner with the following structure:
@@ -47,6 +49,7 @@ This interface is divided into three main parts:
 
 The `HumanCommandNode` interacts with the Action Planner by sending validated commands and receiving feedback, while also notifying the user via a speaker service about the command status or any conflicts that were resolved.
 
+This interface is stateless, as each incoming step is processed independently. It is a data interface, transmitting structured step descriptions, and is strongly-typed to ensure the integrity and validation of the step format.
 
 Sequence Diagram
 -----------------
