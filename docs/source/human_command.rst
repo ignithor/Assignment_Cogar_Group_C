@@ -4,12 +4,12 @@ Human Command Monitoring and Conflict Resolution
 This section describes the architecture of the "Human Command Monitoring and Conflict Resolution" component, based on its behavioural diagrams (use case diagram, sequence diagram, activity diagram, and state machine diagram).
 
 Interfaces with Other Components
--------------------------------
+---------------------------------
 
 TODO
 
 Sequence Diagram
-----------------
+-----------------
 
 .. _uml-seq-hc:
 
@@ -30,7 +30,7 @@ If the command is not valid, the system rejects it, notifies the user, and the r
 This way, the robot can adapt to human input when possible, while making sure the task stays organized and correct thanks to the Conflict Resolution part of the system.
 
 Activity Diagram
-----------------
+-----------------
 
 .. _uml-a-hc:
 
@@ -51,7 +51,7 @@ If the conflict can be solved, the next action is modified, and the flow continu
 This flow ensures that the robot can adapt to the user's commands when possible, while making sure the main task remains consistent and correct.
 
 State Machine Diagram
----------------------
+----------------------
 
 .. _uml-sm-hc:
 
@@ -69,13 +69,13 @@ Depending on the validation result, the system either moves to the Command Accep
 This state machine ensures the robot remains reactive while maintaining consistency in the task execution.
 
 Dummy Implementation of the Cognitive Architecture
--------------------------------------------------
+---------------------------------------------------
 
 .. automodule:: human_command.scripts.human_command
    :members:
 
 KPI: Human Command Monitoring
------------------------------
+------------------------------
 
 - **Response time to human command**: Measures the time between the moment the elder speaks a command and the robot responds (either by accepting, rejecting, or modifying the plan). Ideally, the response time should be under 2–3 seconds to maintain the user's trust and system usability.
 

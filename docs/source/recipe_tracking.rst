@@ -4,7 +4,7 @@ Recipe Tracking and Execution History
 This section describes the architecture of the "Recipe Tracking and Execution History" component, based on its behavioural diagrams (use case diagram, sequence diagram, activity diagram, and state machine diagram).
 
 Use Case Diagram
-----------------
+-----------------
 
 .. _uml-uc-rt:
 
@@ -25,7 +25,7 @@ It operates with two principal objects:
 - The **Step tracker**, which stores the data of the current step and updates it every time its execution is validated by the Action Planner.
 
 Interfaces with Other Components
---------------------------------
+---------------------------------
 
 As illustrated in the :ref:`use case diagram <uml-uc-rt>`, the only interface of this component with another component is with the Action Planner.
 
@@ -50,7 +50,7 @@ It is a stateless interface which forgets about the previous data it had as soon
 Finally, the concerns are separated such that this recipe tracker can be initialized independently from the other components.
 
 Sequence Diagram
-----------------
+-----------------
 
 .. _uml-seq-rt:
 
@@ -70,7 +70,7 @@ In case the current step has been executed, and only in this case, the step trac
 The sequence either terminates when reaching the "end" step of the recipe, or loops until getting the validation from the Action Planner. Errors are treated by the Action Planner, so the non-termination of the sequence (infinite loop) would be a problem to be solved by the Action Planner.
 
 Activity Diagram
-----------------
+-----------------
 
 .. _uml-a-rt:
 
@@ -90,7 +90,7 @@ Then, the second swimlane **"Recipe tracking"** begins with a join control: the 
 If the updated current step is the "end" step, the activity is completely terminated. Otherwise, the flow is ended and might be initiated again if a new signal is sent.
 
 State Machine Diagram
----------------------
+----------------------
 
 .. _uml-sm-rt:
 
@@ -108,13 +108,13 @@ The first state **Idle** is the initialization phase. It checks the validity of 
 Then the second state represents **Step tracking**. The success of the current step is repetitively checked, until it becomes true. In this case, the state is entered via another entry, to validate the current step in the recipe checklist, then go to the next step, exit all states if the "end" step is reached or send the new step to the action planner otherwise. After checking the success status of the current step for both entries, the state has two different exits, if the step succeeded or not yet.
 
 Dummy Implementation of the Cognitive Architecture
--------------------------------------------------
+---------------------------------------------------
 
 .. automodule:: recipe_tracking.scripts.recipe_tracking
    :members:
 
 KPI: Recipe Tracker
--------------------
+--------------------
 
 To indicate whether this component is meeting performance goals, the chosen metrics aim at measuring its capacity to know at what step of the recipe the cooking process currently is. That is to say that we can assess:
 

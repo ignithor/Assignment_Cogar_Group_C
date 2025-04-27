@@ -4,7 +4,7 @@ Action Planning Based on Cooking State and Task History
 This section describes the architecture of the "Action Planning Based on Cooking State and Task History" component, based on its behavioural diagrams (Sequence diagram, activity diagram, and state machine diagram).
 
 Interfaces with Other Components
--------------------------------
+---------------------------------
 
 As illustrated in the :ref:`component diagram <uml-c>`, the component interacts with the Recipe Tracker, the Human Command Monitoring, the speaker, the navigation, and the perception components.
 
@@ -49,7 +49,7 @@ This service interface is used by the action planning to check if the objects ar
 This interface is stateful because object availability and search outcomes are tied to the current active plan. It operates as a service interface, where the Action Planning module calls a function and waits for a response. It is strongly-typed, with defined request and response message formats.
 
 Sequence Diagram
-----------------
+-----------------
 
 .. _uml-seq-ap:
 
@@ -69,7 +69,7 @@ It then enters a loop, where each small step is sequentially sent to the Navigat
 Simultaneously, it sends a conflict message to the Conflict Solver module. The Conflict Solver analyzes the situation and generates a new plan, which it sends back to the Action Planning module to replace the original step. The system then follows the new plan, resuming the normal execution flow.
 
 Activity Diagram
-----------------
+-----------------
 
 .. _uml-a-ap:
 
@@ -91,7 +91,7 @@ It checks if the *stack_step* is empty; if not, it loops back to manage any rema
 It then attempts to resolve the conflict by generating a new plan or finding an alternative step. After conflict resolution, the system checks if a new step has been found. If yes, it continues the process with the new step; if not, it checks if the *stack_step* is empty before concluding the process.
 
 State Machine Diagram
----------------------
+----------------------
 
 .. _uml-sm-ap:
 
@@ -115,13 +115,13 @@ If the objects are not located, the system transitions to the "Conflict Resoluti
 If a new step is determined during conflict resolution, the system loops back to reprocess steps. If no new step is found, it checks if the stack is empty. If the stack is empty, the process ends; otherwise, it continues checking requirements or waits for new instructions.
 
 Dummy Implementation of the Cognitive Architecture
--------------------------------------------------
+---------------------------------------------------
 
 .. automodule:: action_planning.scripts.action_planning
    :members:
 
 KPI: Action Planning
---------------------
+---------------------
 
 The performance of the Action Planning module can be evaluated using several key KPIs.
 
