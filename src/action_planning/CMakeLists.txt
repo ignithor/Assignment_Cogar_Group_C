@@ -9,7 +9,6 @@ project(action_planning)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   rospy
-  std_msgs
   sensor_msgs
   actionlib
 )

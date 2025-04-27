@@ -16,9 +16,7 @@ ROS node that coordinates execution of recipe steps:
 """
 
 import rospy
-import random
 import actionlib
-from std_msgs.msg import String
 from assignments.srv import Speaker, Perception
 from assignments.msg import stepAction, stepFeedback, stepResult, stepGoal
 
