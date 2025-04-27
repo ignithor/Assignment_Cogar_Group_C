@@ -25,7 +25,9 @@ from std_msgs.msg import String
 from assignments.msg import stepAction, stepGoal, stepFeedback, stepResult, stepActionFeedback
 from assignments.srv import Speaker
 
+
 class HumanCommandNode:
+
     def __init__(self):
         """
         Initialize the HumanCommandNode.

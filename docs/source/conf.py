@@ -40,6 +40,13 @@ autodoc_mock_imports = ["rospy", "std_msgs", "actionlib", 'std_msgs.msg', 'actio
 for mod_name in autodoc_mock_imports:
     sys.modules[mod_name] = mock.Mock()
 
+autodoc_default_options = {
+    'members': True,
+    'undoc-members': True,
+    'show-inheritance': True,
+}
+
+
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 

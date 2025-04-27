@@ -8,7 +8,37 @@ This section describes the architecture of the "Human Command Monitoring and Con
 Interfaces with Other Components
 ---------------------------------
 
-TODO
+As illustrated in the :ref:`use case diagram <uml-uc-rt>`, the `HumanCommandNode` interacts with the Action Planner through a data interface that handles human commands related to cooking tasks. The node receives commands via the `/voice_command` topic and validates them based on current system feedback, while resolving any conflicts with the Action Planner.
+
+This interface is divided into three main parts:
+
+1. **Goal**:
+   - The command consists of an action (e.g., "cutting", "pouring") and an ingredient (e.g., "carrots", "cheese"). The goal structure is:
+
+   .. code-block:: text
+
+       # goal
+       string action
+       string ingredient
+
+2. **Feedback**:
+   - Feedback is provided by the Action Planner to report the current status of the step. The feedback structure includes a status string indicating the progress or result of the action:
+
+   .. code-block:: text
+
+       # feedback
+       string status
+
+3. **Result**:
+   - The result of a step execution is reported by the Action Planner through a success flag (boolean):
+
+   .. code-block:: text
+
+       # result
+       bool success
+
+The `HumanCommandNode` interacts with the Action Planner by sending validated commands and receiving feedback, while also notifying the user via a speaker service about the command status or any conflicts that were resolved.
+
 
 Sequence Diagram
 -----------------
