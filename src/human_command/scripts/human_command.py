@@ -9,13 +9,13 @@
 
 ROS node responsible for interpreting and validating human commands related to cooking tasks:
 
-- Receives human commands via the `/voice_command` topic
-- Interprets and validates commands based on current system feedback
-- Resolves conflicts with the Action Planner (step actions)
-- Sends valid commands to an Action Planner via an action server
-- Uses a speaker service to notify the user about command validation and conflict resolution status
-- Handles feedback from the Action Planner to adjust command execution
-- Notifies the user if the command is invalid or unresolved
+- Receives human commands via the `/voice_command` topic.
+- Interprets and validates commands based on current system feedback.
+- Resolves conflicts with the Action Planner (step actions).
+- Sends valid commands to an Action Planner via an action server.
+- Uses a speaker service to notify the user about command validation and conflict resolution status.
+- Handles feedback from the Action Planner to adjust command execution.
+- Notifies the user if the command is invalid or unresolved.
 
 """
 
@@ -26,12 +26,48 @@ from std_msgs.msg import String
 from assignments.msg import stepAction, stepGoal, stepFeedback, stepResult
 from assignments.srv import Speaker
 
+
 class HumanCommandNode:
+    """
+    ROS Node that manages human commands related to cooking tasks.
+
+    The `HumanCommandNode` listens for voice commands, validates them, resolves conflicts with the planned steps, 
+    and interacts with an Action Planner to execute the cooking task.
+
+    Attributes:
+        current_step (str): The current step in the cooking process.
+        current_feedback (str): The current feedback from the Action Planner.
+        expected_step (str): The next expected step after validation or conflict resolution.
+
+    Methods:
+        feedback_callback(msg):
+            Updates the current feedback from the Action Planner.
+
+        command_callback(msg):
+            Handles incoming voice commands, validates them, and resolves conflicts.
+
+        interpret_command(command):
+            Interprets the received human command.
+
+        validate_command(command):
+            Validates the command based on the current system feedback.
+
+        resolve_conflict(command):
+            Resolves conflicts between the human command and the ongoing task.
+
+        send_goal(command):
+            Sends the validated command to the Action Planner.
+
+        notify_user(message):
+            Uses a speaker service to notify the user about command validation status.
+    """
+
     def __init__(self):
         """
-        Initialize the HumanCommandNode.
-        Subscribes to /step_action/feedback and /voice_command.
-        Uses an ActionClient to send validated commands to the Action Planner.
+        Initializes the HumanCommandNode.
+        
+        Subscribes to `/step_action/feedback` and `/voice_command` topics, and
+        sets up the ActionClient for sending validated commands to the Action Planner.
         """
         rospy.init_node('human_command_node')
 
@@ -54,6 +90,9 @@ class HumanCommandNode:
     def feedback_callback(self, msg):
         """
         Callback to update the current feedback from the Action Planner.
+
+        :param msg: The feedback message from the Action Planner.
+        :type msg: stepFeedback
         """
         self.current_feedback = msg.status
         rospy.loginfo(f"Feedback received: {self.current_feedback}")
@@ -61,7 +100,12 @@ class HumanCommandNode:
     def command_callback(self, msg):
         """
         Callback when a human command is received.
-        Validates the command and sends it if it matches or if accepted by conflict resolution.
+
+        Validates the command and sends it to the Action Planner if it is valid,
+        or resolves conflicts and sends the modified command.
+
+        :param msg: The voice command from the user.
+        :type msg: String
         """
         command = msg.data.strip()
         rospy.loginfo(f"Human command received: {command}")
@@ -94,24 +138,40 @@ class HumanCommandNode:
 
     def interpret_command(self, command):
         """
-        Simulates the interpretation of the command.
-        For now, it just returns the command as is.
-        """
+        Interprets the human command.
 
+        For now, this function simply returns the command as is.
+        
+        :param command: The voice command to interpret.
+        :type command: str
+        :return: The interpreted command.
+        :rtype: str
+        """
         rospy.loginfo(f"Interpreting command: {command}")
         
         return command
 
     def validate_command(self, command):
         """
-        Validates the command based on the current feedback.
+        Validates the received human command based on current system feedback.
+
+        :param command: The interpreted command to validate.
+        :type command: str
+        :return: Whether the command is valid or not.
+        :rtype: bool
         """
         return random.random() > 0.8
 
     def resolve_conflict(self, command):
         """
-        Conflict resolution function.
-        For now: returns True 50% of the time randomly.
+        Resolves conflicts between the human command and the current task plan.
+
+        This function currently resolves conflicts randomly.
+
+        :param command: The human command to resolve.
+        :type command: str
+        :return: Whether the conflict was resolved successfully.
+        :rtype: bool
         """
         decision = random.choice([True, False])
         rospy.loginfo(f"Conflict resolution decision for '{command}': {'ACCEPTED' if decision else 'REJECTED'}")
@@ -120,6 +180,9 @@ class HumanCommandNode:
     def send_goal(self, command):
         """
         Sends the valid command to the Action Planner via an action goal.
+
+        :param command: The validated command to send.
+        :type command: str
         """
         try:
             action, ingredient = command.split(' ', 1)
@@ -133,7 +196,10 @@ class HumanCommandNode:
 
     def notify_user(self, message):
         """
-        Uses the speaker service to notify the user of the decision.
+        Notifies the user via the speaker service.
+
+        :param message: The message to send to the user.
+        :type message: str
         """
         try:
             rospy.wait_for_service('/speaker', timeout=5)
