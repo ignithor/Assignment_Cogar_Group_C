@@ -1,3 +1,5 @@
+.. _action_planning:
+
 Action Planning Based on Cooking State and Task History
 =======================================================
 

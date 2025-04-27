@@ -1,3 +1,5 @@
+.. _recipe-tracking:
+
 Recipe Tracking and Execution History
 =======================================
 
