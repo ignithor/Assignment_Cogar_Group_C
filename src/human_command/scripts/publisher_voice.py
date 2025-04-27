@@ -10,8 +10,8 @@ def carrot_publisher():
     # Create a publisher that publishes to the 'carrot_topic'
     pub = rospy.Publisher('/voice_command', String, queue_size=10)
     
-    # Set the publishing rate to 0.5 Hz (i.e., every 2 seconds)
-    rate = rospy.Rate(0.5)
+    # Set the publishing rate to 0.1 Hz (i.e., every 10 seconds)
+    rate = rospy.Rate(0.1)
     
     while not rospy.is_shutdown():
         message = "cut carrots"
