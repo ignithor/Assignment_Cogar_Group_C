@@ -70,4 +70,4 @@ class TestHumanCommandNode(unittest.TestCase):
         self.mock_speaker.shutdown()
 
 if __name__ == '__main__':
-    rostest.rosrun('your_package_name', 'test_human_command_node', TestHumanCommandNode)
+    rostest.rosrun('human_command', 'test_human_command_node', TestHumanCommandNode)
