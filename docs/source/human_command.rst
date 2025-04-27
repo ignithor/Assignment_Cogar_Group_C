@@ -1,3 +1,5 @@
+.. _human-command:
+
 Human Command Monitoring and Conflict Resolution
 ================================================
 
