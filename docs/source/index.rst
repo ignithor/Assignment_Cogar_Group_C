@@ -47,7 +47,7 @@ To precise the functions required for this robot, here under is the :ref:`use ca
 
 .. _uml-ucd:
 
-.. image:: https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/use_case_diagram.drawio.png
+.. image:: https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/assignments/diagrams/use_case_diagram.drawio.png
    :alt: Use case diagram (global)
    :align: center
    :width: 60%
@@ -77,7 +77,7 @@ The global architecture of the system is described by the following :ref:`compon
 
 .. _uml-c:
 
-.. image:: https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/component_diagram.drawio.png
+.. image:: https://raw.githubusercontent.com/ignithor/Assignment_Cogar_Group_C/refs/heads/main/src/assignments/diagrams/component_diagram.drawio.png
    :alt: Component diagram
    :align: center
    :width: 60%
@@ -264,7 +264,7 @@ Interfaces with the other components
 
 As illustrated in the :ref:`component diagram <uml-c>`, the component interacts with the Recipe Tracker, the Human Command Monitoring, the speaker, the navigation and the perception components.
 
-To communicate with Recipe Tracker, the Human Command Monitoring and the navigation it uses a data interface called step.action, exposing the data of the current step of the recipe.
+To communicate with Recipe Tracker, the Human Command Monitoring and the navigation it uses a data interface called *step.action*, exposing the data of the current step of the recipe.
 
 .. code-block:: text
 
@@ -280,8 +280,10 @@ To communicate with Recipe Tracker, the Human Command Monitoring and the navigat
 
 Thus, a step is represented by a verb of **action** ("cutting", "pouring", "mixing") and an **ingredient** ("carrots", "leaks", "cheese", etc.). The string type enables to formalize the spoken language with token words which can be understood and spoken naturally both by the robot and an elder person.
 
+This interface is stateless, as each incoming step is processed independently. It is a data interface, transmitting structured step descriptions, and is strongly-typed to ensure the integrity and validation of the step format.
 
-To communicate with the speaker, it uses a data interface called Speaker.srv, exposing the data of the text to be spoken.
+
+To communicate with the speaker, it uses a data interface called *Speaker.srv*, exposing the data of the text to be spoken.
 
 .. code-block:: text
 
@@ -289,7 +291,9 @@ To communicate with the speaker, it uses a data interface called Speaker.srv, ex
    ---
    bool success
 
-To communicate with the perception, it uses a data interface called Perception.srv.
+This interface is stateless, as each call to the speaker is independent and does not rely on previous interactions. The interface is strongly-typed, defined explicitly by the service schema where the request includes a string message field and the response returns a bool success indicating whether the speech action was successfully triggered.
+
+To communicate with the perception, it uses a data interface called *Perception.srv*.
 
 .. code-block:: text
 
@@ -298,6 +302,8 @@ To communicate with the perception, it uses a data interface called Perception.s
    bool found
 
 This service interface is used by the action planning to check if the objects are in the environment. It returns a boolean indicating whether the object was found or not. For example, if the action is to cut carrots, the action planner will check if the knife and the carrots are in the environment before validate that it can execute the action.
+
+This interface is stateful because object availability and search outcomes are tied to the current active plan. It operates as a service interface, where the Action Planning module calls a function and waits for a response. It is strongly-typed, with defined request and response message formats.
 
 Sequence diagram
 ++++++++++++++++++++
