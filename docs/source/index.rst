@@ -14,8 +14,6 @@ In this document, you will find a description of the software architecture that 
 The documentation will outline the specifications of the assignment, then present the architecture implementation of the given solution through its component diagram. Each component of the system will be described and illustrated with relevant behavioural diagrams. Thereafter, the integration testing KPIs will be presented.
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
 
    recipe_tracking
    action_planning
