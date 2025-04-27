@@ -24,7 +24,7 @@ To communicate with Recipe Tracker, the Human Command Monitoring, and the naviga
     # feedback
     string status
 
-Thus, a step is represented by a verb of **action** ("cutting", "pouring", "mixing") and an **ingredient** ("carrots", "leeks", "cheese", etc.), which are defined by the Recipe Tracker and acquired by the Action Planner. The string type enables formalizing the spoken language with token words which can be understood and spoken naturally both by the robot and an elder person.
+Thus, a step is represented by a verb of **action** ("cutting", "pouring", "mixing") and an **ingredient** ("carrots", "leeks", "cheese", etc.). The string type enables formalizing the spoken language with token words which can be understood and spoken naturally both by the robot and an elder person.
 
 This interface is stateless, as each incoming step is processed independently. It is a data interface, transmitting structured step descriptions, and is strongly-typed to ensure the integrity and validation of the step format.
 
@@ -86,7 +86,7 @@ The activity diagram describes the internal logic for handling an incoming step 
 
 The new step is then added to a stack called *stack_step*. Once the step is stored, the system looks for the objects required to perform the last step added.
 
-If the objects are available, the step is split into several smaller steps, and each small step is sent for execution. After executing, the system records the success of the small steps and updates a second list called *steps_done*.
+If the objects are available, the step is split into several smaller steps, and each small step is sent for execution. For example, for cutting carrots, the small steps can be : take the knife, take the carrots, cutting the carrots in small pieces, drop the knife. After executing, the system records the success of the small steps and updates a second list called *steps_done*.
 
 It checks if the *stack_step* is empty; if not, it loops back to manage any remaining steps. If the *stack_step* is empty, the process ends. If, during object lookup, the required objects are not available, the system announces a conflict to the user.
 
@@ -117,12 +117,12 @@ If the objects are not located, the system transitions to the "Conflict Resoluti
 If a new step is determined during conflict resolution, the system loops back to reprocess steps. If no new step is found, it checks if the stack is empty. If the stack is empty, the process ends; otherwise, it continues checking requirements or waits for new instructions.
 
 Dummy Implementation of the Cognitive Architecture
----------------------
+----------------------------------------------------
 
 .. automodule:: action_planning.scripts.action_planning
    :members:
 
-KPI: Action Planning
+KPIs: Action Planning
 ---------------------
 
 The performance of the Action Planning module can be evaluated using several key KPIs.

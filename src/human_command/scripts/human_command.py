@@ -2,7 +2,7 @@
 
 """
 .. module:: human_command_node
-   :platform: Unix
+   :platform: unix
    :synopsis: Manages human commands, validates them, resolves conflicts, and sends validated commands to an Action Planner.
 
 .. moduleauthor:: Emma Royant

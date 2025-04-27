@@ -8,9 +8,13 @@
 .. moduleauthor:: Paul Pham Dang
 
 ROS node that coordinates execution of recipe steps:
+
 - Receives steps via an action server
+
 - Uses a perception service to check for required objects
+
 - Sends valid steps to a path planning action server
+
 - Uses a speaker service to handle and announce conflicts
 
 """
