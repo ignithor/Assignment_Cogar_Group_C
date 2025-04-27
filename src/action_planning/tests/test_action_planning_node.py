@@ -82,4 +82,4 @@ class TestActionPlanningNode(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    rostest.rosrun('your_package_name', 'test_action_planning_node', TestActionPlanningNode)
+    rostest.rosrun('action_planning', 'test_action_planning_node', TestActionPlanningNode)
