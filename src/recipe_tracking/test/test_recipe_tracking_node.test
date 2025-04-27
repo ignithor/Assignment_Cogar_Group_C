@@ -1,5 +1,9 @@
 <launch>
+<<<<<<< HEAD:src/recipe_tracking/test/test_recipe_tracking_node.test
   <param name="recipe_txt" value="$(find assignments)/recipes/recipe.txt" />
+=======
+  <param name="recipe_txt" value="$(find assignments)/recipes/test_recipe.txt" />
+>>>>>>> d85fff36990a7d7281e72cbc0a7a6182640f41b8:src/recipe_tracking/tests/test_recipe_tracking_node.test
   <node pkg="recipe_tracking" type="recipe_tracking.py" name="recipe_tracking_node" output="screen"/>
   <test test-name="test_recipe_tracking_node" pkg="recipe_tracking" type="test_recipe_tracking_node.py" />
 </launch>
