@@ -208,5 +208,5 @@ include_directories(
 
 if(CATKIN_ENABLE_TESTING)
   find_package(rostest REQUIRED)
-  add_rostest(tests/test_human_command_node.test)
+  add_rostest(test/test_human_command_node.test)
 endif()
