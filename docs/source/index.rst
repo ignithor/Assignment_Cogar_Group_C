@@ -13,21 +13,6 @@ In this document, you will find a description of the software architecture that 
 
 The documentation will outline the specifications of the assignment, then present the architecture implementation of the given solution through its component diagram. Each component of the system will be described and illustrated with relevant behavioural diagrams. Thereafter, the integration testing KPIs will be presented.
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-
-   recipe_tracking
-   action_planning
-   human_command
-
-
-Indices and tables
-------------------
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
 
 Presentation of the desired system (Topic 3)
 -------------------------------------------------
@@ -99,3 +84,19 @@ The main sub-systems are:
 - :ref:`human-command`
 
 TO DO
+
+
+.. toctree::
+   :maxdepth: 2
+
+   recipe_tracking
+   action_planning
+   human_command
+
+
+Indices and tables
+------------------
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
