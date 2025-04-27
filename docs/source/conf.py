@@ -36,7 +36,7 @@ extensions = [
 templates_path = ['_templates']
 exclude_patterns = []
 
-autodoc_mock_imports = ["actionlib"]
+autodoc_mock_imports = ["rospy", "actionlib"]
 for mod_name in autodoc_mock_imports:
     sys.modules[mod_name] = mock.Mock()
 
